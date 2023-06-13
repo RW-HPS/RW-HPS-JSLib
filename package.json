@@ -1,0 +1,20 @@
+{
+  "name": "rwhps-jslib",
+  "version": "1.0.0",
+  "description": "JavaScript Lib for RW-HPS plugining.",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "node ./build.cjs & tsc & babel src -d lib --extensions \".ts\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "AGPL-3.0-or-later",
+  "devDependencies": {
+    "@babel/cli": "^7.22.5",
+    "@babel/preset-env": "^7.22.5",
+    "@babel/preset-typescript": "^7.22.5",
+    "babel-plugin-transform-graal-imports": "^0.0.3",
+    "typescript": "^5.1.3",
+    "@babel/core": "^7.22.5"
+  }
+}
