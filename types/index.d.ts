@@ -1,1 +1,2 @@
-declare const Plugin: unknown;
+declare function hello(a: number): number;
+export { hello };
