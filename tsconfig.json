@@ -3,9 +3,8 @@
     "lib": ["ES2022"],
     "target": "ES2022",
     "declaration": true,
-    "emitDeclarationOnly": true,
-    "isolatedModules": true,
-    "declarationDir": "types",
+    "declarationDir": "lib/types",
+    "moduleResolution":"nodenext"
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules/**/*"]
