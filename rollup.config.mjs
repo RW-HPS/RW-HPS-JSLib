@@ -7,9 +7,11 @@ import babel from '@rollup/plugin-babel'
 export default {
 	input: 'src/index.ts',
 	output: {
-		file: 'lib/index.js',
-		format: 'iife',
-		name: 'lib'
+		dir: 'lib',
+		format: 'es',
+		name: 'lib',
+		chunkFileNames: '[name]-[hash].mjs',
+		entryFileNames: '[name].mjs'
 	},
 	plugins: [json(), typescript()]
 };

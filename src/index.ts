@@ -1,1 +1,2 @@
-const Plugin = Java.type("net.rwhps.server.plugin.Plugin")
+import { Plugin, PluginType } from "java:net.rwhps.server.plugin";
+Java.extend(Plugin, {})

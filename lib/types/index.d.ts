@@ -1,1 +1,2 @@
-declare const Plugin: unknown;
+import { a } from './a';
+export { a };
