@@ -6,6 +6,10 @@ declare type ExtendableJavaClass<ObjectType, NewerType> = {
     _?: (_: [ObjectType, NewerType]) => never,
 }
 
+declare type Newer<T> = {
+    new (): T
+}
+
 declare type Null = null | undefined
 
 declare module 'java:net.rwhps.server.struct' {
@@ -26,6 +30,22 @@ declare module 'java:net.rwhps.server.util.log' {
         function setCopyPrint(system: boolean): void
         function skipping(e: unknown): void
         function skipping(tag: unknown, e: unknown): void
+        function fatal(e: unknown): void
+        function fatal(tag: unknown, e: unknown): void
+        function error(e: unknown): void
+        function error(tag: unknown, e: unknown): void
+        function warn(e: unknown): void
+        function warn(tag: unknown, e: unknown): void
+        function info(e: unknown): void
+        function info(tag: unknown, e: unknown): void
+        function debug(e: unknown): void
+        function debug(tag: unknown, e: unknown): void
+        function all(e: unknown): void
+        function all(tag: unknown, e: unknown): void
+        function clog(text: string): void
+        function clog(text: string, ...obj: unknown[]): void
+        function testPrint(object: unknown): void
+        function savelog(): void
         //TODO
     }
 }
@@ -65,19 +85,16 @@ declare module 'java:net.rwhps.server.util.game' {
         getCommandList(): Seq<Command[]>
     }
 
-    type CommandResponseObjectType = {
+    class CommandResponse {
         readonly type: ResponseType
         readonly command: Command
         readonly runCommand: string
-    }
-    type CommandResponseNewerType = {
-        new (
+        constructor(
             type: ResponseType, 
             command: Command, 
             runCommand: string
-        ): CommandResponseObjectType
+        )
     }
-    const CommandResponse: CommandResponseObjectType
 
     enum ResponseType {
         noCommand, 
@@ -116,7 +133,7 @@ declare module 'java:net.rwhps.server.util.game' {
 
 declare module 'java:net.rwhps.server.plugin' {
     import { CommandHandler } from 'java:net.rwhps.server.util.game'
-    import { AbstractEvent, AbstractGlobalEvent } from 'java:net.rwhps.server.plugin.event'
+    import { AbstractEventType, AbstractGlobalEventType } from 'java:net.rwhps.server.plugin.event'
 
     type PluginObjectType = {
         init?(): void,
@@ -126,8 +143,8 @@ declare module 'java:net.rwhps.server.plugin' {
         registerRelayCommands?(handler: CommandHandler): void,
         registerServerClientCommands?(handler: CommandHandler): void,
         registerRelayClientCommands?(handler: CommandHandler): void,
-        registerEvents?(): AbstractEvent | Null,
-        registerGlobalEvents?(): (AbstractGlobalEvent | Null),
+        registerEvents?(): AbstractEventType | Null,
+        registerGlobalEvents?(): AbstractGlobalEventType | Null,
         onDisable?(): void,
     }
     type PluginNewerType = {new (): PluginObjectType}
@@ -139,8 +156,19 @@ declare module 'java:net.rwhps.server.plugin' {
 }
 
 declare module 'java:net.rwhps.server.plugin.event' {
-    type AbstractEvent = ExtendableJavaClass<{}, {}>
-    type AbstractGlobalEvent = ExtendableJavaClass<{}, {}>
+    type AbstractEventNewerType = Newer<AbstractEventObjectType>
+    type AbstractEventObjectType = {}
+    type AbstractEventType = ExtendableJavaClass<
+        AbstractEventObjectType, 
+        AbstractEventNewerType
+    >
+    
+    type AbstractGlobalEventNewerType = Newer<AbstractGlobalEventObjectType>
+    type AbstractGlobalEventObjectType = {}
+    type AbstractGlobalEventType = ExtendableJavaClass<
+        AbstractGlobalEventObjectType, 
+        AbstractGlobalEventNewerType
+    >
 }
 
 declare module 'java:net.rwhps.server.data.player' {
