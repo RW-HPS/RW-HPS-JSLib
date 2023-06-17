@@ -13,6 +13,8 @@ export default {
 		chunkFileNames: 'lib/[name]-[hash].mjs',
 		entryFileNames: 'lib/[name].mjs',
 	},
-	external: ['java:net.rwhps.server.plugin'],
-	plugins: [json(), typescript({declarationDir: 'types'})]
+	external: [
+		/java:.+/,
+	],
+	plugins: [json(), terser(), typescript({declarationDir: 'types'})]
 };
