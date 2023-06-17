@@ -7,11 +7,12 @@ import babel from '@rollup/plugin-babel'
 export default {
 	input: 'src/index.ts',
 	output: {
-		dir: 'lib',
+		dir: '.',
 		format: 'es',
 		name: 'lib',
-		chunkFileNames: '[name]-[hash].mjs',
-		entryFileNames: '[name].mjs'
+		chunkFileNames: 'lib/[name]-[hash].mjs',
+		entryFileNames: 'lib/[name].mjs',
 	},
-	plugins: [json(), typescript()]
+	external: ['java:net.rwhps.server.plugin'],
+	plugins: [json(), typescript({declarationDir: 'types'})]
 };
