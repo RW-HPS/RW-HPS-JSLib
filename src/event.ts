@@ -1,7 +1,7 @@
 import { AbstractEvent, AbstractEventObjectType } from "java:net.rwhps.server.plugin.event";
 
 export function createEvent(
-    impl: AbstractEventObjectType
+  impl: AbstractEventObjectType
 ): AbstractEventObjectType {
-    return new (Java.extend(AbstractEvent, impl))
+  return new (Java.extend(AbstractEvent, impl))
 }
