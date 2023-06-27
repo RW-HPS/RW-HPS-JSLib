@@ -4,8 +4,7 @@
     "target": "ES2022",
     "declaration": true,
     "declarationDir": "lib",
-    "moduleResolution":"nodenext",
-    "module": "NodeNext",
+    "module": "ESNext",
     "moduleDetection": "auto",
     "outDir": "lib"
   },
