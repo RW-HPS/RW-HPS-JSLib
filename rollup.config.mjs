@@ -1,20 +1,27 @@
 import json from '@rollup/plugin-json'
-import ts from 'rollup-plugin-ts'
 import terser from '@rollup/plugin-terser'
 import typescript from '@rollup/plugin-typescript'
-import babel from '@rollup/plugin-babel'
+import commonjs from '@rollup/plugin-commonjs'
+import node from '@rollup/plugin-node-resolve'
+import nodeResolve from '@rollup/plugin-node-resolve'
 
 export default {
 	input: 'src/index.ts',
 	output: {
-		dir: '.',
+		dir: 'lib',
 		format: 'es',
 		name: 'lib',
-		chunkFileNames: 'lib/[name]-[hash].mjs',
-		entryFileNames: 'lib/[name].mjs',
+		chunkFileNames: '[name]-[hash].js',
+		entryFileNames: '[name].js',
 	},
 	external: [
 		/java:.+/,
 	],
-	plugins: [json(), terser(), typescript({declarationDir: 'types'})]
+	plugins: [
+		nodeResolve(),
+		commonjs(),
+		json(), 
+		terser(), 
+		typescript()
+	]
 };
