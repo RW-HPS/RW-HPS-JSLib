@@ -46,6 +46,9 @@ declare module 'java:net.rwhps.server.util' {
   class PacketType {
     //TODO
   }
+  class I18NBundle {
+    //TODO
+  }
 }
 
 declare module 'java:net.rwhps.server.util.log' {
@@ -111,6 +114,7 @@ declare module 'java:net.rwhps.server.util.game' {
   }
 
   class CommandResponse {
+    //TODO
     readonly type: ResponseType
     readonly command: Command
     readonly runCommand: string
@@ -130,6 +134,7 @@ declare module 'java:net.rwhps.server.util.game' {
   }
 
   class CommandParam {
+    //TODO
     readonly name: string
     readonly optional: boolean
     readonly variadic: boolean
@@ -141,6 +146,7 @@ declare module 'java:net.rwhps.server.util.game' {
   }
 
   class Command {
+    //TODO
     readonly text: string
     readonly paramText: string
     readonly description: string
@@ -181,7 +187,7 @@ declare module 'java:net.rwhps.server.plugin' {
 }
 
 declare module 'java:net.rwhps.server.plugin.event' {
-  import { AbstractPlayerObjectType } from 'java:net.rwhps.server.data.player'
+  import { AbstractPlayer } from 'java:net.rwhps.server.data.player'
   import { GameOverData } from 'java:net.rwhps.server.data.event'
   import { GameActions, GameUnits } from 'java:net.rwhps.server.game'
   import { NetType, ConnectionAgreement } from 'java:net.rwhps.server.net.core'
@@ -189,17 +195,17 @@ declare module 'java:net.rwhps.server.plugin.event' {
   type AbstractEventNewerType = Newer<AbstractEventObjectType>
   type AbstractEventObjectType = {
     registerServerHessStartPort?(): void;
-    registerPlayerJoinEvent?(player: AbstractPlayerObjectType): void;
-    registerPlayerLeaveEvent?(player: AbstractPlayerObjectType): void;
-    registerPlayerChatEvent?(player: AbstractPlayerObjectType, message: String): void;
+    registerPlayerJoinEvent?(player: AbstractPlayer): void;
+    registerPlayerLeaveEvent?(player: AbstractPlayer): void;
+    registerPlayerChatEvent?(player: AbstractPlayer, message: String): void;
     registerGameStartEvent?(): void;
     registerGameOverEvent?(gameOverData?: GameOverData): void;
-    registerPlayerBanEvent?(player: AbstractPlayerObjectType): void;
-    registerPlayerUnbanEvent?(player: AbstractPlayerObjectType): void;
-    registerPlayerIpBanEvent?(player: AbstractPlayerObjectType): void;
+    registerPlayerBanEvent?(player: AbstractPlayer): void;
+    registerPlayerUnbanEvent?(player: AbstractPlayer): void;
+    registerPlayerIpBanEvent?(player: AbstractPlayer): void;
     registerPlayerIpUnbanEvent?(ip: String): void;
     registerPlayerOperationUnitEvent?(
-      player: AbstractPlayerObjectType,
+      player: AbstractPlayer,
       gameActions: GameActions,
       gameUnits: GameUnits,
       x: number,
@@ -228,17 +234,88 @@ declare module 'java:net.rwhps.server.plugin.event' {
 }
 
 declare module 'java:net.rwhps.server.data.player' {
-  //TODO
-  type AbstractPlayerNewerType = Newer<AbstractPlayerObjectType>
-  type AbstractPlayerObjectType = {
+  import { I18NBundle } from 'java:net.rwhps.server.util'
+  import { AbstractNetConnectServerObjectType } from 'java:net.rwhps.server.core.server'
+  import { AbstractPlayerDataObjectType } from 'java:net.rwhps.server.game.simulation.core'
+  import { ObjectMap } from 'java:net.rwhps.server.struct'
+  import { Prov } from 'java:net.rwhps.server.func'
+
+  /** 注意：该类型不能实例化，仅用作类型提示 */
+  class Player extends AbstractPlayer {
+    //TODO
+    setHeadlessDevice(v: boolean): void;
+    getHeadlessDevice(): boolean;
   }
-  type AbstractPlayerType = ExtendableJavaClass<AbstractPlayerObjectType, AbstractPlayerNewerType>
-  const AbstractPlayer: AbstractPlayerType
+
+  class AbstractPlayer {
+    //TODO
+    constructor(
+      con: AbstractNetConnectServerObjectType, 
+      i18NBundle: I18NBundle, 
+      playerPrivateData: AbstractPlayerDataObjectType,
+    );
+    con: AbstractNetConnectServerObjectType;
+    readonly i18NBundle: I18NBundle;
+    playerPrivateData: AbstractPlayerDataObjectType;
+    isAdmin: boolean;
+    autoAdmin: boolean;
+    superAdmin: boolean;
+
+    /** List position  */
+    site: number;
+
+    /** Team number  */
+    team: number;
+
+    /** Last move time  */
+    lastMoveTime: number;
+    /** Mute expiration time */
+    muteTime: number;
+    /** Kick expiration time */
+    kickTime: number;
+    timeTemp: number;
+    lastMessageTime: number;
+    lastSentMessage?: string;
+    noSay: boolean;
+    credits: number;
+    startUnit: number;
+    getSurvive(): boolean;
+    getUnitsKilled(): number;
+    getBuildingsKilled(): number;
+    getExperimentalsKilled(): number;
+    /** 单位被击杀数 */
+    getUnitsLost(): number;
+    /** 建筑被毁灭数 */
+    getBuildingsLost(): number;
+    /** 单实验单位被击杀数 */
+    getExperimentalsLost(): number;
+    getName(): string;
+    getConnectHexID(): string;
+    getStatusData(): ObjectMap<string, number>;
+    updateDate(): void;
+    sendSystemMessage(text: string): void;
+    sendMessage(player: Player, text: string): void;
+    sendTeamData(): void;
+    sendPopUps(msg: string, run: (s: string) => void): void;
+    sync(): void;
+    kickPlayer(text: string, time?: number): void;
+    getinput(input: string, ...params: unknown[]): string;
+    addData<T>(dataName: string, value: T): void;
+    getData<T>(dataName: string): T;
+    getData<T>(dataName: string, defValue: T): T;
+    getData<T>(dataName: string, defProv: Prov<T>): T;
+    removeData(dataName: String): void;
+    playerJumpsToAnotherServer(ip: string, port?: number): void;
+    clear(): void;
+    equals(other?: unknown): boolean;
+    hashCode(): number;
+  }
 }
 
 declare module 'java:net.rwhps.server.data.event' {
   import { Seq, ObjectMap } from 'java:net.rwhps.server.struct'
   class GameOverData {
+    //TODO
     readonly gameTime: number
     readonly allPlayerList: Seq<string>
     readonly winPlayerList: Seq<string>
@@ -373,6 +450,7 @@ declare module 'java:net.rwhps.server.net.core' {
   }
 
   class ConnectionAgreement {
+    //TODO
     isClosed(): boolean
     readonly useAgreement: string
     readonly ip: string
@@ -384,9 +462,120 @@ declare module 'java:net.rwhps.server.net.core' {
   }
 }
 
+declare module 'java:net.rwhps.server.core' {
+  enum ServerStatus {
+    InitialConnection,
+    CertifiedEnd,
+  }
+}
+
+declare module 'java:net.rwhps.server.core.server' {
+  import { ServerStatus } from 'java:net.rwhps.server.core'
+  import { AbstractPlayer} from 'java:net.rwhps.server.data.player'
+  import { Packet } from 'java:net.rwhps.server.net.io.packet'
+  import { CompressOutputStream } from 'java:net.rwhps.server.io.output'
+
+  type AbstractNetConnectServerNewerType = Newer<AbstractNetConnectServerObjectType>
+  type AbstractNetConnectServerObjectType = {
+    //TODO
+    readonly permissionStatus: ServerStatus;
+    readonly supportedversionBeta: boolean;
+    readonly supportedversionGame: string;
+    readonly supportedVersionInt: number;
+    readonly player: AbstractPlayer;
+    sendSystemMessage(msg: string): void;
+    sendChatMessage(msg: string, sendBy: string, team: number): void;
+    sendServerInfo(utilData: boolean): void;
+    sendTeamData(gzip: CompressOutputStream): void;
+    sendSurrender(): void;
+    sendKick(reason: string): void;
+    sendPing(): void;
+    sendStartGame(): void;
+    sendErrorPasswd(): void;
+    sendGameSave(packet: Packet): void;
+    receiveChat(packet: Packet): void;
+    receiveCommand(packet: Packet): void;
+    receiveCheckPacket(packet: Packet): void;
+    getGameSaveData(packet: Packet): Uint8Array;
+    getPlayerInfo(packet: Packet): void;
+    registerConnection(packet: Packet): void;
+    gameSummon(unit: string, x: number, y: number): void;
+    reConnect?(): void;
+    sync?(fastSync?: boolean): void;
+    sendRelayServerType(msg: string, run?: (s: string) => void): void;
+    sendRelayServerTypeReply?(packet: Packet): void;
+  }
+  type AbstractNetConnectServerType = 
+    ExtendableJavaClass<AbstractNetConnectServerObjectType, AbstractNetConnectServerNewerType>
+  const AbstractNetConnectServer: AbstractNetConnectServerType
+}
+
+declare module 'java:net.rwhps.server.io.output' {
+  import { InputStreamObjectType, OutputStreamObjectType } from 'java:java.io'
+
+  class CompressOutputStream {
+    constructor(head: string, outputStream: DisableSyncByteArrayOutputStream);
+    static getGzipOutputStream(head: string,isGzip: boolean): CompressOutputStream;
+    static getZipOutputStream(head: string,isZip: boolean): CompressOutputStream;
+    static get7zOutputStream(head: string,is7z: boolean): CompressOutputStream;
+  }
+
+  class DisableSyncByteArrayOutputStream {
+    constructor(size?: number);
+    write(b: Uint8Array, off: number, len: number): void;
+    writeBytes(b: Uint8Array): void;
+    write(b: number): void;
+    write(in_: InputStreamObjectType): number;
+    size(): number;
+    reset(): void;
+    writeTo(out: OutputStreamObjectType): void;
+    toByteArray(): Uint8Array;
+  }
+}
+
+declare module 'java:net.rwhps.server.game.simulation.core' {
+  type AbstractPlayerDataNewerType = Newer<AbstractPlayerDataObjectType>
+  type AbstractPlayerDataObjectType = {
+    //TODO
+    updateDate(): void;
+    readonly survive: boolean;
+    /** 单位击杀数 */
+    readonly unitsKilled: number;
+    /** 建筑毁灭数 */
+    readonly buildingsKilled: number;
+    /** 单实验单位击杀数 */
+    readonly experimentalsKilled: number;
+    /** 单位被击杀数 */
+    readonly unitsLost: number;
+    /** 建筑被毁灭数 */
+    readonly buildingsLost: number;
+    /** 单实验单位被击杀数 */
+    readonly experimentalsLost : number;
+
+    credits: number;
+
+    readonly name: string;
+    readonly connectHexID: string;
+    site: number;
+    team: number;
+    startUnit: number;
+    color: number;
+  }
+  type AbstractPlayerDataType = ExtendableJavaClass<AbstractPlayerDataObjectType, AbstractPlayerDataNewerType>
+  const AbstractPlayerData: AbstractPlayerDataType
+}
+
 declare module 'java:net.rwhps.server.func' {
   type Cons<T> = (t: T) => void
   type Prov<T> = () => T
+}
+
+declare module 'java:java.io' {
+  type OutputStreamObjectType = unknown
+  type OutputStreamType = unknown
+
+  type InputStreamObjectType = unknown
+  type InputStreamType = unknown
 }
 
 declare namespace Java {
