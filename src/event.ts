@@ -1,4 +1,4 @@
-import { AbstractEvent, AbstractEventObjectType } from "java:net.rwhps.server.plugin.event";
+import { AbstractEvent, AbstractEventObjectType } from 'java:net.rwhps.server.plugin.event'
 
 export function createEvent(
   impl: AbstractEventObjectType

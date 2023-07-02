@@ -1,4 +1,3 @@
-import * as _ from 'lodash'
 import { createPlugin } from './plugin'
 
 export {

@@ -1,4 +1,4 @@
-import { Log } from "java:net.rwhps.server.util.log";
+import { Log } from 'java:net.rwhps.server.util.log'
 
 export function info(message: string) {
   Log.info(message)
