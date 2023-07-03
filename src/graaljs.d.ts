@@ -177,7 +177,7 @@ declare module 'java:net.rwhps.server.util.game' {
 
 declare module 'java:net.rwhps.server.plugin' {
   import { CommandHandler } from 'java:net.rwhps.server.util.game'
-  import { AbstractEventType, AbstractGlobalEventType } from 'java:net.rwhps.server.plugin.event'
+  import { AbstractEventObjectType, AbstractGlobalEventObjectType } from 'java:net.rwhps.server.plugin.event'
 
   type PluginObjectType = {
     init?(): void,
@@ -187,8 +187,8 @@ declare module 'java:net.rwhps.server.plugin' {
     registerRelayCommands?(handler: CommandHandler): void,
     registerServerClientCommands?(handler: CommandHandler): void,
     registerRelayClientCommands?(handler: CommandHandler): void,
-    registerEvents?(): AbstractEventType | Null,
-    registerGlobalEvents?(): AbstractGlobalEventType | Null,
+    registerEvents?(): AbstractEventObjectType | Null,
+    registerGlobalEvents?(): AbstractGlobalEventObjectType | Null,
     onDisable?(): void,
   }
   type PluginNewerType = { new(): PluginObjectType }
