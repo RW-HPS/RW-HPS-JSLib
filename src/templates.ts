@@ -1,6 +1,6 @@
 import { Log } from 'java:net.rwhps.server.util.log'
-import { createPlugin } from './plugin'
 import { createEvent } from './event'
+import { PluginObjectType } from 'java:net.rwhps.server.plugin'
 
 /**
  * 插件模板：你好，世界！
@@ -9,12 +9,12 @@ import { createEvent } from './event'
  * @author ZeroDegres
  * @returns 你好，世界！模板插件
  */
-export function createHelloWorldPlugin() {
-  return createPlugin({
+export function createHelloWorldTemplate(): PluginObjectType {
+  return {
     onEnable() {
       Log.clog('Hello World!')
     }
-  })
+  }
 }
 
 /**
@@ -24,8 +24,8 @@ export function createHelloWorldPlugin() {
  * @author ZeroDegres
  * @returns 铁锈，启动！模板插件
  */
-export function createGameStartHelloPlugin() {
-  return createPlugin({
+export function createGameStartHelloPlugin(): PluginObjectType {
+  return {
     registerEvents() {
       return createEvent({
         registerGameStartEvent() {
@@ -33,5 +33,5 @@ export function createGameStartHelloPlugin() {
         }
       })
     },
-  })
+  }
 }
