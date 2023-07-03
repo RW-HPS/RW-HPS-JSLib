@@ -1,21 +1,7 @@
-# jslib
+# RW-HPS-JSLIB
 
-这个项目用于RW-HPS插件生成js库文件
+这个项目旨在为 RW-HPS 的JS插件体系提供一套方便易用的JS/TS API
 
-要对此项目进行编辑，请事先安装`npm`或`yarn`或`pnpm`
+## 贡献
 
-要初始化项目，请先运行:
-
-```shell
-npm install
-pnpm install
-yarn
-```
-
-编辑完成后,请在本项目下运行:
-
-```shell
-npm run build
-pnpm run build
-yarn build
-```
+请移步 [CONTRIBUTING.md](./CONTRIBUTING.md)
