@@ -3,7 +3,7 @@
     "lib": ["ES2022"],
     "target": "ES2022",
     "declaration": true,
-    "declarationDir": "lib",
+    "declarationDir": "./types",
     "module": "ESNext",
     "moduleDetection": "auto",
     "outDir": "lib"

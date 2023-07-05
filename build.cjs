@@ -3,7 +3,6 @@ const fs = require('fs')
 const path = require('path')
 const archiever = require('archiver')
 
-fs.copyFileSync(path.join(__dirname, 'src', 'graaljs.d.ts'), path.join(__dirname, 'lib', 'graaljs.d.ts'))
 fs.copyFileSync(path.join(__dirname, 'plugin.json'), path.join(__dirname, 'lib', 'plugin.json'))
 
 if(fs.existsSync(path.join(__dirname, 'jslib.zip'))) {
