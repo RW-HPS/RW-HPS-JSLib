@@ -14,4 +14,5 @@ export declare function createHelloWorldTemplate(): PluginObjectType;
  * @author ZeroDegres
  * @returns 铁锈，启动！模板插件
  */
-export declare function createGameStartHelloPlugin(): PluginObjectType;
+export declare function createGameStartHelloTemplate(): PluginObjectType;
+export declare function createWasmTemplate(): PluginObjectType;

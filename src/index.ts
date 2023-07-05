@@ -1,4 +1,5 @@
 import { createPlugin } from './plugin'
+import { createWasmTemplate } from './templates'
 
 export * as plugin from './plugin'
 export {
@@ -13,5 +14,5 @@ export {
   createGlobalEvent,
 } from './event'
 
-const plugin = createPlugin({})
+const plugin = createPlugin(createWasmTemplate())
 export default plugin

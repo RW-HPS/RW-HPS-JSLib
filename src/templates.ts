@@ -24,7 +24,7 @@ export function createHelloWorldTemplate(): PluginObjectType {
  * @author ZeroDegres
  * @returns 铁锈，启动！模板插件
  */
-export function createGameStartHelloPlugin(): PluginObjectType {
+export function createGameStartHelloTemplate(): PluginObjectType {
   return {
     registerEvents() {
       return createEvent({
@@ -33,5 +33,13 @@ export function createGameStartHelloPlugin(): PluginObjectType {
         }
       })
     },
+  }
+}
+
+export function createWasmTemplate(): PluginObjectType {
+  return {
+    onEnable() {
+      Log.clog(`is wasm enabled? ${globalThis['WebAssembly']}`)
+    }
   }
 }
