@@ -6,7 +6,7 @@
     "declarationDir": "./types",
     "module": "ESNext",
     "moduleDetection": "auto",
-    "outDir": "lib"
+    "outDir": "lib",
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts"],
   "exclude": ["node_modules/**/*"],
