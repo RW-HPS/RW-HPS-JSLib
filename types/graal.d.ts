@@ -223,6 +223,12 @@ declare const Java: {
    * @param location 指定路径名
    */
   addToClasspath(location: string): void
+  /**
+   * 继承一系列Java类型
+   * @param types 被继承的Java类型
+   * @returns 相应的JavaAdapter
+   */
+  extend(...types: JavaType[]): JavaAdapter
 }
 
 /**

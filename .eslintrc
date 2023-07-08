@@ -2,6 +2,7 @@
     "ignorePatterns": [
         "node_modules/**/*",
         "lib/**/*",
+        "types/**/*",
         "**/*.cjs"
     ],
     "env": {
@@ -17,7 +18,8 @@
         "sourceType": "module"
     },
     "plugins": [
-        "prettier"
+        "prettier",
+        "tsdoc"
     ],
     "rules": {
         "semi": ["warn", "never"],
