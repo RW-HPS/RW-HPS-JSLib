@@ -1,11 +1,12 @@
 import { CompressOutputStream } from '../io/index';
 import { ServerStatus, Packet } from '../net/index';
+import { ObjMap, SeqArray } from '../struct';
 export interface GameOverData {
     readonly gameTime: number;
-    readonly allPlayerList: string[];
-    readonly winPlayerList: string[];
+    readonly allPlayerList: SeqArray<string>;
+    readonly winPlayerList: SeqArray<string>;
     readonly mapName: string;
-    readonly playerData: Record<string, Record<string, number>>;
+    readonly playerData: ObjMap<string, ObjMap<string, string>>;
     readonly replayName: string;
     toString(): string;
 }
@@ -106,3 +107,4 @@ export interface AbstractNetConnectServer {
     sync(fastSync?: boolean): void;
     sendRelayServerType(msg: string, run?: (v: string) => void): void;
 }
+export type GameUnits = 'extractor' | 'landFactory' | 'airFactory' | 'seaFactory' | 'commandCenter' | 'turret' | 'antiAirTurret' | 'builder' | 'tank' | 'hoverTank' | 'artillery' | 'helicopter' | 'airShip' | 'gunShip' | 'missileShip' | 'gunBoat' | 'megaTank' | 'laserTank' | 'hovercraft' | 'ladybug' | 'battleShip' | 'tankDestroyer' | 'heavyTank' | 'heavyHoverTank' | 'laserDefence' | 'dropship' | 'tree' | 'repairbay' | 'NukeLaucher' | 'AntiNukeLaucher' | 'mammothTank' | 'experimentalTank' | 'experimentalLandFactory' | 'crystalResource' | 'wall_v' | 'fabricator' | 'attackSubmarine' | 'builderShip' | 'amphibiousJet' | 'supplyDepot' | 'experimentalHoverTank' | 'turret_artillery' | 'turret_flamethrower' | 'fogRevealer' | 'spreadingFire' | 'antiAirTurretT2' | 'turretT2' | 'turretT3' | 'damagingBorder' | 'zoneMarker' | 'editorOrBuilder' | 'UNKNOWN';

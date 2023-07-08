@@ -1,5 +1,5 @@
-import { GameOverData, PlayerHess } from '../data/index';
-export type EventType = 'PlayerBan' | 'PlayerChat' | 'PlayerIpBan' | 'PlayerIpUnBan' | 'PlayerJoin' | 'PlayerLeave' | 'PlayerOperationUnit' | 'PlayerUnBan' | 'ServeGameOver' | 'ServerGameStart' | 'ServerHessStartPort';
+import { GameOverData, GameUnits, PlayerHess } from '../data/index';
+export type EventType = 'PlayerBan' | 'PlayerChat' | 'PlayerIpBan' | 'PlayerIpUnBan' | 'PlayerJoin' | 'PlayerLeave' | 'PlayerOperationUnit' | 'PlayerUnBan' | 'ServerGameOver' | 'ServerGameStart' | 'ServerHessStartPort';
 export type EventMap = [
     [
         'PlayerBan',
@@ -65,7 +65,6 @@ export interface PlayerJoinData {
 export interface PlayerLeaveData {
     readonly player: PlayerHess;
 }
-export type GameUnits = 'extractor' | 'landFactory' | 'airFactory' | 'seaFactory' | 'commandCenter' | 'turret' | 'antiAirTurret' | 'builder' | 'tank' | 'hoverTank' | 'artillery' | 'helicopter' | 'airShip' | 'gunShip' | 'missileShip' | 'gunBoat' | 'megaTank' | 'laserTank' | 'hovercraft' | 'ladybug' | 'battleShip' | 'tankDestroyer' | 'heavyTank' | 'heavyHoverTank' | 'laserDefence' | 'dropship' | 'tree' | 'repairbay' | 'NukeLaucher' | 'AntiNukeLaucher' | 'mammothTank' | 'experimentalTank' | 'experimentalLandFactory' | 'crystalResource' | 'wall_v' | 'fabricator' | 'attackSubmarine' | 'builderShip' | 'amphibiousJet' | 'supplyDepot' | 'experimentalHoverTank' | 'turret_artillery' | 'turret_flamethrower' | 'fogRevealer' | 'spreadingFire' | 'antiAirTurretT2' | 'turretT2' | 'turretT3' | 'damagingBorder' | 'zoneMarker' | 'editorOrBuilder' | 'UNKNOWN';
 export interface PlayerOperationUnitData {
     readonly player: PlayerHess;
     readonly gameUnits: GameUnits;
