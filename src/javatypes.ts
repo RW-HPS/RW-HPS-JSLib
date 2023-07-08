@@ -21,6 +21,18 @@ export const ServerGameOverEvent = Java.type('net.rwhps.server.game.event.game.S
 export const ServerGameStartEvent = Java.type('net.rwhps.server.game.event.game.ServerGameStartEvent')
 export const ServerHessStartPort = Java.type('net.rwhps.server.game.event.game.ServerHessStartPort')
 
+// data
+export const PlayerHess = Java.type('net.rwhps.server.data.player.PlayerHess')
+export const AbstractPlayerData = Java.type('net.rwhps.server.game.simulation.core.AbstractPlayerData')
+
 // net
 export const Packet = Java.type('net.rwhps.server.io.packet.Packet')
 export const ConnectionAgreement = Java.type('net.rwhps.server.net.core.ConnectionAgreement')
+export const AbstractNetConnectServer = Java.type('net.rwhps.server.net.core.server.AbstractNetConnectServer')
+
+// struct
+export const Seq = Java.type('net.rwhps.server.struct.Seq')
+export const ObjectMap = Java.type('net.rwhps.server.struct.ObjectMap')
+
+// enum
+export const ServerStatus = Java.type('net.rwhps.server.net.core.DataPermissionStatus$ServerStatus')

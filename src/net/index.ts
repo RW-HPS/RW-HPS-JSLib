@@ -91,10 +91,10 @@ export type ServerStatus =
 
 
 export type NetType =
-| 'ServerProtocol'
-| 'ServerProtocolOld'
-| 'ServerTestProtocol'
-| 'RelayProtocol'
-| 'RelayMulticastProtocol'
-| 'DedicatedToTheBackend'
-| 'NullProtocol'
+  | 'ServerProtocol'
+  | 'ServerProtocolOld'
+  | 'ServerTestProtocol'
+  | 'RelayProtocol'
+  | 'RelayMulticastProtocol'
+  | 'DedicatedToTheBackend'
+  | 'NullProtocol'

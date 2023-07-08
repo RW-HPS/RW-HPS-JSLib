@@ -13,7 +13,10 @@ declare interface JavaAdapter {
 
 declare interface JavaObject {
   getClass(): JavaType
-  [name: string | symbol]: unknown | ((...args: unknown[]) => unknown)
+  equals(obj: JavaObject): boolean
+  hashCode(): number
+  toString(): string
+  [name: string | symbol]: unknown
 }
 
 declare type JavaURL =
