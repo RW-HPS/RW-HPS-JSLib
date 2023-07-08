@@ -1,6 +1,6 @@
 {
   "name": "rwhps-jslib",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "JavaScript Lib for RW-HPS plugining.",
   "main": "lib/index.js",
   "scripts": {
@@ -10,7 +10,7 @@
     "preview-doc": "http-server docs"
   },
   "keywords": [],
-  "author": "",
+  "author": "RW-HPS/zerodegress",
   "license": "AGPL-3.0-or-later",
   "devDependencies": {
     "@rollup/plugin-alias": "^5.0.0",
