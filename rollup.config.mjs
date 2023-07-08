@@ -4,6 +4,7 @@ import commonjs from '@rollup/plugin-commonjs'
 import nodeResolve from '@rollup/plugin-node-resolve'
 import { dirname } from 'path'
 import { fileURLToPath } from 'url'
+import terser from '@rollup/plugin-terser'
 
 export default {
   input: 'src/index.ts',
@@ -20,5 +21,6 @@ export default {
     commonjs(),
     json(), 
     typescript(),
+    terser()
   ],
 }
