@@ -1,4 +1,4 @@
-import { NetConnectCloseEvent, Packet as JPacket, NetConnectNewEvent, ConnectionAgreement as JConnectionAgreement, ServerHessLoadEvent, ServerStartTypeEvent, Seq, ObjectMap, ServerStatus as JServerStatus, AbstractNetConnectServer as JAbstractNetConnectServer, PlayerHess, AbstractPlayerData, PlayerUnBanEvent, PlayerBanEvent, PlayerChatEvent, PlayerJoinEvent, PlayerIpBanEvent, PlayerIpUnBanEvent, PlayerLeaveEvent, PlayerOperationUnitEvent, ServerGameOverEvent, ServerGameStartEvent, ServerHessStartPort } from '../javatypes'
+import { NetConnectCloseEvent, Packet as JPacket, NetConnectNewEvent, ConnectionAgreement as JConnectionAgreement, ServerHessLoadEvent, ServerStartTypeEvent, Seq, ObjectMap, ServerStatus as JServerStatus, AbstractNetConnectServer as JAbstractNetConnectServer, PlayerHess, AbstractPlayerData, PlayerUnBanEvent, PlayerBanEvent, PlayerChatEvent, PlayerJoinEvent, PlayerIpBanEvent, PlayerIpUnBanEvent, PlayerLeaveEvent, PlayerOperationUnitEvent, ServerGameOverEvent, ServerGameStartEvent, ServerHessStartPort, GameUnits, GameOverData, NetType } from '../javatypes'
 import { ObjMap, SeqArray } from '../struct'
 
 const javaObjSymbol = Symbol('javaObj')
@@ -262,6 +262,9 @@ const proxyRuleMap: [JavaType | string, (v: JavaObject) => unknown][] = [
   [ServerGameOverEvent, defaultProxy],
   [ServerGameStartEvent, defaultProxy],
   [ServerHessStartPort, defaultProxy],
+  [GameUnits, proxyEnum],
+  [GameOverData, defaultProxy],
+  [NetType, proxyEnum],
 ]
 
 export function proxy<T>(obj: { getClass?: unknown } & unknown) {

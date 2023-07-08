@@ -50,7 +50,7 @@ export interface PlayerHess {
   updateDate(): void
   sendSystemMessage(text: string): void
   sendMessage(player: PlayerHess, text: string): void
-  sendPopUps(msg: string, run?: (v: string) => void): void
+  sendPopUps(msg: string, run: (v: string) => void): void
   sync(): void
   kickPlayer(text: string, time?: number): void
   getinput(input: string, ...params: unknown[]): string

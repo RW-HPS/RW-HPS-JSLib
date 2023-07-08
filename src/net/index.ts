@@ -76,9 +76,9 @@ export interface ConnectionAgreement {
   readonly ipCountryAll: string
   readonly id: string
   add(groupNet: GroupNet): void
-  remove(groupNet?: GroupNet): void
+  remove(groupNet: GroupNet | null): void
   send(packet: Packet): void
-  close(groupNet?: GroupNet): void
+  close(groupNet: GroupNet | null): void
   equals(other: unknown): boolean
   hashCode(): number
 }

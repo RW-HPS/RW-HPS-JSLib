@@ -20,32 +20,23 @@ export function registerAllEvents(plugin: Plugin, eventManage: unknown) {
       }
     },
     listen(event, callback) {
+      function invoke(event: JavaType) {
+        return eventManage['registerListener'](
+          event,
+          (e: JavaObject) => callback(proxy(e))
+        )
+      }
       switch (event) {
         case 'NetConnectClose':
-          return eventManage['registerListener'](
-            NetConnectCloseEvent,
-            (e: JavaObject) => callback<'NetConnectClose'>(proxy(e))
-          )
+          return invoke(NetConnectCloseEvent)
         case 'NetConnectNew':
-          return eventManage['registerListener'](
-            NetConnectNewEvent,
-            (e: JavaObject) => callback<'NetConnectNew'>(proxy(e))
-          )
+          return invoke(NetConnectNewEvent)
         case 'ServerHessLoad':
-          return eventManage['registerListener'](
-            ServerHessLoadEvent,
-            (e: JavaObject) => callback<'ServerHessLoad'>(proxy(e))
-          )
+          return invoke(ServerHessLoadEvent)
         case 'ServerLoad':
-          return eventManage['registerListener'](
-            ServerLoadEvent,
-            (e: JavaObject) => callback<'ServerLoad'>(proxy(e))
-          )
+          return invoke(ServerLoadEvent)
         case 'ServerStartType':
-          return eventManage['registerListener'](
-            ServerStartTypeEvent,
-            (e: JavaObject) => callback<'ServerStartType'>(proxy(e))
-          )
+          return invoke(ServerStartTypeEvent)
       }
     }
   })
@@ -82,62 +73,35 @@ export function registerAllEvents(plugin: Plugin, eventManage: unknown) {
             }
           },
           listen(event, callback) {
+            function invoke(event: JavaType) {
+              return eventManage['registerListener'](
+                event,
+                (e: JavaObject) => callback(proxy(e))
+              )
+            }
             switch (event) {
               case 'PlayerBan':
-                return eventManage['registerListener'](
-                  PlayerBanEvent,
-                  (e: JavaObject) => callback<'PlayerBan'>(proxy(e))
-                )
+                return invoke(PlayerBanEvent)
               case 'PlayerChat':
-                return eventManage['registerListener'](
-                  PlayerChatEvent,
-                  (e: JavaObject) => callback<'PlayerChat'>(proxy(e))
-                )
+                return invoke(PlayerChatEvent)
               case 'PlayerIpBan':
-                return eventManage['registerListener'](
-                  PlayerIpBanEvent,
-                  (e: JavaObject) => callback<'PlayerIpBan'>(proxy(e))
-                )
+                return invoke(PlayerIpBanEvent)
               case 'PlayerIpUnBan':
-                return eventManage['registerListener'](
-                  PlayerIpUnBanEvent,
-                  (e: JavaObject) => callback<'PlayerIpUnBan'>(proxy(e))
-                )
+                return invoke(PlayerIpUnBanEvent)
               case 'PlayerJoin':
-                return eventManage['registerListener'](
-                  PlayerJoinEvent,
-                  (e: JavaObject) => callback<'PlayerJoin'>(proxy(e))
-                )
+                return invoke(PlayerJoinEvent)
               case 'PlayerLeave':
-                return eventManage['registerListener'](
-                  PlayerLeaveEvent,
-                  (e: JavaObject) => callback<'PlayerLeave'>(proxy(e))
-                )
+                return invoke(PlayerLeaveEvent)
               case 'PlayerOperationUnit':
-                return eventManage['registerListener'](
-                  PlayerOperationUnitEvent,
-                  (e: JavaObject) => callback<'PlayerOperationUnit'>(proxy(e))
-                )
+                return invoke(PlayerOperationUnitEvent)
               case 'PlayerUnBan':
-                return eventManage['registerListener'](
-                  PlayerUnBanEvent,
-                  (e: JavaObject) => callback<'PlayerUnBan'>(proxy(e))
-                )
+                return invoke(PlayerUnBanEvent)
               case 'ServerGameOver':
-                return eventManage['registerListener'](
-                  ServerGameOverEvent,
-                  (e: JavaObject) => callback<'ServerGameOver'>(proxy(e))
-                )
+                return invoke(ServerGameOverEvent)
               case 'ServerGameStart':
-                return eventManage['registerListener'](
-                  ServerGameStartEvent,
-                  (e: JavaObject) => callback<'ServerGameStart'>(proxy(e))
-                )
+                return invoke(ServerGameStartEvent)
               case 'ServerHessStartPort':
-                return eventManage['registerListener'](
-                  ServerHessStartPort,
-                  (e: JavaObject) => callback<'ServerHessStartPort'>(proxy(e))
-                )
+                return invoke(ServerHessStartPort)
             }
           }
         })
