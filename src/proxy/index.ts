@@ -1,4 +1,4 @@
-import { NetConnectCloseEvent, Packet as JPacket, NetConnectNewEvent, ConnectionAgreement as JConnectionAgreement, ServerHessLoadEvent, ServerStartTypeEvent, Seq, ObjectMap, ServerStatus as JServerStatus, AbstractNetConnectServer as JAbstractNetConnectServer, PlayerHess, AbstractPlayerData, PlayerUnBanEvent, PlayerBanEvent, PlayerChatEvent, PlayerJoinEvent, PlayerIpBanEvent, PlayerIpUnBanEvent, PlayerLeaveEvent, PlayerOperationUnitEvent, ServerGameOverEvent, ServerGameStartEvent, ServerHessStartPort, GameUnits, GameOverData, NetType } from '../javatypes'
+import { NetConnectCloseEvent, Packet as JPacket, NetConnectNewEvent, ConnectionAgreement as JConnectionAgreement, ServerHessLoadEvent, ServerStartTypeEvent, Seq, ObjectMap, ServerStatus as JServerStatus, AbstractNetConnectServer as JAbstractNetConnectServer, PlayerHess, AbstractPlayerData, PlayerUnBanEvent, PlayerBanEvent, PlayerChatEvent, PlayerJoinEvent, PlayerIpBanEvent, PlayerIpUnBanEvent, PlayerLeaveEvent, PlayerOperationUnitEvent, ServerGameOverEvent, ServerGameStartEvent, ServerHessStartPort, GameUnits, GameOverData, NetType, CommandHandler, GameVersionRelay } from '../javatypes'
 import { ObjMap, SeqArray } from '../struct'
 
 const javaObjSymbol = Symbol('javaObj')
@@ -24,7 +24,7 @@ function simpleProxy<To extends object>(options?: {
     }
     const ownKeys: string[] = []
     for (const name of Object.getOwnPropertyNames(obj)) {
-      if (name.match(/^get/) && typeof obj[name] == 'function') {
+      if (name.match(/^get/) && typeof obj[name] == 'function' && name != 'get') {
         const attrh = name.replace(/^get/, '')
         const attr = `${attrh.slice(0, 1).toLowerCase()}${attrh.slice(1)}`
         createDescriptor(attr)
@@ -34,7 +34,7 @@ function simpleProxy<To extends object>(options?: {
         if (!ownKeys.includes(attr)) {
           ownKeys.push(attr)
         }
-      } else if (name.match(/^set/) && typeof obj[name] == 'function') {
+      } else if (name.match(/^set/) && typeof obj[name] == 'function' && name != 'set') {
         const attrh = name.replace(/^set/, '')
         const attr = `${attrh.slice(0, 1).toLowerCase()}${attrh.slice(1)}`
         createDescriptor(attr)
@@ -228,7 +228,14 @@ const proxyByteArray = (obj: JavaObject) => {
         return obj
       }
       return target[prop]
-    }
+    },
+    set(target, prop, newValue) {
+      if(prop == javaObjSymbol) {
+        return false
+      }
+      target[prop] = newValue
+      return true
+    },
   })
 }
 const proxyEnum = (obj: JavaObject) => {
@@ -265,6 +272,8 @@ const proxyRuleMap: [JavaType | string, (v: JavaObject) => unknown][] = [
   [GameUnits, proxyEnum],
   [GameOverData, defaultProxy],
   [NetType, proxyEnum],
+  [CommandHandler, defaultProxy],
+  [GameVersionRelay, defaultProxy],
 ]
 
 export function proxy<T>(obj: { getClass?: unknown } & unknown) {

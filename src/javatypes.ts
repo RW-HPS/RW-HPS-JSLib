@@ -1,5 +1,8 @@
 export const Plugin = Java.type('net.rwhps.server.plugin.Plugin')
 
+// commands
+export const CommandHandler = Java.type('net.rwhps.server.util.game.CommandHandler')
+
 // global event
 export const NetConnectCloseEvent = Java.type('net.rwhps.server.game.event.global.NetConnectCloseEvent')
 export const NetConnectNewEvent = Java.type('net.rwhps.server.game.event.global.NetConnectNewEvent')
@@ -25,6 +28,7 @@ export const ServerHessStartPort = Java.type('net.rwhps.server.game.event.game.S
 export const PlayerHess = Java.type('net.rwhps.server.data.player.PlayerHess')
 export const AbstractPlayerData = Java.type('net.rwhps.server.game.simulation.core.AbstractPlayerData')
 export const GameOverData = Java.type('net.rwhps.server.data.event.GameOverData')
+export const GameVersionRelay = Java.type('net.rwhps.server.net.netconnectprotocol.realize.GameVersionRelay')
 
 // net
 export const Packet = Java.type('net.rwhps.server.io.packet.Packet')
@@ -39,3 +43,4 @@ export const ObjectMap = Java.type('net.rwhps.server.struct.ObjectMap')
 export const ServerStatus = Java.type('net.rwhps.server.net.core.DataPermissionStatus$ServerStatus')
 export const GameUnits = Java.type('net.rwhps.server.game.GameUnitType$GameUnits')
 export const NetType = Java.type('net.rwhps.server.net.core.IRwHps$NetType')
+export const CommandRunner = Java.type('net.rwhps.server.util.game.CommandHandler.CommandRunner')

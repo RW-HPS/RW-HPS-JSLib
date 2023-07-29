@@ -1,4 +1,5 @@
 export declare const Plugin: JavaType;
+export declare const CommandHandler: JavaType;
 export declare const NetConnectCloseEvent: JavaType;
 export declare const NetConnectNewEvent: JavaType;
 export declare const ServerHessLoadEvent: JavaType;
@@ -19,6 +20,7 @@ export declare const ServerHessStartPort: JavaType;
 export declare const PlayerHess: JavaType;
 export declare const AbstractPlayerData: JavaType;
 export declare const GameOverData: JavaType;
+export declare const GameVersionRelay: JavaType;
 export declare const Packet: JavaType;
 export declare const ConnectionAgreement: JavaType;
 export declare const AbstractNetConnectServer: JavaType;
@@ -27,3 +29,4 @@ export declare const ObjectMap: JavaType;
 export declare const ServerStatus: JavaType;
 export declare const GameUnits: JavaType;
 export declare const NetType: JavaType;
+export declare const CommandRunner: JavaType;

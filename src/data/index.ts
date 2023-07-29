@@ -122,6 +122,11 @@ export interface AbstractNetConnectServer {
   sendRelayServerType(msg: string, run?: (v: string) => void): void
 }
 
+//TODO:待实现
+export interface GameVersionRelay {
+  _: unknown
+}
+
 export type GameUnits =
   | 'extractor'
   | 'landFactory'

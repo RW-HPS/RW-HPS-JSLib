@@ -1,3 +1,8 @@
+/**
+ * @module Global
+ * @description 全局
+ */
+
 declare interface JavaType {
   class: unknown
   equals(other: unknown): boolean
