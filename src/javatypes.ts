@@ -31,6 +31,9 @@ export const ServerGameOverEvent = Java.type('net.rwhps.server.game.event.game.S
 export const ServerGameStartEvent = Java.type('net.rwhps.server.game.event.game.ServerGameStartEvent')
 export const ServerHessStartPort = Java.type('net.rwhps.server.game.event.game.ServerHessStartPort')
 
+//io
+export const FileUtils = Java.type('net.rwhps.server.util.file.FileUtils')
+
 // data
 export const PlayerHess = Java.type('net.rwhps.server.data.player.PlayerHess')
 export const AbstractPlayerData = Java.type('net.rwhps.server.game.simulation.core.AbstractPlayerData')

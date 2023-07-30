@@ -22,6 +22,7 @@ export declare const PlayerUnBanEvent: JavaType;
 export declare const ServerGameOverEvent: JavaType;
 export declare const ServerGameStartEvent: JavaType;
 export declare const ServerHessStartPort: JavaType;
+export declare const FileUtils: JavaType;
 export declare const PlayerHess: JavaType;
 export declare const AbstractPlayerData: JavaType;
 export declare const GameOverData: JavaType;

@@ -1,7 +1,7 @@
 import { CommandHandler } from '../command/types'
 import { AbstractGameModule } from '../data/index'
 import { EventManage } from '../event/manage'
-import { NetConnectCloseEvent, Packet as JPacket, NetConnectNewEvent, ConnectionAgreement as JConnectionAgreement, ServerHessLoadEvent, ServerStartTypeEvent, Seq, ObjectMap, ServerStatus as JServerStatus, AbstractNetConnectServer as JAbstractNetConnectServer, PlayerHess, AbstractPlayerData, PlayerUnBanEvent, PlayerBanEvent, PlayerChatEvent, PlayerJoinEvent, PlayerIpBanEvent, PlayerIpUnBanEvent, PlayerLeaveEvent, PlayerOperationUnitEvent, ServerGameOverEvent, ServerGameStartEvent, ServerHessStartPort, GameUnits, GameOverData, NetType, CommandHandler as JCommandHandler, GameVersionRelay, AbstractGameModule as JAbstractGameModule, ServerRoom, PlayerHessManage } from '../javatypes'
+import { NetConnectCloseEvent, Packet as JPacket, NetConnectNewEvent, ConnectionAgreement as JConnectionAgreement, ServerHessLoadEvent, ServerStartTypeEvent, Seq, ObjectMap, ServerStatus as JServerStatus, AbstractNetConnectServer as JAbstractNetConnectServer, PlayerHess, AbstractPlayerData, PlayerUnBanEvent, PlayerBanEvent, PlayerChatEvent, PlayerJoinEvent, PlayerIpBanEvent, PlayerIpUnBanEvent, PlayerLeaveEvent, PlayerOperationUnitEvent, ServerGameOverEvent, ServerGameStartEvent, ServerHessStartPort, GameUnits, GameOverData, NetType, CommandHandler as JCommandHandler, GameVersionRelay, AbstractGameModule as JAbstractGameModule, ServerRoom, PlayerHessManage, FileUtils } from '../javatypes'
 import { ObjMap, SeqArray } from '../struct'
 
 const javaObjSymbol = Symbol('javaObj')
@@ -122,28 +122,30 @@ function simpleProxy<To extends object>(options?: {
   }
 }
 
+const value2javaRules: [(v: { [javaObjSymbol]?: JavaObject } & unknown) => boolean,(v: { [javaObjSymbol]?: JavaObject } & unknown) => JavaObject][] = [
+  [v => v instanceof Uint8Array, v => Java.to(v, Java.type('byte[]'))],
+]
+
 export function value2java(v: { [javaObjSymbol]?: JavaObject } & unknown) {
   if (
     v === null
     || v === undefined
-    || typeof v != 'object'
   ) {
     return v
   }
-  return javaObjSymbol in v ? v[javaObjSymbol] : v
+  if(typeof v == 'object' && javaObjSymbol in v) {
+    return v[javaObjSymbol]
+  }
+  for(const [pre, to] of value2javaRules) {
+    if(pre(v)) {
+      return to(v)
+    }
+  }
+  return v
 }
 
 export function args2java(...args: ({ [javaObjSymbol]?: JavaObject } & unknown)[]) {
-  return args.map(arg => {
-    if (
-      arg === null
-      || arg === undefined
-      || typeof arg != 'object'
-    ) {
-      return arg
-    }
-    return javaObjSymbol in arg ? arg[javaObjSymbol] : arg
-  })
+  return args.map(arg => value2java(arg))
 }
 
 export const defaultProxy = simpleProxy<{ _ }>()
@@ -380,6 +382,7 @@ const proxyRuleMap: [JavaType | string, (v: JavaObject) => unknown][] = [
   [JAbstractGameModule, proxyAbstractGameModule],
   [ServerRoom, defaultProxy],
   [PlayerHessManage, defaultProxy],
+  [FileUtils, defaultProxy],
 ]
 
 export function proxy<T>(obj: { getClass?: unknown } & unknown) {

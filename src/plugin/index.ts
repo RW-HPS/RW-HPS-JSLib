@@ -1,3 +1,4 @@
+import { FileUtils } from '../io/index'
 import { Plugin as JavaPlugin } from '../javatypes'
 import { proxy } from '../proxy/index'
 import { Plugin } from './data'
@@ -7,28 +8,42 @@ export {
   Plugin
 }
 
-export function createPlugin(plugin: Plugin): JavaObject {
-  return new (Java.extend(JavaPlugin))({
-    onEnable: plugin.onEnable,
-    init: plugin.init,
-    onDisable: plugin.onDisable,
+export function createPlugin(plugin: Plugin | ((context: {fileUtils: FileUtils}) => Plugin)): JavaObject {
+  const context: { fileUtils: FileUtils } = {
+    fileUtils: null
+  }
+  const pluginN = typeof plugin == 'function' ? plugin(context) : plugin
+  const jplugin = new (Java.extend(JavaPlugin))({
+    onEnable: pluginN.onEnable,
+    init: pluginN.init,
+    onDisable: pluginN.onDisable,
     registerGlobalEvents(eventManage) {
-      registerAllEvents(plugin, eventManage)
+      registerAllEvents(pluginN, eventManage)
     },
     registerCoreCommands(handler) {
-      plugin.registerCoreCommands && plugin.registerCoreCommands(proxy(handler))
+      pluginN.registerCoreCommands && pluginN.registerCoreCommands(proxy(handler))
     },
     registerServerCommands(handler) {
-      plugin.registerServerCommands && plugin.registerServerCommands(proxy(handler))
+      pluginN.registerServerCommands && pluginN.registerServerCommands(proxy(handler))
     },
     registerRelayCommands(handler) {
-      plugin.registerRelayCommands && plugin.registerRelayCommands(proxy(handler))
+      pluginN.registerRelayCommands && pluginN.registerRelayCommands(proxy(handler))
     },
     registerServerClientCommands(handler) {
-      plugin.registerServerClientCommands && plugin.registerServerClientCommands(proxy(handler))
+      pluginN.registerServerClientCommands && pluginN.registerServerClientCommands(proxy(handler))
     },
     registerRelayClientCommands(handler) {
-      plugin.registerRelayClientCommands && plugin.registerRelayClientCommands(proxy(handler))
+      pluginN.registerRelayClientCommands && pluginN.registerRelayClientCommands(proxy(handler))
     },
   })
+  Object.defineProperty(context, 'fileUtils', {
+    get() {
+      try {
+        return proxy((jplugin['getPluginDataFileUtils'] as () => unknown)())
+      } catch (e) {
+        return null
+      }
+    },
+  })
+  return jplugin
 }
