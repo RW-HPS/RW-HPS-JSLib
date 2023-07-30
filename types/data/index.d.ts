@@ -1,3 +1,4 @@
+import { EventManage } from '../event/manage';
 import { CompressOutputStream } from '../io/index';
 import { ServerStatus, Packet } from '../net/index';
 import { ObjMap, SeqArray } from '../struct';
@@ -106,6 +107,42 @@ export interface AbstractNetConnectServer {
     reconnect(): void;
     sync(fastSync?: boolean): void;
     sendRelayServerType(msg: string, run?: (v: string) => void): void;
+}
+export declare const HessModuleManage: {
+    hps?: AbstractGameModule;
+    hpsLoader?: string;
+};
+export interface AbstractGameModule {
+    readonly useClassLoader: unknown;
+    readonly eventManage: EventManage;
+    readonly gameHessData: unknown;
+    readonly gameNet: unknown;
+    readonly gameUnitData: unknown;
+    readonly gameFast: unknown;
+    readonly gameData: unknown;
+    readonly gameDataLink: unknown;
+    readonly room: ServerRoom;
+}
+export interface ServerRoom {
+    roomID?: string;
+    readonly call: unknown;
+    readonly playerManage: PlayerHessManage;
+    isStartGame: boolean;
+    startTime: number;
+    endTime: number;
+    isAfk: boolean;
+    flagData: unknown;
+    forceReturn: boolean;
+    checkGameStatusFlag: boolean;
+    mapName: string;
+    replayFileName: string;
+    closeServer(): void;
+    startServer(): void;
+}
+export interface PlayerHessManage {
+    readonly playerGroup: SeqArray<PlayerHess>;
+    readonly playerAll: SeqArray<PlayerHess>;
+    findPlayer(writeConsole: (v: string) => void, findIn: string): PlayerHess | null;
 }
 export interface GameVersionRelay {
     _: unknown;

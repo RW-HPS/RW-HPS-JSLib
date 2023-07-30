@@ -9,7 +9,13 @@ export declare function args2java(...args: ({
 } & unknown)[]): (JavaObject | {
     [javaObjSymbol]?: JavaObject;
 })[];
+export declare const defaultProxy: (obj: JavaObject) => {
+    _: any;
+};
 export declare function proxy<T>(obj: {
     getClass?: unknown;
+} & unknown): T;
+export declare function proxyClass<T>(obj: {
+    class?: unknown;
 } & unknown): T;
 export {};

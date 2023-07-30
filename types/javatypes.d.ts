@@ -1,4 +1,9 @@
 export declare const Plugin: JavaType;
+export declare const HessModuleManage: JavaType;
+export declare const AbstractGameModule: JavaType;
+export declare const AbstractGameHessData: JavaType;
+export declare const ServerRoom: JavaType;
+export declare const PlayerHessManage: JavaType;
 export declare const CommandHandler: JavaType;
 export declare const NetConnectCloseEvent: JavaType;
 export declare const NetConnectNewEvent: JavaType;
@@ -30,3 +35,13 @@ export declare const ServerStatus: JavaType;
 export declare const GameUnits: JavaType;
 export declare const NetType: JavaType;
 export declare const CommandRunner: JavaType;
+export declare const Log: {
+    fatal(msg: unknown): void;
+    trace(msg: unknown): void;
+    debug(msg: unknown): void;
+    info(msg: unknown): void;
+    clog(msg: unknown): void;
+    warn(msg: unknown): void;
+    error(msg: unknown): void;
+    all(msg: unknown): void;
+};

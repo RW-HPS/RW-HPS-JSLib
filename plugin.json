@@ -3,6 +3,6 @@
   "author": "RW-HPS",
   "main": "index.js",
   "description": "Simple JS library making plugining easier.",
-  "version": "1.0.0",
-  "supportedVersions": ">= 2.3.0"
+  "version": "1.1.0",
+  "supportedVersions": ">= 3.0.0-M3"
 }

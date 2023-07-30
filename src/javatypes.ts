@@ -1,5 +1,12 @@
 export const Plugin = Java.type('net.rwhps.server.plugin.Plugin')
 
+// hess
+export const HessModuleManage = Java.type('net.rwhps.server.data.HessModuleManage')
+export const AbstractGameModule = Java.type('net.rwhps.server.game.simulation.core.AbstractGameModule')
+export const AbstractGameHessData = Java.type('net.rwhps.server.game.simulation.core.AbstractGameHessData')
+export const ServerRoom = Java.type('net.rwhps.server.data.global.ServerRoom')
+export const PlayerHessManage = Java.type('net.rwhps.server.data.player.PlayerHessManage')
+
 // commands
 export const CommandHandler = Java.type('net.rwhps.server.util.game.CommandHandler')
 
@@ -9,7 +16,7 @@ export const NetConnectNewEvent = Java.type('net.rwhps.server.game.event.global.
 export const ServerHessLoadEvent = Java.type('net.rwhps.server.game.event.global.ServerHessLoadEvent')
 export const ServerLoadEvent = Java.type('net.rwhps.server.game.event.global.ServerLoadEvent')
 export const ServerStartTypeEvent = Java.type('net.rwhps.server.game.event.global.ServerStartTypeEvent')
-export const AbstractGlobalEvent = Java.type('net.rwhps.server.game.event.AbstractGlobalEvent')
+export const AbstractGlobalEvent = Java.type('net.rwhps.server.game.event.core.AbstractGlobalEvent')
 
 // event
 export const PlayerBanEvent = Java.type('net.rwhps.server.game.event.game.PlayerBanEvent')
@@ -44,3 +51,15 @@ export const ServerStatus = Java.type('net.rwhps.server.net.core.DataPermissionS
 export const GameUnits = Java.type('net.rwhps.server.game.GameUnitType$GameUnits')
 export const NetType = Java.type('net.rwhps.server.net.core.IRwHps$NetType')
 export const CommandRunner = Java.type('net.rwhps.server.util.game.CommandHandler.CommandRunner')
+
+// log
+export const Log = Java.type('net.rwhps.server.util.log.Log') as unknown as {
+  fatal(msg: unknown): void
+  trace(msg: unknown): void
+  debug(msg: unknown): void
+  info(msg: unknown): void
+  clog(msg: unknown): void
+  warn(msg: unknown): void
+  error(msg: unknown): void
+  all(msg: unknown): void
+} 

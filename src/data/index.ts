@@ -1,5 +1,7 @@
+import { EventManage } from '../event/manage'
 import { CompressOutputStream } from '../io/index'
 import { ServerStatus, Packet } from '../net/index'
+import { defaultProxy } from '../proxy/index'
 import { ObjMap, SeqArray } from '../struct'
 
 
@@ -120,6 +122,56 @@ export interface AbstractNetConnectServer {
   reconnect(): void
   sync(fastSync?: boolean): void
   sendRelayServerType(msg: string, run?: (v: string) => void): void
+}
+
+export const HessModuleManage = 
+  defaultProxy(
+    Java.type('net.rwhps.server.data.HessModuleManage') as unknown as JavaObject
+  ) as {
+  hps?: AbstractGameModule
+  hpsLoader?: string
+}
+
+//TODO
+export interface AbstractGameModule {
+  readonly useClassLoader: unknown // ClassLoader
+
+  readonly eventManage: EventManage
+
+  readonly gameHessData: unknown // AbstractGameHessData
+  readonly gameNet: unknown // AbstractGameNet
+  readonly gameUnitData: unknown // AbstractGameUnitData
+  readonly gameFast: unknown // AbstractGameFast
+
+  readonly gameData: unknown //AbstractGameLinkFunction
+  readonly gameDataLink: unknown // AbstractGameLinkData
+
+  readonly room: ServerRoom
+}
+
+//TODO
+export interface ServerRoom {
+  roomID?: string
+  readonly call: unknown // CallHess
+  readonly playerManage: PlayerHessManage
+  isStartGame: boolean
+  startTime: number
+  endTime: number
+  isAfk: boolean
+  flagData: unknown // ServerCacheFlag
+  forceReturn: boolean
+  checkGameStatusFlag: boolean
+  mapName: string
+  replayFileName: string
+  closeServer(): void
+  startServer(): void
+}
+
+//TODO
+export interface PlayerHessManage {
+  readonly playerGroup: SeqArray<PlayerHess>
+  readonly playerAll: SeqArray<PlayerHess>
+  findPlayer(writeConsole: (v: string) => void, findIn: string): PlayerHess | null
 }
 
 //TODO:待实现

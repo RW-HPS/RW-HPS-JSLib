@@ -1,4 +1,7 @@
-import { NetConnectCloseEvent, Packet as JPacket, NetConnectNewEvent, ConnectionAgreement as JConnectionAgreement, ServerHessLoadEvent, ServerStartTypeEvent, Seq, ObjectMap, ServerStatus as JServerStatus, AbstractNetConnectServer as JAbstractNetConnectServer, PlayerHess, AbstractPlayerData, PlayerUnBanEvent, PlayerBanEvent, PlayerChatEvent, PlayerJoinEvent, PlayerIpBanEvent, PlayerIpUnBanEvent, PlayerLeaveEvent, PlayerOperationUnitEvent, ServerGameOverEvent, ServerGameStartEvent, ServerHessStartPort, GameUnits, GameOverData, NetType, CommandHandler, GameVersionRelay } from '../javatypes'
+import { CommandHandler } from '../command/types'
+import { AbstractGameModule } from '../data/index'
+import { EventManage } from '../event/manage'
+import { NetConnectCloseEvent, Packet as JPacket, NetConnectNewEvent, ConnectionAgreement as JConnectionAgreement, ServerHessLoadEvent, ServerStartTypeEvent, Seq, ObjectMap, ServerStatus as JServerStatus, AbstractNetConnectServer as JAbstractNetConnectServer, PlayerHess, AbstractPlayerData, PlayerUnBanEvent, PlayerBanEvent, PlayerChatEvent, PlayerJoinEvent, PlayerIpBanEvent, PlayerIpUnBanEvent, PlayerLeaveEvent, PlayerOperationUnitEvent, ServerGameOverEvent, ServerGameStartEvent, ServerHessStartPort, GameUnits, GameOverData, NetType, CommandHandler as JCommandHandler, GameVersionRelay, AbstractGameModule as JAbstractGameModule, ServerRoom, PlayerHessManage } from '../javatypes'
 import { ObjMap, SeqArray } from '../struct'
 
 const javaObjSymbol = Symbol('javaObj')
@@ -24,7 +27,7 @@ function simpleProxy<To extends object>(options?: {
     }
     const ownKeys: string[] = []
     for (const name of Object.getOwnPropertyNames(obj)) {
-      if (name.match(/^get/) && typeof obj[name] == 'function' && name != 'get') {
+      if (name.match(/^get/) && typeof obj[name] == 'function' && name != 'get' && name != 'getClass') {
         const attrh = name.replace(/^get/, '')
         const attr = `${attrh.slice(0, 1).toLowerCase()}${attrh.slice(1)}`
         createDescriptor(attr)
@@ -143,7 +146,7 @@ export function args2java(...args: ({ [javaObjSymbol]?: JavaObject } & unknown)[
   })
 }
 
-const defaultProxy = simpleProxy<{ _ }>()
+export const defaultProxy = simpleProxy<{ _ }>()
 const proxySeq = simpleProxy<SeqArray<unknown>>({
   prefixGet(obj, prop) {
     if (typeof prop == 'number') {
@@ -243,6 +246,106 @@ const proxyEnum = (obj: JavaObject) => {
   name[javaObjSymbol] = obj
   return name
 }
+const proxyAbstractGameModule = simpleProxy<AbstractGameModule>({
+  prefixGet(obj, prop) {
+    if(prop == 'eventManage') {
+      const eventManageJ = (obj['getEventManage'] as () => unknown)()
+      const eventManage: EventManage = {
+        fire(event) {
+          switch (event) {
+            case 'PlayerBan':
+              return eventManageJ['fire'](PlayerBanEvent)
+            case 'PlayerChat':
+              return eventManageJ['fire'](PlayerChatEvent)
+            case 'PlayerIpBan':
+              return eventManageJ['fire'](PlayerIpBanEvent)
+            case 'PlayerIpUnBan':
+              return eventManageJ['fire'](PlayerIpUnBanEvent)
+            case 'PlayerJoin':
+              return eventManageJ['fire'](PlayerJoinEvent)
+            case 'PlayerLeave':
+              return eventManageJ['fire'](PlayerJoinEvent)
+            case 'PlayerOperationUnit':
+              return eventManageJ['fire'](PlayerOperationUnitEvent)
+            case 'PlayerUnBan':
+              return eventManageJ['fire'](PlayerUnBanEvent)
+            case 'ServerGameOver':
+              return eventManageJ['fire'](ServerGameOverEvent)
+            case 'ServerGameStart':
+              return eventManageJ['fire'](ServerGameStartEvent)
+            case 'ServerHessStartPort':
+              return eventManageJ['fire'](ServerHessStartPort)
+          }
+        },
+        listen(event, callback)  {
+          function invoke(event: JavaType) {
+            return eventManageJ['registerListener'](
+              event,
+              (e: JavaObject) => callback(proxy(e))
+            )
+          }
+          switch (event) {
+            case 'PlayerBan':
+              return invoke(PlayerBanEvent)
+            case 'PlayerChat':
+              return invoke(PlayerChatEvent)
+            case 'PlayerIpBan':
+              return invoke(PlayerIpBanEvent)
+            case 'PlayerIpUnBan':
+              return invoke(PlayerIpUnBanEvent)
+            case 'PlayerJoin':
+              return invoke(PlayerJoinEvent)
+            case 'PlayerLeave':
+              return invoke(PlayerLeaveEvent)
+            case 'PlayerOperationUnit':
+              return invoke(PlayerOperationUnitEvent)
+            case 'PlayerUnBan':
+              return invoke(PlayerUnBanEvent)
+            case 'ServerGameOver':
+              return invoke(ServerGameOverEvent)
+            case 'ServerGameStart':
+              return invoke(ServerGameStartEvent)
+            case 'ServerHessStartPort':
+              return invoke(ServerHessStartPort)
+          }
+        }
+      }
+      return eventManage
+    }
+    return undefined
+  },
+})
+const proxyCommandHandler = simpleProxy<CommandHandler<unknown>>({
+  prefixGet(obj, prop) {
+    if(prop == 'register') {
+      return (text, descOrParams, descOrRunner, OrRunner) => {
+        if(typeof descOrRunner == 'string') {
+          const params = descOrParams
+          const desc = descOrRunner
+          const runner = OrRunner;
+          (obj['register'] as (...args: unknown[]) => unknown)(
+            text, 
+            params, 
+            desc, 
+            new (Java.extend(Java.type('net.rwhps.server.util.game.CommandHandler.CommandRunner')))({
+              accept: (args, param) => value2java(runner(args, proxy(param)))
+            }))
+            
+        } else {
+          const desc = descOrParams
+          const runner = descOrRunner;
+          (obj['register'] as (...args: unknown[]) => unknown)(
+            text,
+            desc, 
+            new (Java.extend(Java.type('net.rwhps.server.util.game.CommandHandler.CommandRunner')))({
+              accept: runner
+            }))
+        }
+      }
+    }
+    return undefined
+  },
+})
 
 const proxyRuleMap: [JavaType | string, (v: JavaObject) => unknown][] = [
   [NetConnectCloseEvent, defaultProxy],
@@ -272,15 +375,18 @@ const proxyRuleMap: [JavaType | string, (v: JavaObject) => unknown][] = [
   [GameUnits, proxyEnum],
   [GameOverData, defaultProxy],
   [NetType, proxyEnum],
-  [CommandHandler, defaultProxy],
+  [JCommandHandler, proxyCommandHandler],
   [GameVersionRelay, defaultProxy],
+  [JAbstractGameModule, proxyAbstractGameModule],
+  [ServerRoom, defaultProxy],
+  [PlayerHessManage, defaultProxy],
 ]
 
 export function proxy<T>(obj: { getClass?: unknown } & unknown) {
   if (
     obj === null
     || obj === undefined
-    || typeof obj != 'object'
+    || (typeof obj != 'object' && typeof obj != 'function')
   ) {
     return obj as T
   }
@@ -303,4 +409,14 @@ export function proxy<T>(obj: { getClass?: unknown } & unknown) {
     }
   }
   return obj as T
+}
+
+export function proxyClass<T>(obj: { class?: unknown } & unknown) {
+  if (
+    obj === null
+    || obj === undefined
+    || (typeof obj != 'object' && typeof obj != 'function')
+  ) {
+    return obj as T
+  }
 }

@@ -38,6 +38,7 @@ declare function print(...arg: unknown[]): void
 declare function printErr(...arg: unknown[]): void
 
 /**
+ * @deprecated 不是线程安全的对象
  * console对象
  * 
  * 默认可用，除非`js.console`置false

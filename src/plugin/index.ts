@@ -16,19 +16,19 @@ export function createPlugin(plugin: Plugin): JavaObject {
       registerAllEvents(plugin, eventManage)
     },
     registerCoreCommands(handler) {
-      plugin.registerCoreCommands(proxy(handler))
+      plugin.registerCoreCommands && plugin.registerCoreCommands(proxy(handler))
     },
     registerServerCommands(handler) {
-      plugin.registerServerCommands(proxy(handler))
+      plugin.registerServerCommands && plugin.registerServerCommands(proxy(handler))
     },
     registerRelayCommands(handler) {
-      plugin.registerRelayCommands(proxy(handler))
+      plugin.registerRelayCommands && plugin.registerRelayCommands(proxy(handler))
     },
     registerServerClientCommands(handler) {
-      plugin.registerServerClientCommands(proxy(handler))
+      plugin.registerServerClientCommands && plugin.registerServerClientCommands(proxy(handler))
     },
     registerRelayClientCommands(handler) {
-      plugin.registerRelayClientCommands(proxy(handler))
+      plugin.registerRelayClientCommands && plugin.registerRelayClientCommands(proxy(handler))
     },
   })
 }
