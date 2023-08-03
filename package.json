@@ -4,11 +4,13 @@
   "description": "JavaScript Lib for RW-HPS plugining.",
   "main": "lib/index.js",
   "scripts": {
-    "build": "rollup -c & node ./build.cjs",
+    "build": "rollup -c",
     "lint": "eslint src --ext ts --report-unused-disable-directives --max-warnings 0",
     "doc": "typedoc src/index.ts",
     "preview-doc": "http-server docs"
   },
+  "type": "module",
+  "types": "",
   "keywords": [],
   "author": "RW-HPS/zerodegress",
   "license": "AGPL-3.0-or-later",
@@ -28,6 +30,9 @@
     "eslint-plugin-tsdoc": "^0.2.17",
     "http-server": "^14.1.1",
     "rollup": "^3.25.1",
+    "rollup-plugin-copy": "^3.4.0",
+    "rollup-plugin-delete": "^2.0.0",
+    "rollup-plugin-dts": "^5.3.1",
     "tslib": "^2.6.0",
     "typedoc": "^0.24.8",
     "typescript": "^5.1.3"

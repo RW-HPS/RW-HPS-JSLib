@@ -2,8 +2,9 @@
     "ignorePatterns": [
         "node_modules/**/*",
         "lib/**/*",
-        "types/**/*",
-        "**/*.cjs"
+        "lib/types/**/*",
+        "**/*.cjs",
+        "dist/**/*"
     ],
     "env": {
         "es2022": true

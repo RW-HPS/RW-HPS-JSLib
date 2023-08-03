@@ -2,11 +2,9 @@
   "compilerOptions": {
     "lib": ["ES2022"],
     "target": "ES2022",
-    "declaration": true,
-    "declarationDir": "./types",
     "module": "ESNext",
     "moduleDetection": "auto",
-    "outDir": "lib",
+    "moduleResolution": "Bundler",
   },
   "include": [
     "src/**/*.ts", 

@@ -1,7 +1,7 @@
 import { EventManage } from '../event/manage'
 import { CompressOutputStream } from '../io/index'
 import { ServerStatus, Packet } from '../net/index'
-import { defaultProxy } from '../proxy/index'
+import { defaultProxy } from '../proxy/util'
 import { ObjMap, SeqArray } from '../struct'
 
 
