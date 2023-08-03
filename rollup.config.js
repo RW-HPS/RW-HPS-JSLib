@@ -2,7 +2,7 @@ import typescript from '@rollup/plugin-typescript'
 import commonjs from '@rollup/plugin-commonjs'
 import nodeResolve from '@rollup/plugin-node-resolve'
 import terser from '@rollup/plugin-terser'
-import dts from 'rollup-plugin-dts'
+import babel from '@rollup/plugin-babel'
 import copy from 'rollup-plugin-copy'
 
 /** @type {import('rollup').RollupOptions} */
@@ -21,9 +21,13 @@ export default [
     plugins: [
       nodeResolve(),
       commonjs(),
+      babel({
+        babelHelpers: 'bundled'
+      }),
       typescript({ 
+        emitDeclarationOnly: true,
         declaration: true, 
-        declarationDir: 'lib/types', 
+        declarationDir: 'lib/types',
       }),
       copy({
         targets: [
