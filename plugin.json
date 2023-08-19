@@ -3,6 +3,6 @@
   "author": "RW-HPS",
   "main": "rwhps-jslib.min.js",
   "description": "Simple JS library making plugining easier.",
-  "version": "1.2.0",
-  "supportedVersions": ">= 3.0.0-M3"
+  "version": "1.2.1",
+  "supportedVersions": ">= 3.0.0-M4"
 }

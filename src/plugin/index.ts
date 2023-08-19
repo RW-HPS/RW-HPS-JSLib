@@ -2,7 +2,7 @@ import { FileUtils } from '../io/index'
 import { Plugin as JavaPlugin } from '../javatypes'
 import { proxy } from '../proxy/index'
 import { Plugin } from './data'
-import { registerAllEvents } from './event'
+import { registerGlobalEvents, registerEvents } from './event'
 
 export {
   Plugin
@@ -18,7 +18,10 @@ export function createPlugin(plugin: Plugin | ((context: {fileUtils: FileUtils})
     init: pluginN.init,
     onDisable: pluginN.onDisable,
     registerGlobalEvents(eventManage) {
-      registerAllEvents(pluginN, eventManage)
+      registerGlobalEvents(pluginN, eventManage)
+    },
+    registerEvents(eventManage) {
+      registerEvents(pluginN, eventManage)
     },
     registerCoreCommands(handler) {
       pluginN.registerCoreCommands && pluginN.registerCoreCommands(proxy(handler))
@@ -26,14 +29,8 @@ export function createPlugin(plugin: Plugin | ((context: {fileUtils: FileUtils})
     registerServerCommands(handler) {
       pluginN.registerServerCommands && pluginN.registerServerCommands(proxy(handler))
     },
-    registerRelayCommands(handler) {
-      pluginN.registerRelayCommands && pluginN.registerRelayCommands(proxy(handler))
-    },
     registerServerClientCommands(handler) {
       pluginN.registerServerClientCommands && pluginN.registerServerClientCommands(proxy(handler))
-    },
-    registerRelayClientCommands(handler) {
-      pluginN.registerRelayClientCommands && pluginN.registerRelayClientCommands(proxy(handler))
     },
   })
   Object.defineProperty(context, 'fileUtils', {

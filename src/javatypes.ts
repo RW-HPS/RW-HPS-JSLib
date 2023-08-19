@@ -1,10 +1,10 @@
 export const Plugin = Java.type('net.rwhps.server.plugin.Plugin')
 
 // hess
-export const HessModuleManage = Java.type('net.rwhps.server.data.HessModuleManage')
+export const HessModuleManage = Java.type('net.rwhps.server.game.HessModuleManage')
 export const AbstractGameModule = Java.type('net.rwhps.server.game.simulation.core.AbstractGameModule')
 export const AbstractGameHessData = Java.type('net.rwhps.server.game.simulation.core.AbstractGameHessData')
-export const ServerRoom = Java.type('net.rwhps.server.data.global.ServerRoom')
+export const ServerRoom = Java.type('net.rwhps.server.core.game.ServerRoom')
 export const PlayerHessManage = Java.type('net.rwhps.server.data.player.PlayerHessManage')
 
 // commands
@@ -37,8 +37,7 @@ export const FileUtils = Java.type('net.rwhps.server.util.file.FileUtils')
 // data
 export const PlayerHess = Java.type('net.rwhps.server.data.player.PlayerHess')
 export const AbstractPlayerData = Java.type('net.rwhps.server.game.simulation.core.AbstractPlayerData')
-export const GameOverData = Java.type('net.rwhps.server.data.event.GameOverData')
-export const GameVersionRelay = Java.type('net.rwhps.server.net.netconnectprotocol.realize.GameVersionRelay')
+export const GameOverData = Java.type('net.rwhps.server.game.event.game.ServerGameOverEvent$GameOverData')
 
 // net
 export const Packet = Java.type('net.rwhps.server.io.packet.Packet')
@@ -51,7 +50,7 @@ export const ObjectMap = Java.type('net.rwhps.server.struct.ObjectMap')
 
 // enum
 export const ServerStatus = Java.type('net.rwhps.server.net.core.DataPermissionStatus$ServerStatus')
-export const GameUnits = Java.type('net.rwhps.server.game.GameUnitType$GameUnits')
+export const GameInternalUnits = Java.type('net.rwhps.server.game.enums.GameInternalUnits')
 export const NetType = Java.type('net.rwhps.server.net.core.IRwHps$NetType')
 export const CommandRunner = Java.type('net.rwhps.server.util.game.CommandHandler.CommandRunner')
 

@@ -1,6 +1,6 @@
 import { EventManage, GlobalEventManage } from '../event/manage'
 import { CommandHandler } from '../command/types'
-import { GameVersionRelay, PlayerHess } from '../data/index'
+import { PlayerHess } from '../data/index'
 
 
 export interface Plugin {
@@ -18,15 +18,8 @@ export interface Plugin {
    * 这里注册的命令只有启动Server协议 才会存在
    */
   registerServerCommands?(handler: CommandHandler<(v: string) => void>): void
-  /**
-   * 注册要在服务器端使用的Relay命令，例如从控制台-Relay
-   * 这里注册的命令只有启动Relay协议 才会存在
-   */
-  registerRelayCommands?(handler: CommandHandler<GameVersionRelay>): void
   /** 注册要在客户端使用的任何命令，例如来自游戏内玩家 -3  */
   registerServerClientCommands?(handler: CommandHandler<PlayerHess>): void
-  /** 注册要在客户端使用的RELAY命令，例如来自RELAY内玩家 -3  */
-  registerRelayClientCommands?(handler: CommandHandler<PlayerHess>): void
   /** 注册事件 */
   registerEvents?(eventManage: EventManage): void
   /** 注册全局事件 */

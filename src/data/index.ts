@@ -126,7 +126,7 @@ export interface AbstractNetConnectServer {
 
 export const HessModuleManage = 
   defaultProxy(
-    Java.type('net.rwhps.server.data.HessModuleManage') as unknown as JavaObject
+    Java.type('net.rwhps.server.game.HessModuleManage') as unknown as JavaObject
   ) as {
   hps?: AbstractGameModule
   hpsLoader?: string
@@ -174,12 +174,7 @@ export interface PlayerHessManage {
   findPlayer(writeConsole: (v: string) => void, findIn: string): PlayerHess | null
 }
 
-//TODO:待实现
-export interface GameVersionRelay {
-  _: unknown
-}
-
-export type GameUnits =
+export type GameInternalUnits =
   | 'extractor'
   | 'landFactory'
   | 'airFactory'

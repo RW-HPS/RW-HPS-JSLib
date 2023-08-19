@@ -1,4 +1,4 @@
-import { GameOverData, GameUnits, PlayerHess } from '../data/index'
+import { GameOverData, GameInternalUnits, PlayerHess } from '../data/index'
 
 export type EventType =
   | 'PlayerBan'
@@ -54,7 +54,7 @@ export interface PlayerLeaveData {
 
 export interface PlayerOperationUnitData {
   readonly player: PlayerHess
-  readonly gameUnits: GameUnits
+  readonly gameUnits: GameInternalUnits
   readonly x: number
   readonly y: number
   resultStatus: boolean
