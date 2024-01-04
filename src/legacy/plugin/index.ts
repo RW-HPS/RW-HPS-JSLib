@@ -1,6 +1,6 @@
 import { FileUtils } from '../io/index'
 import { Plugin as JavaPlugin } from '../javatypes'
-import { proxy } from '../proxy/index'
+import { proxy } from '../proxy'
 import { Plugin } from './data'
 import { registerGlobalEvents, registerEvents } from './event'
 

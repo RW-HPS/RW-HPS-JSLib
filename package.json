@@ -10,7 +10,7 @@
     "preview-doc": "http-server docs"
   },
   "type": "module",
-  "types": "",
+  "types": "lib/types/index.d.ts",
   "keywords": [],
   "author": "RW-HPS/zerodegress",
   "license": "AGPL-3.0-or-later",
