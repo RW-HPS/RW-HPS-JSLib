@@ -1,6 +1,0 @@
-{
-  "includes": "src",
-  "exclude": ["node_modules"],
-  "htmlLang": "zh-cn",
-  "readme": "./README.md",
-}
