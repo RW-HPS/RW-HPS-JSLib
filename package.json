@@ -4,7 +4,7 @@
   "description": "Basic TypeScript template with rollup.",
   "type": "module",
   "main": "./dist/index.min.js",
-  "types": "./dist/types/index.d.ts",
+  "types": "./dist/types/src/index.d.ts",
   "scripts": {
     "build": "rollup -c rollup.config.ts --configPlugin typescript",
     "build:types": "tsc --declaration --emitDeclarationOnly --declarationDir ./dist/types",

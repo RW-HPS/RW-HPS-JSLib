@@ -35,9 +35,7 @@ export type CreatePluginOptions = {
    */
   registerServerClientCommands?: (handler: ServerClientCommandHandler) => void
 }
-export function createPlugin(
-  options: CreatePluginOptions,
-): JavaInstanceTypeOf<'net.rwhps.server.plugin.Plugin'> {
+export function createPlugin(options: CreatePluginOptions): unknown {
   const Adapter = Java.extend<'net.rwhps.server.plugin.Plugin'>(Plugin)
   const obj = new Adapter({
     onEnable() {
