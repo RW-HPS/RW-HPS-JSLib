@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "target": "es2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "lib": [
+      "ESNext"
+    ],
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ],
+      "@self": [
+        "./src/index.ts"
+      ]
+    }
+  },
+  "include": [
+    "./src/**/*.ts",
+    "rollup.config.ts",
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "references": [
+    {
+      "path": "tsconfig.node.json"
+    }
+  ]
+}

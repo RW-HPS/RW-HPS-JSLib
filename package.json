@@ -1,0 +1,32 @@
+{
+  "name": "ts-rollup-template",
+  "version": "1.0.0",
+  "description": "Basic TypeScript template with rollup.",
+  "type": "module",
+  "main": "./dist/index.min.js",
+  "types": "./dist/types/index.d.ts",
+  "scripts": {
+    "build": "rollup -c rollup.config.ts --configPlugin typescript",
+    "build:types": "tsc --declaration --emitDeclarationOnly --declarationDir ./dist/types",
+    "watch": "rollup  --config rollup.config.ts --configPlugin typescript --watch",
+    "watch:types": "tsc --declaration --emitDeclarationOnly --declarationDir ./dist/types --watch",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^11.1.5",
+    "@types/node": "^20.8.10",
+    "@typescript-eslint/eslint-plugin": "^6.10.0",
+    "@typescript-eslint/parser": "^6.10.0",
+    "eslint": "^8.53.0",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.0.3",
+    "rollup": "^4.3.0",
+    "ts-node": "^10.9.2",
+    "tslib": "^2.6.2",
+    "typescript": "^5.2.2"
+  }
+}
