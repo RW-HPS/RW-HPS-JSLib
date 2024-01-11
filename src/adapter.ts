@@ -1,7 +1,20 @@
-import { PlayerBanEvent } from './event'
+import { PlayerBanEvent, PlayerChatEvent } from './event'
 import { GameCommandActions, GameInternalUnits } from './game'
 import { PlayerHess } from './hess'
 import { AbstractNetConnectServer, ServerStatus } from './server'
+
+export function adaptPlayerChatEvent(
+  obj: JavaInstanceTypeOf<'net.rwhps.server.game.event.game.PlayerChatEvent'>,
+): PlayerChatEvent {
+  return {
+    get player() {
+      return adaptPlayerHess(obj.getPlayer())
+    },
+    get message() {
+      return obj.getMessage()
+    },
+  }
+}
 
 export function adaptGameInternalUnits(
   obj: JavaInstanceTypeOf<'net.rwhps.server.game.enums.GameInternalUnits'>,
