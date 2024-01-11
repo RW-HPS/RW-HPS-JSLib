@@ -150,7 +150,7 @@ export function adaptPlayerHess(
       obj.sendMessage(
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
-        player,
+        player[javaObj],
         text,
       )
     },
