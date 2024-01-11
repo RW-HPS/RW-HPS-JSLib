@@ -25,3 +25,5 @@ export interface JavaMap<K, V> extends Iterable<K> {
 }
 
 export interface Seq<E> extends JavaList<E> {}
+
+export interface ObjectMap<K, V> extends JavaMap<K, V> {}

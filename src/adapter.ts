@@ -1,6 +1,61 @@
 import { PlayerBanEvent } from './event'
+import { GameCommandActions, GameInternalUnits } from './game'
 import { PlayerHess } from './hess'
 import { AbstractNetConnectServer, ServerStatus } from './server'
+
+export function adaptGameInternalUnits(
+  obj: JavaInstanceTypeOf<'net.rwhps.server.game.enums.GameInternalUnits'>,
+): GameInternalUnits {
+  return obj.name() as GameInternalUnits
+}
+
+const JavaGameCommandActions = Java.type(
+  'net.rwhps.server.game.enums.GameCommandActions',
+)
+export function adaptGameCommandActions(
+  obj: JavaInstanceTypeOf<'net.rwhps.server.game.enums.GameCommandActions'>,
+): GameCommandActions {
+  switch (obj) {
+    case JavaGameCommandActions.ATTACK:
+      return 'attack'
+    case JavaGameCommandActions.ATTACKMOVE:
+      return 'attackMove'
+    case JavaGameCommandActions.BUILD:
+      return 'build'
+    case JavaGameCommandActions.FOLLOW:
+      return 'follow'
+    case JavaGameCommandActions.GUARD:
+      return 'guard'
+    case JavaGameCommandActions.GUARDAT:
+      return 'guardAt'
+    case JavaGameCommandActions.LOADINTO:
+      return 'loadInto'
+    case JavaGameCommandActions.LOADUP:
+      return 'loadup'
+    case JavaGameCommandActions.MOVE:
+      return 'move'
+    case JavaGameCommandActions.PATROL:
+      return 'patrol'
+    case JavaGameCommandActions.RECLAIM:
+      return 'reclaim'
+    case JavaGameCommandActions.REPAIR:
+      return 'repair'
+    case JavaGameCommandActions.SETPASSIVETARGET:
+      return 'setPassiveTarget'
+    case JavaGameCommandActions.TOUCHTARGET:
+      return 'touchTarget'
+    case JavaGameCommandActions.TRIGGERACTION:
+      return 'triggerAction'
+    case JavaGameCommandActions.TRIGGERACTIONWHENINRANGE:
+      return 'triggerActionWhenInRange'
+    case JavaGameCommandActions.UNKNOWN:
+      return 'unknown'
+    case JavaGameCommandActions.UNLOADAT:
+      return 'unloadAt'
+    default:
+      throw new Error(`Unexpected GameCommandActions type: ${obj.toString()}`)
+  }
+}
 
 const JavaServerStatus = Java.type(
   'net.rwhps.server.net.core.DataPermissionStatus$ServerStatus',
@@ -14,7 +69,7 @@ export function adaptServerStatus(
     case JavaServerStatus.CertifiedEnd:
       return 'CertifiedEnd'
     default:
-      throw new Error(`Unexpected ServerStatusType: ${obj.toString()}`)
+      throw new Error(`Unexpected ServerStatus type: ${obj.toString()}`)
   }
 }
 

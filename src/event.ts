@@ -1,3 +1,4 @@
+import { GameCommandActions, GameInternalUnits, GameOverData } from './game'
 import { PlayerHess } from './hess'
 
 export interface PlayerBanEvent {
@@ -29,6 +30,20 @@ export interface PlayerUnBanEvent {
   get player(): PlayerHess
 }
 
+export interface PlayerOperationUnitEvent {
+  get player(): PlayerHess
+  get gameCommandActions(): GameCommandActions
+  get gameInternalUnits(): GameInternalUnits
+}
+
+export interface ServerGameOverEvent {
+  get gameOverData(): GameOverData
+}
+
+export interface ServerGameStartEvent {}
+
+export interface ServerHessStartPort {}
+
 export interface Events {
   PlayerBanEvent: PlayerBanEvent
   PlayerChatEvent: PlayerChatEvent
@@ -37,6 +52,10 @@ export interface Events {
   PlayerJoinEvent: PlayerJoinEvent
   PlayerLeaveEvent: PlayerLeaveEvent
   PlayerUnBanEvent: PlayerUnBanEvent
+  PlayerOperationUnitEvent: PlayerOperationUnitEvent
+  ServerGameOverEvent: ServerGameOverEvent
+  ServerGameStartEvent: ServerGameStartEvent
+  ServerHessStartPort: ServerHessStartPort
 }
 
 export type EventType = keyof Events
