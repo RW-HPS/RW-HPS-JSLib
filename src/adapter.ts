@@ -1,6 +1,6 @@
 import { PlayerBanEvent, PlayerChatEvent } from './event'
 import { GameCommandActions, GameInternalUnits } from './game'
-import { PlayerHess } from './hess'
+import { PlayerHess, javaObj } from './hess'
 import { AbstractNetConnectServer, ServerStatus } from './server'
 
 export function adaptPlayerChatEvent(
@@ -139,8 +139,46 @@ export function adaptPlayerHess(
   obj: JavaInstanceTypeOf<'net.rwhps.server.data.player.PlayerHess'>,
 ): PlayerHess {
   return {
+    [javaObj]: obj,
     get con() {
       return adaptAbstractNetConnectServer(obj.getCon())
+    },
+    get isAdmin() {
+      return obj.isAdmin()
+    },
+    sendMessage(player, text) {
+      obj.sendMessage(
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        player,
+        text,
+      )
+    },
+    sendSystemMessage(text) {
+      obj.sendSystemMessage(text)
+    },
+    sendPopUps(msg, run) {
+      obj.sendPopUps(
+        msg,
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        run,
+      )
+    },
+    kickPlayer(text, time) {
+      if (time) {
+        obj.kickPlayer(text, time)
+      } else {
+        obj.kickPlayer(text)
+      }
+    },
+    getinput(input, ...params) {
+      return obj.getinput(
+        input,
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        ...params,
+      )
     },
   }
 }
