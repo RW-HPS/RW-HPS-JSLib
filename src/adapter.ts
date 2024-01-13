@@ -3,14 +3,54 @@ import {
   PlayerChatEvent,
   PlayerIpBanEvent,
   PlayerIpUnBanEvent,
+  PlayerJoinEvent,
+  PlayerLeaveEvent,
+  PlayerOperationUnitEvent,
+  PlayerUnBanEvent,
 } from './event'
 import { GameCommandActions, GameInternalUnits } from './game'
 import { PlayerHess, javaObj } from './hess'
 import { AbstractNetConnectServer, ServerStatus } from './server'
 
+export function adaptPlayerOpeartionUnitEvent(
+  obj: JavaInstanceTypeOf<'net.rwhps.server.game.event.game.PlayerOperationUnitEvent'>,
+): PlayerOperationUnitEvent {
+  return {
+    get player() {
+      return adaptPlayerHess(obj.getPlayer())
+    },
+    get gameCommandActions() {
+      return adaptGameCommandActions(obj.getGameCommandActions())
+    },
+    get gameInternalUnits() {
+      return adaptGameInternalUnits(obj.getGameInternalUnits())
+    },
+  }
+}
+
+export function adaptPlayerLeaveEvent(
+  obj: JavaInstanceTypeOf<'net.rwhps.server.game.event.game.PlayerLeaveEvent'>,
+): PlayerLeaveEvent {
+  return {
+    get player() {
+      return adaptPlayerHess(obj.getPlayer())
+    },
+  }
+}
+
+export function adaptPlayerJoinEvent(
+  obj: JavaInstanceTypeOf<'net.rwhps.server.game.event.game.PlayerJoinEvent'>,
+): PlayerJoinEvent {
+  return {
+    get player() {
+      return adaptPlayerHess(obj.getPlayer())
+    },
+  }
+}
+
 export function adaptPlayerUnBanEvent(
   obj: JavaInstanceTypeOf<'net.rwhps.server.game.event.game.PlayerUnBanEvent'>,
-): PlayerIpUnBanEvent {
+): PlayerUnBanEvent {
   return {
     get player() {
       return adaptPlayerHess(obj.getPlayer())
