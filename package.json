@@ -1,7 +1,7 @@
 {
-  "name": "ts-rollup-template",
-  "version": "1.0.0",
-  "description": "Basic TypeScript template with rollup.",
+  "name": "rw-hps-jslib",
+  "version": "2.1.0",
+  "description": "",
   "type": "module",
   "main": "./dist/index.min.js",
   "types": "./dist/types/src/index.d.ts",
