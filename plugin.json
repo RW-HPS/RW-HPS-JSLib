@@ -1,5 +1,6 @@
 {
   "name": "jslib",
+  "internalName": "jslib",
   "author": "RW-HPS",
   "main": "index.js",
   "description": "Simple JS library making plugining easier.",
