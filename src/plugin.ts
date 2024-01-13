@@ -1,4 +1,12 @@
-import { adaptPlayerBanEvent, adaptPlayerChatEvent } from './adapter'
+import {
+  adaptPlayerBanEvent,
+  adaptPlayerChatEvent,
+  adaptPlayerIpBanEvent,
+  adaptPlayerIpUnBanEvent,
+  adaptPlayerJoinEvent,
+  adaptPlayerLeaveEvent,
+  adaptPlayerUnBanEvent,
+} from './adapter'
 import {
   Command,
   CoreCommandHandler,
@@ -323,7 +331,7 @@ export function createPlugin(options: CreatePluginOptions): unknown {
                 Java.type('net.rwhps.server.game.event.game.PlayerIpBanEvent'),
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
-                (ev) => consumer(adaptPlayerChatEvent(ev)),
+                (ev) => consumer(adaptPlayerIpBanEvent(ev)),
               )
               break
             case 'PlayerIpUnBanEvent':
@@ -335,7 +343,7 @@ export function createPlugin(options: CreatePluginOptions): unknown {
                 ),
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
-                (ev) => consumer(adaptPlayerChatEvent(ev)),
+                (ev) => consumer(adaptPlayerIpUnBanEvent(ev)),
               )
               break
             case 'PlayerUnBanEvent':
@@ -345,7 +353,27 @@ export function createPlugin(options: CreatePluginOptions): unknown {
                 Java.type('net.rwhps.server.game.event.game.PlayerUnBanEvent'),
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
-                (ev) => consumer(adaptPlayerChatEvent(ev)),
+                (ev) => consumer(adaptPlayerUnBanEvent(ev)),
+              )
+              break
+            case 'PlayerJoinEvent':
+              eventManage.registerListener(
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                Java.type('net.rwhps.server.game.event.game.PlayerJoinEvent'),
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                (ev) => consumer(adaptPlayerJoinEvent(ev)),
+              )
+              break
+            case 'PlayerLeaveEvent':
+              eventManage.registerListener(
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                Java.type('net.rwhps.server.game.event.game.PlayerJoinEvent'),
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                (ev) => consumer(adaptPlayerLeaveEvent(ev)),
               )
               break
             default:
