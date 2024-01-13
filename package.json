@@ -15,7 +15,6 @@
   "author": "zerodegress",
   "license": "MIT",
   "devDependencies": {
-    "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^11.1.5",
     "@types/node": "^20.8.10",
     "@typescript-eslint/eslint-plugin": "^6.10.0",
