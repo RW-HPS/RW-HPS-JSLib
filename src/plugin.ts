@@ -316,6 +316,38 @@ export function createPlugin(options: CreatePluginOptions): unknown {
                 (ev) => consumer(adaptPlayerChatEvent(ev)),
               )
               break
+            case 'PlayerIpBanEvent':
+              eventManage.registerListener(
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                Java.type('net.rwhps.server.game.event.game.PlayerIpBanEvent'),
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                (ev) => consumer(adaptPlayerChatEvent(ev)),
+              )
+              break
+            case 'PlayerIpUnBanEvent':
+              eventManage.registerListener(
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                Java.type(
+                  'net.rwhps.server.game.event.game.PlayerIpUnBanEvent',
+                ),
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                (ev) => consumer(adaptPlayerChatEvent(ev)),
+              )
+              break
+            case 'PlayerUnBanEvent':
+              eventManage.registerListener(
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                Java.type('net.rwhps.server.game.event.game.PlayerUnBanEvent'),
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                (ev) => consumer(adaptPlayerChatEvent(ev)),
+              )
+              break
             default:
               throw new Error('Unknown event')
           }
