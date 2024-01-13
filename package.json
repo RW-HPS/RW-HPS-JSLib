@@ -12,8 +12,8 @@
     "watch:types": "tsc --declaration --emitDeclarationOnly --declarationDir ./dist/types --watch"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "zerodegress",
+  "license": "MIT",
   "devDependencies": {
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^11.1.5",
