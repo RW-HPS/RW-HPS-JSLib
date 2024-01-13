@@ -1,7 +1,42 @@
-import { PlayerBanEvent, PlayerChatEvent } from './event'
+import {
+  PlayerBanEvent,
+  PlayerChatEvent,
+  PlayerIpBanEvent,
+  PlayerIpUnBanEvent,
+} from './event'
 import { GameCommandActions, GameInternalUnits } from './game'
 import { PlayerHess, javaObj } from './hess'
 import { AbstractNetConnectServer, ServerStatus } from './server'
+
+export function adaptPlayerUnBanEvent(
+  obj: JavaInstanceTypeOf<'net.rwhps.server.game.event.game.PlayerUnBanEvent'>,
+): PlayerIpUnBanEvent {
+  return {
+    get player() {
+      return adaptPlayerHess(obj.getPlayer())
+    },
+  }
+}
+
+export function adaptPlayerIpUnBanEvent(
+  obj: JavaInstanceTypeOf<'net.rwhps.server.game.event.game.PlayerIpUnBanEvent'>,
+): PlayerIpUnBanEvent {
+  return {
+    get player() {
+      return adaptPlayerHess(obj.getPlayer())
+    },
+  }
+}
+
+export function adaptPlayerIpBanEvent(
+  obj: JavaInstanceTypeOf<'net.rwhps.server.game.event.game.PlayerIpBanEvent'>,
+): PlayerIpBanEvent {
+  return {
+    get player() {
+      return adaptPlayerHess(obj.getPlayer())
+    },
+  }
+}
 
 export function adaptPlayerChatEvent(
   obj: JavaInstanceTypeOf<'net.rwhps.server.game.event.game.PlayerChatEvent'>,
