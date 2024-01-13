@@ -5,6 +5,7 @@ import {
   adaptPlayerIpUnBanEvent,
   adaptPlayerJoinEvent,
   adaptPlayerLeaveEvent,
+  adaptPlayerOpeartionUnitEvent,
   adaptPlayerUnBanEvent,
 } from './adapter'
 import {
@@ -374,6 +375,18 @@ export function createPlugin(options: CreatePluginOptions): unknown {
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
                 (ev) => consumer(adaptPlayerLeaveEvent(ev)),
+              )
+              break
+            case 'PlayerOperationUnitEvent':
+              eventManage.registerListener(
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                Java.type(
+                  'net.rwhps.server.game.event.game.PlayerOperationUnitEvent',
+                ),
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                (ev) => consumer(adaptPlayerOpeartionUnitEvent(ev)),
               )
               break
             default:
