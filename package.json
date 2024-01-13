@@ -3,13 +3,13 @@
   "version": "2.1.0",
   "description": "",
   "type": "module",
-  "main": "./dist/index.min.js",
-  "types": "./dist/types/src/index.d.ts",
+  "main": "./dist/index.js",
+  "types": "./types/src/index.d.ts",
   "scripts": {
     "build": "rollup -c rollup.config.ts --configPlugin typescript",
-    "build:types": "tsc --declaration --emitDeclarationOnly --declarationDir ./dist/types",
+    "build:types": "tsc --declaration --emitDeclarationOnly --declarationDir ./types",
     "watch": "rollup  --config rollup.config.ts --configPlugin typescript --watch",
-    "watch:types": "tsc --declaration --emitDeclarationOnly --declarationDir ./dist/types --watch"
+    "watch:types": "tsc --declaration --emitDeclarationOnly --declarationDir ./types --watch"
   },
   "keywords": [],
   "author": "zerodegress",
@@ -24,6 +24,7 @@
     "eslint-config-prettier": "^9.1.0",
     "prettier": "^3.0.3",
     "rollup": "^4.3.0",
+    "rollup-plugin-copy": "^3.5.0",
     "ts-node": "^10.9.2",
     "tslib": "^2.6.2",
     "typescript": "^5.2.2"

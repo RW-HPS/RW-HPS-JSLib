@@ -1,14 +1,20 @@
 import { RollupOptions } from 'rollup'
 import typescript from '@rollup/plugin-typescript'
-// import terser from '@rollup/plugin-terser'
+import copy from 'rollup-plugin-copy'
 
 export default [
   {
     input: './src/index.ts',
     output: {
-      file: './dist/index.min.js',
+      file: './dist/index.js',
       format: 'esm',
+      sourcemap: true,
     },
-    plugins: [typescript()],
+    plugins: [
+      typescript(),
+      copy({
+        targets: [{ src: 'plugin.json', dest: 'dist/' }],
+      }),
+    ],
   },
 ] as RollupOptions
