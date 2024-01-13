@@ -9,8 +9,7 @@
     "build": "rollup -c rollup.config.ts --configPlugin typescript",
     "build:types": "tsc --declaration --emitDeclarationOnly --declarationDir ./dist/types",
     "watch": "rollup  --config rollup.config.ts --configPlugin typescript --watch",
-    "watch:types": "tsc --declaration --emitDeclarationOnly --declarationDir ./dist/types --watch",
-    "test": "jest"
+    "watch:types": "tsc --declaration --emitDeclarationOnly --declarationDir ./dist/types --watch"
   },
   "keywords": [],
   "author": "",
