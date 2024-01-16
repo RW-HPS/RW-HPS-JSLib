@@ -1,3 +1,4 @@
+import { adaptHessModuleManage } from './adapter'
 import { AbstractNetConnectServer } from './server'
 
 export const javaObj = Symbol('javaObj')
@@ -5,6 +6,8 @@ export interface PlayerHess {
   [javaObj]: { getClass: unknown }
   get con(): AbstractNetConnectServer
   get isAdmin(): boolean
+  get team(): number
+  set team(v: number)
   sendSystemMessage(text: string): void
   sendMessage(player: PlayerHess, text: string): void
   sendPopUps(msg: string, run: (v: string) => void): void
@@ -36,5 +39,11 @@ export interface ServerRoom {
 }
 
 export interface PlayerHessManage {
+  forEachPlayerInAll(callback: (player: PlayerHess) => void): void
+  forEachPlayerInGroup(callback: (player: PlayerHess) => void): void
   findPlayer(findIn: string): PlayerHess | undefined
 }
+
+export const HessModuleManage = adaptHessModuleManage(
+  Java.type('net.rwhps.server.game.HessModuleManage'),
+)

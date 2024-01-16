@@ -34,6 +34,20 @@ export function adaptPlayerHessManage(
       )
       return res && adaptPlayerHess(res)
     },
+    forEachPlayerInGroup(callback) {
+      for (const player of obj.playerGroup as unknown as Seq<
+        JavaInstanceTypeOf<'net.rwhps.server.data.player.PlayerHess'>
+      >) {
+        callback(adaptPlayerHess(player))
+      }
+    },
+    forEachPlayerInAll(callback) {
+      for (const player of obj.playerAll as unknown as Seq<
+        JavaInstanceTypeOf<'net.rwhps.server.data.player.PlayerHess'>
+      >) {
+        callback(adaptPlayerHess(player))
+      }
+    },
   }
 }
 
@@ -44,17 +58,32 @@ export function adaptServerRoom(
     get roomID() {
       return obj.getRoomID()
     },
+    set roomID(v) {
+      obj.setRoomID(v)
+    },
     get isStartGame() {
       return obj.isStartGame()
+    },
+    set isStartGame(v) {
+      obj.setStartGame(v)
     },
     get isAfk() {
       return obj.isAfk()
     },
+    set isAfk(v) {
+      obj.setAfk(v)
+    },
     get mapName() {
       return obj.getMapName()
     },
+    set mapName(v) {
+      obj.setMapName(v)
+    },
     get replayFileName() {
       return obj.getReplayFileName()
+    },
+    set replayFileName(v) {
+      obj.setReplayFileName(v)
     },
     get closeServer() {
       return obj.getCloseServer() as unknown as () => void
@@ -332,6 +361,12 @@ export function adaptPlayerHess(
     },
     get isAdmin() {
       return obj.isAdmin()
+    },
+    get team() {
+      return obj.getTeam()
+    },
+    set team(v) {
+      obj.setTeam(v)
     },
     sendMessage(player, text) {
       obj.sendMessage(
