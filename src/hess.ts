@@ -34,3 +34,7 @@ export interface ServerRoom {
   get closeServer(): () => void
   get startServer(): () => void
 }
+
+export interface PlayerHessManage {
+  findPlayer(findIn: string): PlayerHess | undefined
+}

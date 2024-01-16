@@ -14,11 +14,28 @@ import {
   AbstractGameModule,
   HessModuleManage,
   PlayerHess,
+  PlayerHessManage,
   ServerRoom,
   javaObj,
 } from './hess'
 import { AbstractNetConnectServer, ServerStatus } from './server'
 import { ObjectMap, Seq } from './struct'
+
+export function adaptPlayerHessManage(
+  obj: JavaInstanceTypeOf<'net.rwhps.server.data.player.PlayerHessManage'>,
+): PlayerHessManage {
+  return {
+    findPlayer(findIn) {
+      const res = obj.findPlayer(
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        () => {},
+        findIn,
+      )
+      return res && adaptPlayerHess(res)
+    },
+  }
+}
 
 export function adaptServerRoom(
   obj: JavaInstanceTypeOf<'net.rwhps.server.core.game.ServerRoom'>,
