@@ -11,3 +11,9 @@ export interface PlayerHess {
   kickPlayer(text: string, time?: number): void
   getinput(input: string, ...params: unknown[]): string
 }
+
+export interface HessModuleManage {
+  get hps(): AbstractGameModule
+}
+
+export interface AbstractGameModule {}

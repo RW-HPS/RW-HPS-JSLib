@@ -10,9 +10,31 @@ import {
   ServerGameOverEvent,
 } from './event'
 import { GameCommandActions, GameInternalUnits, GameOverData } from './game'
-import { PlayerHess, javaObj } from './hess'
+import {
+  AbstractGameModule,
+  HessModuleManage,
+  PlayerHess,
+  javaObj,
+} from './hess'
 import { AbstractNetConnectServer, ServerStatus } from './server'
 import { ObjectMap, Seq } from './struct'
+
+export function adaptAbstractGameModule(
+  obj: JavaInstanceTypeOf<'net.rwhps.server.game.simulation.core.AbstractGameModule'>,
+): AbstractGameModule {
+  obj
+  return {}
+}
+
+export function adaptHessModuleManage(
+  obj: JavaInstanceTypeOf<'net.rwhps.server.game.HessModuleManage'>,
+): HessModuleManage {
+  return {
+    get hps() {
+      return obj.getHps()
+    },
+  }
+}
 
 export function adaptServerGameOverEvent(
   obj: JavaInstanceTypeOf<'net.rwhps.server.game.event.game.ServerGameOverEvent'>,
