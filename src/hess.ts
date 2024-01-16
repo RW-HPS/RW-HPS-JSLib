@@ -16,4 +16,21 @@ export interface HessModuleManage {
   get hps(): AbstractGameModule
 }
 
-export interface AbstractGameModule {}
+export interface AbstractGameModule {
+  get room(): ServerRoom
+}
+
+export interface ServerRoom {
+  get roomID(): string
+  set roomID(v: string)
+  get isStartGame(): boolean
+  set isStartGame(v: boolean)
+  get isAfk(): boolean
+  set isAfk(v: boolean)
+  get mapName(): string
+  set mapName(v: string)
+  get replayFileName(): string
+  set replayFileName(v: string)
+  get closeServer(): () => void
+  get startServer(): () => void
+}

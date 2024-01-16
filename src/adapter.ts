@@ -14,16 +14,49 @@ import {
   AbstractGameModule,
   HessModuleManage,
   PlayerHess,
+  ServerRoom,
   javaObj,
 } from './hess'
 import { AbstractNetConnectServer, ServerStatus } from './server'
 import { ObjectMap, Seq } from './struct'
 
+export function adaptServerRoom(
+  obj: JavaInstanceTypeOf<'net.rwhps.server.core.game.ServerRoom'>,
+): ServerRoom {
+  return {
+    get roomID() {
+      return obj.getRoomID()
+    },
+    get isStartGame() {
+      return obj.isStartGame()
+    },
+    get isAfk() {
+      return obj.isAfk()
+    },
+    get mapName() {
+      return obj.getMapName()
+    },
+    get replayFileName() {
+      return obj.getReplayFileName()
+    },
+    get closeServer() {
+      return obj.getCloseServer() as unknown as () => void
+    },
+    get startServer() {
+      return obj.getStartServer() as unknown as () => void
+    },
+  }
+}
+
 export function adaptAbstractGameModule(
   obj: JavaInstanceTypeOf<'net.rwhps.server.game.simulation.core.AbstractGameModule'>,
 ): AbstractGameModule {
   obj
-  return {}
+  return {
+    get room() {
+      return adaptServerRoom(obj.getRoom())
+    },
+  }
 }
 
 export function adaptHessModuleManage(
@@ -31,7 +64,7 @@ export function adaptHessModuleManage(
 ): HessModuleManage {
   return {
     get hps() {
-      return obj.getHps()
+      return adaptAbstractGameModule(obj.getHps())
     },
   }
 }
