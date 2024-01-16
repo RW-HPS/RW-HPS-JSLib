@@ -7,10 +7,50 @@ import {
   PlayerLeaveEvent,
   PlayerOperationUnitEvent,
   PlayerUnBanEvent,
+  ServerGameOverEvent,
 } from './event'
-import { GameCommandActions, GameInternalUnits } from './game'
+import { GameCommandActions, GameInternalUnits, GameOverData } from './game'
 import { PlayerHess, javaObj } from './hess'
 import { AbstractNetConnectServer, ServerStatus } from './server'
+import { ObjectMap, Seq } from './struct'
+
+export function adaptServerGameOverEvent(
+  obj: JavaInstanceTypeOf<'net.rwhps.server.game.event.game.ServerGameOverEvent'>,
+): ServerGameOverEvent {
+  return {
+    get gameOverData() {
+      return adaptGameOverData(obj.getGameOverData())
+    },
+  }
+}
+
+export function adaptGameOverData(
+  obj: JavaInstanceTypeOf<'net.rwhps.server.game.event.game.ServerGameOverEvent$GameOverData'>,
+): GameOverData {
+  return {
+    get gameTime() {
+      return obj.getGameTime()
+    },
+    get allPlayerList() {
+      return obj.getAllPlayerList() as unknown as Seq<string>
+    },
+    get winPlayerList() {
+      return obj.getWinPlayerList() as unknown as Seq<string>
+    },
+    get mapName() {
+      return obj.getMapName()
+    },
+    get playerData() {
+      return obj.getPlayerData() as unknown as ObjectMap<
+        string,
+        ObjectMap<string, number>
+      >
+    },
+    get replayName() {
+      return obj.getReplayName()
+    },
+  }
+}
 
 export function adaptPlayerOpeartionUnitEvent(
   obj: JavaInstanceTypeOf<'net.rwhps.server.game.event.game.PlayerOperationUnitEvent'>,

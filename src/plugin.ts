@@ -7,6 +7,7 @@ import {
   adaptPlayerLeaveEvent,
   adaptPlayerOpeartionUnitEvent,
   adaptPlayerUnBanEvent,
+  adaptServerGameOverEvent,
 } from './adapter'
 import {
   Command,
@@ -387,6 +388,42 @@ export function createPlugin(options: CreatePluginOptions): unknown {
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
                 (ev) => consumer(adaptPlayerOpeartionUnitEvent(ev)),
+              )
+              break
+            case 'ServerGameOverEvent':
+              eventManage.registerListener(
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                Java.type(
+                  'net.rwhps.server.game.event.game.ServerGameOverEvent',
+                ),
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                (ev) => consumer(adaptServerGameOverEvent(ev)),
+              )
+              break
+            case 'ServerGameStartEvent':
+              eventManage.registerListener(
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                Java.type(
+                  'net.rwhps.server.game.event.game.ServerGameStartEvent',
+                ),
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                (ev) => consumer(ev),
+              )
+              break
+            case 'ServerHessStartPort':
+              eventManage.registerListener(
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                Java.type(
+                  'net.rwhps.server.game.event.game.ServerHessStartPort',
+                ),
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                (ev) => consumer(ev),
               )
               break
             default:
