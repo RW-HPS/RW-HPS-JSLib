@@ -77,11 +77,11 @@ export function adaptAbstractGameModule(
 }
 
 export function adaptHessModuleManage(
-  obj: JavaInstanceTypeOf<'net.rwhps.server.game.HessModuleManage'>,
+  obj: JavaStaticTypeOf<'net.rwhps.server.game.HessModuleManage'>,
 ): HessModuleManage {
   return {
     get hps() {
-      return adaptAbstractGameModule(obj.getHps())
+      return adaptAbstractGameModule(obj.INSTANCE.getHps())
     },
   }
 }
