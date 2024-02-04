@@ -42,16 +42,16 @@ type AllJavaClass_net_rwhps_server_net_core_ConnectionAgreement = {
     close(
       arg0: AllJavaClasses['net.rwhps.server.net.GroupNet']['instanceObject'],
     ): void
-    getLocalPort$Server_Core(): number
+    getIpLong24(): string
+    getIp(): string
+    getUseAgreement(): string
+    isClosed(): AllJavaClasses['kotlin.jvm.functions.Function0']['instanceObject']
+    getIpCountry(): string
+    getIpCountryAll(): string
     send(
       arg0: AllJavaClasses['net.rwhps.server.io.packet.Packet']['instanceObject'],
     ): void
-    getUseAgreement(): string
-    getIpLong24(): string
-    getIpCountryAll(): string
-    getIp(): string
-    isClosed(): AllJavaClasses['kotlin.jvm.functions.Function0']['instanceObject']
-    getIpCountry(): string
+    getLocalPort$Server_Core(): number
   } & Omit<AllJavaClasses['java.lang.Object']['instanceObject'], '__javaClass'>
 }
 type AllJavaClass_io_netty_channel_ChannelHandlerContext = {
@@ -67,27 +67,27 @@ type AllJavaClass_io_netty_channel_ChannelHandlerContext = {
     ): AllJavaClasses['io.netty.util.Attribute']['instanceObject']
     channel(): AllJavaClasses['io.netty.channel.Channel']['instanceObject']
     executor(): AllJavaClasses['io.netty.util.concurrent.EventExecutor']['instanceObject']
-    hasAttr(
-      arg0: AllJavaClasses['io.netty.util.AttributeKey']['instanceObject'],
-    ): boolean
-    fireChannelRead(
-      arg0: AllJavaClasses['java.lang.Object']['instanceObject'],
-    ): AllJavaClasses['io.netty.channel.ChannelHandlerContext']['instanceObject']
-    fireChannelActive(): AllJavaClasses['io.netty.channel.ChannelHandlerContext']['instanceObject']
-    pipeline(): AllJavaClasses['io.netty.channel.ChannelPipeline']['instanceObject']
-    isRemoved(): boolean
-    alloc(): AllJavaClasses['io.netty.buffer.ByteBufAllocator']['instanceObject']
-    fireChannelReadComplete(): AllJavaClasses['io.netty.channel.ChannelHandlerContext']['instanceObject']
-    fireExceptionCaught(
-      arg0: AllJavaClasses['java.lang.Throwable']['instanceObject'],
-    ): AllJavaClasses['io.netty.channel.ChannelHandlerContext']['instanceObject']
     fireUserEventTriggered(
       arg0: AllJavaClasses['java.lang.Object']['instanceObject'],
     ): AllJavaClasses['io.netty.channel.ChannelHandlerContext']['instanceObject']
+    fireChannelReadComplete(): AllJavaClasses['io.netty.channel.ChannelHandlerContext']['instanceObject']
+    fireChannelInactive(): AllJavaClasses['io.netty.channel.ChannelHandlerContext']['instanceObject']
     fireChannelUnregistered(): AllJavaClasses['io.netty.channel.ChannelHandlerContext']['instanceObject']
     fireChannelRegistered(): AllJavaClasses['io.netty.channel.ChannelHandlerContext']['instanceObject']
-    fireChannelInactive(): AllJavaClasses['io.netty.channel.ChannelHandlerContext']['instanceObject']
+    fireExceptionCaught(
+      arg0: AllJavaClasses['java.lang.Throwable']['instanceObject'],
+    ): AllJavaClasses['io.netty.channel.ChannelHandlerContext']['instanceObject']
     fireChannelWritabilityChanged(): AllJavaClasses['io.netty.channel.ChannelHandlerContext']['instanceObject']
+    fireChannelRead(
+      arg0: AllJavaClasses['java.lang.Object']['instanceObject'],
+    ): AllJavaClasses['io.netty.channel.ChannelHandlerContext']['instanceObject']
+    isRemoved(): boolean
+    hasAttr(
+      arg0: AllJavaClasses['io.netty.util.AttributeKey']['instanceObject'],
+    ): boolean
+    alloc(): AllJavaClasses['io.netty.buffer.ByteBufAllocator']['instanceObject']
+    fireChannelActive(): AllJavaClasses['io.netty.channel.ChannelHandlerContext']['instanceObject']
+    pipeline(): AllJavaClasses['io.netty.channel.ChannelPipeline']['instanceObject']
   } & Omit<
     AllJavaClasses['io.netty.util.AttributeMap']['instanceObject'],
     '__javaClass'
@@ -105,14 +105,14 @@ type AllJavaClass_io_netty_channel_ChannelHandler = {
   staticObject: object
   instanceObject: {
     __javaClass: 'io.netty.channel.ChannelHandler'
+    handlerAdded(
+      arg0: AllJavaClasses['io.netty.channel.ChannelHandlerContext']['instanceObject'],
+    ): void
     exceptionCaught(
       arg0: AllJavaClasses['io.netty.channel.ChannelHandlerContext']['instanceObject'],
       arg1: AllJavaClasses['java.lang.Throwable']['instanceObject'],
     ): void
     handlerRemoved(
-      arg0: AllJavaClasses['io.netty.channel.ChannelHandlerContext']['instanceObject'],
-    ): void
-    handlerAdded(
       arg0: AllJavaClasses['io.netty.channel.ChannelHandlerContext']['instanceObject'],
     ): void
   }
@@ -13062,15 +13062,15 @@ type AllJavaClass_io_netty_channel_Channel = {
     isActive(): boolean
     isWritable(): boolean
     config(): AllJavaClasses['io.netty.channel.ChannelConfig']['instanceObject']
-    pipeline(): AllJavaClasses['io.netty.channel.ChannelPipeline']['instanceObject']
-    alloc(): AllJavaClasses['io.netty.buffer.ByteBufAllocator']['instanceObject']
-    eventLoop(): AllJavaClasses['io.netty.channel.EventLoop']['instanceObject']
-    closeFuture(): AllJavaClasses['io.netty.channel.ChannelFuture']['instanceObject']
-    metadata(): AllJavaClasses['io.netty.channel.ChannelMetadata']['instanceObject']
-    bytesBeforeUnwritable(): number
-    bytesBeforeWritable(): number
-    remoteAddress(): AllJavaClasses['java.net.SocketAddress']['instanceObject']
     localAddress(): AllJavaClasses['java.net.SocketAddress']['instanceObject']
+    remoteAddress(): AllJavaClasses['java.net.SocketAddress']['instanceObject']
+    alloc(): AllJavaClasses['io.netty.buffer.ByteBufAllocator']['instanceObject']
+    pipeline(): AllJavaClasses['io.netty.channel.ChannelPipeline']['instanceObject']
+    metadata(): AllJavaClasses['io.netty.channel.ChannelMetadata']['instanceObject']
+    closeFuture(): AllJavaClasses['io.netty.channel.ChannelFuture']['instanceObject']
+    eventLoop(): AllJavaClasses['io.netty.channel.EventLoop']['instanceObject']
+    bytesBeforeWritable(): number
+    bytesBeforeUnwritable(): number
   } & Omit<
     AllJavaClasses['io.netty.util.AttributeMap']['instanceObject'],
     '__javaClass'
@@ -13124,6 +13124,8 @@ type AllJavaClass_io_netty_channel_Channel$Unsafe = {
       arg0: AllJavaClasses['java.net.SocketAddress']['instanceObject'],
       arg1: AllJavaClasses['io.netty.channel.ChannelPromise']['instanceObject'],
     ): void
+    localAddress(): AllJavaClasses['java.net.SocketAddress']['instanceObject']
+    remoteAddress(): AllJavaClasses['java.net.SocketAddress']['instanceObject']
     deregister(
       arg0: AllJavaClasses['io.netty.channel.ChannelPromise']['instanceObject'],
     ): void
@@ -13131,12 +13133,10 @@ type AllJavaClass_io_netty_channel_Channel$Unsafe = {
       arg0: AllJavaClasses['io.netty.channel.ChannelPromise']['instanceObject'],
     ): void
     voidPromise(): AllJavaClasses['io.netty.channel.ChannelPromise']['instanceObject']
-    remoteAddress(): AllJavaClasses['java.net.SocketAddress']['instanceObject']
-    localAddress(): AllJavaClasses['java.net.SocketAddress']['instanceObject']
     recvBufAllocHandle(): AllJavaClasses['io.netty.channel.RecvByteBufAllocator$Handle']['instanceObject']
     closeForcibly(): void
-    beginRead(): void
     outboundBuffer(): AllJavaClasses['io.netty.channel.ChannelOutboundBuffer']['instanceObject']
+    beginRead(): void
   }
 }
 type AllJavaClass_io_netty_channel_EventLoop = {
@@ -13181,20 +13181,20 @@ type AllJavaClass_io_netty_channel_ChannelFuture = {
     sync(): AllJavaClasses['io.netty.channel.ChannelFuture']['instanceObject']
     channel(): AllJavaClasses['io.netty.channel.Channel']['instanceObject']
     await(): AllJavaClasses['io.netty.channel.ChannelFuture']['instanceObject']
-    awaitUninterruptibly(): AllJavaClasses['io.netty.channel.ChannelFuture']['instanceObject']
-    syncUninterruptibly(): AllJavaClasses['io.netty.channel.ChannelFuture']['instanceObject']
     addListener(
       arg0: AllJavaClasses['io.netty.util.concurrent.GenericFutureListener']['instanceObject'],
     ): AllJavaClasses['io.netty.channel.ChannelFuture']['instanceObject']
-    removeListeners(
+    addListeners(
       arg0: AllJavaClasses['io.netty.util.concurrent.GenericFutureListener']['instanceObject'][],
     ): AllJavaClasses['io.netty.channel.ChannelFuture']['instanceObject']
-    addListeners(
+    removeListeners(
       arg0: AllJavaClasses['io.netty.util.concurrent.GenericFutureListener']['instanceObject'][],
     ): AllJavaClasses['io.netty.channel.ChannelFuture']['instanceObject']
     removeListener(
       arg0: AllJavaClasses['io.netty.util.concurrent.GenericFutureListener']['instanceObject'],
     ): AllJavaClasses['io.netty.channel.ChannelFuture']['instanceObject']
+    awaitUninterruptibly(): AllJavaClasses['io.netty.channel.ChannelFuture']['instanceObject']
+    syncUninterruptibly(): AllJavaClasses['io.netty.channel.ChannelFuture']['instanceObject']
   } & Omit<
     AllJavaClasses['io.netty.util.concurrent.Future']['instanceObject'],
     '__javaClass'
@@ -13219,34 +13219,34 @@ type AllJavaClass_io_netty_util_concurrent_Future = {
     cause(): AllJavaClasses['java.lang.Throwable']['instanceObject']
     sync(): AllJavaClasses['io.netty.util.concurrent.Future']['instanceObject']
     cancel(arg0: boolean): boolean
-    await(): AllJavaClasses['io.netty.util.concurrent.Future']['instanceObject']
     await(
       arg0: number,
       arg1: AllJavaClasses['java.util.concurrent.TimeUnit']['instanceObject'],
     ): boolean
+    await(): AllJavaClasses['io.netty.util.concurrent.Future']['instanceObject']
     await(arg0: number): boolean
+    isSuccess(): boolean
+    addListener(
+      arg0: AllJavaClasses['io.netty.util.concurrent.GenericFutureListener']['instanceObject'],
+    ): AllJavaClasses['io.netty.util.concurrent.Future']['instanceObject']
+    getNow(): AllJavaClasses['java.lang.Object']['instanceObject']
+    addListeners(
+      arg0: AllJavaClasses['io.netty.util.concurrent.GenericFutureListener']['instanceObject'][],
+    ): AllJavaClasses['io.netty.util.concurrent.Future']['instanceObject']
+    removeListeners(
+      arg0: AllJavaClasses['io.netty.util.concurrent.GenericFutureListener']['instanceObject'][],
+    ): AllJavaClasses['io.netty.util.concurrent.Future']['instanceObject']
+    removeListener(
+      arg0: AllJavaClasses['io.netty.util.concurrent.GenericFutureListener']['instanceObject'],
+    ): AllJavaClasses['io.netty.util.concurrent.Future']['instanceObject']
+    isCancellable(): boolean
+    awaitUninterruptibly(): AllJavaClasses['io.netty.util.concurrent.Future']['instanceObject']
     awaitUninterruptibly(arg0: number): boolean
     awaitUninterruptibly(
       arg0: number,
       arg1: AllJavaClasses['java.util.concurrent.TimeUnit']['instanceObject'],
     ): boolean
-    awaitUninterruptibly(): AllJavaClasses['io.netty.util.concurrent.Future']['instanceObject']
     syncUninterruptibly(): AllJavaClasses['io.netty.util.concurrent.Future']['instanceObject']
-    addListener(
-      arg0: AllJavaClasses['io.netty.util.concurrent.GenericFutureListener']['instanceObject'],
-    ): AllJavaClasses['io.netty.util.concurrent.Future']['instanceObject']
-    isCancellable(): boolean
-    removeListeners(
-      arg0: AllJavaClasses['io.netty.util.concurrent.GenericFutureListener']['instanceObject'][],
-    ): AllJavaClasses['io.netty.util.concurrent.Future']['instanceObject']
-    isSuccess(): boolean
-    addListeners(
-      arg0: AllJavaClasses['io.netty.util.concurrent.GenericFutureListener']['instanceObject'][],
-    ): AllJavaClasses['io.netty.util.concurrent.Future']['instanceObject']
-    getNow(): AllJavaClasses['java.lang.Object']['instanceObject']
-    removeListener(
-      arg0: AllJavaClasses['io.netty.util.concurrent.GenericFutureListener']['instanceObject'],
-    ): AllJavaClasses['io.netty.util.concurrent.Future']['instanceObject']
   } & Omit<
     AllJavaClasses['java.util.concurrent.Future']['instanceObject'],
     '__javaClass'
@@ -13263,29 +13263,29 @@ type AllJavaClass_io_netty_channel_ChannelPromise = {
     sync(): AllJavaClasses['io.netty.channel.ChannelPromise']['instanceObject']
     channel(): AllJavaClasses['io.netty.channel.Channel']['instanceObject']
     await(): AllJavaClasses['io.netty.channel.ChannelPromise']['instanceObject']
-    awaitUninterruptibly(): AllJavaClasses['io.netty.channel.ChannelPromise']['instanceObject']
-    syncUninterruptibly(): AllJavaClasses['io.netty.channel.ChannelPromise']['instanceObject']
     addListener(
       arg0: AllJavaClasses['io.netty.util.concurrent.GenericFutureListener']['instanceObject'],
     ): AllJavaClasses['io.netty.channel.ChannelPromise']['instanceObject']
-    removeListeners(
+    addListeners(
       arg0: AllJavaClasses['io.netty.util.concurrent.GenericFutureListener']['instanceObject'][],
     ): AllJavaClasses['io.netty.channel.ChannelPromise']['instanceObject']
-    setSuccess(): AllJavaClasses['io.netty.channel.ChannelPromise']['instanceObject']
-    setSuccess(
-      arg0: void,
-    ): AllJavaClasses['io.netty.channel.ChannelPromise']['instanceObject']
-    addListeners(
+    removeListeners(
       arg0: AllJavaClasses['io.netty.util.concurrent.GenericFutureListener']['instanceObject'][],
     ): AllJavaClasses['io.netty.channel.ChannelPromise']['instanceObject']
     removeListener(
       arg0: AllJavaClasses['io.netty.util.concurrent.GenericFutureListener']['instanceObject'],
     ): AllJavaClasses['io.netty.channel.ChannelPromise']['instanceObject']
-    trySuccess(): boolean
-    unvoid(): AllJavaClasses['io.netty.channel.ChannelPromise']['instanceObject']
     setFailure(
       arg0: AllJavaClasses['java.lang.Throwable']['instanceObject'],
     ): AllJavaClasses['io.netty.channel.ChannelPromise']['instanceObject']
+    setSuccess(): AllJavaClasses['io.netty.channel.ChannelPromise']['instanceObject']
+    setSuccess(
+      arg0: void,
+    ): AllJavaClasses['io.netty.channel.ChannelPromise']['instanceObject']
+    unvoid(): AllJavaClasses['io.netty.channel.ChannelPromise']['instanceObject']
+    trySuccess(): boolean
+    awaitUninterruptibly(): AllJavaClasses['io.netty.channel.ChannelPromise']['instanceObject']
+    syncUninterruptibly(): AllJavaClasses['io.netty.channel.ChannelPromise']['instanceObject']
   } & Omit<
     AllJavaClasses['io.netty.channel.ChannelFuture']['instanceObject'],
     '__javaClass'
@@ -13301,33 +13301,33 @@ type AllJavaClass_io_netty_util_concurrent_Promise = {
     __javaClass: 'io.netty.util.concurrent.Promise'
     sync(): AllJavaClasses['io.netty.util.concurrent.Promise']['instanceObject']
     await(): AllJavaClasses['io.netty.util.concurrent.Promise']['instanceObject']
-    awaitUninterruptibly(): AllJavaClasses['io.netty.util.concurrent.Promise']['instanceObject']
-    syncUninterruptibly(): AllJavaClasses['io.netty.util.concurrent.Promise']['instanceObject']
     addListener(
       arg0: AllJavaClasses['io.netty.util.concurrent.GenericFutureListener']['instanceObject'],
     ): AllJavaClasses['io.netty.util.concurrent.Promise']['instanceObject']
-    removeListeners(
+    addListeners(
       arg0: AllJavaClasses['io.netty.util.concurrent.GenericFutureListener']['instanceObject'][],
     ): AllJavaClasses['io.netty.util.concurrent.Promise']['instanceObject']
-    setSuccess(
-      arg0: AllJavaClasses['java.lang.Object']['instanceObject'],
-    ): AllJavaClasses['io.netty.util.concurrent.Promise']['instanceObject']
-    addListeners(
+    removeListeners(
       arg0: AllJavaClasses['io.netty.util.concurrent.GenericFutureListener']['instanceObject'][],
     ): AllJavaClasses['io.netty.util.concurrent.Promise']['instanceObject']
     removeListener(
       arg0: AllJavaClasses['io.netty.util.concurrent.GenericFutureListener']['instanceObject'],
     ): AllJavaClasses['io.netty.util.concurrent.Promise']['instanceObject']
-    trySuccess(
-      arg0: AllJavaClasses['java.lang.Object']['instanceObject'],
-    ): boolean
-    setUncancellable(): boolean
-    tryFailure(
-      arg0: AllJavaClasses['java.lang.Throwable']['instanceObject'],
-    ): boolean
     setFailure(
       arg0: AllJavaClasses['java.lang.Throwable']['instanceObject'],
     ): AllJavaClasses['io.netty.util.concurrent.Promise']['instanceObject']
+    setSuccess(
+      arg0: AllJavaClasses['java.lang.Object']['instanceObject'],
+    ): AllJavaClasses['io.netty.util.concurrent.Promise']['instanceObject']
+    trySuccess(
+      arg0: AllJavaClasses['java.lang.Object']['instanceObject'],
+    ): boolean
+    tryFailure(
+      arg0: AllJavaClasses['java.lang.Throwable']['instanceObject'],
+    ): boolean
+    setUncancellable(): boolean
+    awaitUninterruptibly(): AllJavaClasses['io.netty.util.concurrent.Promise']['instanceObject']
+    syncUninterruptibly(): AllJavaClasses['io.netty.util.concurrent.Promise']['instanceObject']
   } & Omit<
     AllJavaClasses['io.netty.util.concurrent.Future']['instanceObject'],
     '__javaClass'
@@ -13341,16 +13341,34 @@ type AllJavaClass_io_netty_util_concurrent_EventExecutorGroup = {
     iterator(): AllJavaClasses['java.util.Iterator']['instanceObject']
     next(): AllJavaClasses['io.netty.util.concurrent.EventExecutor']['instanceObject']
     submit(
-      arg0: AllJavaClasses['java.lang.Runnable']['instanceObject'],
-    ): AllJavaClasses['io.netty.util.concurrent.Future']['instanceObject']
-    submit(
       arg0: AllJavaClasses['java.util.concurrent.Callable']['instanceObject'],
     ): AllJavaClasses['io.netty.util.concurrent.Future']['instanceObject']
     submit(
       arg0: AllJavaClasses['java.lang.Runnable']['instanceObject'],
       arg1: AllJavaClasses['java.lang.Object']['instanceObject'],
     ): AllJavaClasses['io.netty.util.concurrent.Future']['instanceObject']
+    submit(
+      arg0: AllJavaClasses['java.lang.Runnable']['instanceObject'],
+    ): AllJavaClasses['io.netty.util.concurrent.Future']['instanceObject']
     shutdownNow(): AllJavaClasses['java.util.List']['instanceObject']
+    terminationFuture(): AllJavaClasses['io.netty.util.concurrent.Future']['instanceObject']
+    shutdownGracefully(): AllJavaClasses['io.netty.util.concurrent.Future']['instanceObject']
+    shutdownGracefully(
+      arg0: number,
+      arg1: number,
+      arg2: AllJavaClasses['java.util.concurrent.TimeUnit']['instanceObject'],
+    ): AllJavaClasses['io.netty.util.concurrent.Future']['instanceObject']
+    schedule(
+      arg0: AllJavaClasses['java.lang.Runnable']['instanceObject'],
+      arg1: number,
+      arg2: AllJavaClasses['java.util.concurrent.TimeUnit']['instanceObject'],
+    ): AllJavaClasses['io.netty.util.concurrent.ScheduledFuture']['instanceObject']
+    schedule(
+      arg0: AllJavaClasses['java.util.concurrent.Callable']['instanceObject'],
+      arg1: number,
+      arg2: AllJavaClasses['java.util.concurrent.TimeUnit']['instanceObject'],
+    ): AllJavaClasses['io.netty.util.concurrent.ScheduledFuture']['instanceObject']
+    isShuttingDown(): boolean
     scheduleAtFixedRate(
       arg0: AllJavaClasses['java.lang.Runnable']['instanceObject'],
       arg1: number,
@@ -13363,24 +13381,6 @@ type AllJavaClass_io_netty_util_concurrent_EventExecutorGroup = {
       arg2: number,
       arg3: AllJavaClasses['java.util.concurrent.TimeUnit']['instanceObject'],
     ): AllJavaClasses['io.netty.util.concurrent.ScheduledFuture']['instanceObject']
-    schedule(
-      arg0: AllJavaClasses['java.util.concurrent.Callable']['instanceObject'],
-      arg1: number,
-      arg2: AllJavaClasses['java.util.concurrent.TimeUnit']['instanceObject'],
-    ): AllJavaClasses['io.netty.util.concurrent.ScheduledFuture']['instanceObject']
-    schedule(
-      arg0: AllJavaClasses['java.lang.Runnable']['instanceObject'],
-      arg1: number,
-      arg2: AllJavaClasses['java.util.concurrent.TimeUnit']['instanceObject'],
-    ): AllJavaClasses['io.netty.util.concurrent.ScheduledFuture']['instanceObject']
-    isShuttingDown(): boolean
-    terminationFuture(): AllJavaClasses['io.netty.util.concurrent.Future']['instanceObject']
-    shutdownGracefully(
-      arg0: number,
-      arg1: number,
-      arg2: AllJavaClasses['java.util.concurrent.TimeUnit']['instanceObject'],
-    ): AllJavaClasses['io.netty.util.concurrent.Future']['instanceObject']
-    shutdownGracefully(): AllJavaClasses['io.netty.util.concurrent.Future']['instanceObject']
   } & Omit<
     AllJavaClasses['java.util.concurrent.ScheduledExecutorService']['instanceObject'],
     '__javaClass'
@@ -13393,6 +13393,11 @@ type AllJavaClass_io_netty_util_concurrent_EventExecutor = {
     __javaClass: 'io.netty.util.concurrent.EventExecutor'
     parent(): AllJavaClasses['io.netty.util.concurrent.EventExecutorGroup']['instanceObject']
     next(): AllJavaClasses['io.netty.util.concurrent.EventExecutor']['instanceObject']
+    inEventLoop(
+      arg0: AllJavaClasses['java.lang.Thread']['instanceObject'],
+    ): boolean
+    inEventLoop(): boolean
+    newProgressivePromise(): AllJavaClasses['io.netty.util.concurrent.ProgressivePromise']['instanceObject']
     newSucceededFuture(
       arg0: AllJavaClasses['java.lang.Object']['instanceObject'],
     ): AllJavaClasses['io.netty.util.concurrent.Future']['instanceObject']
@@ -13400,11 +13405,6 @@ type AllJavaClass_io_netty_util_concurrent_EventExecutor = {
       arg0: AllJavaClasses['java.lang.Throwable']['instanceObject'],
     ): AllJavaClasses['io.netty.util.concurrent.Future']['instanceObject']
     newPromise(): AllJavaClasses['io.netty.util.concurrent.Promise']['instanceObject']
-    inEventLoop(
-      arg0: AllJavaClasses['java.lang.Thread']['instanceObject'],
-    ): boolean
-    inEventLoop(): boolean
-    newProgressivePromise(): AllJavaClasses['io.netty.util.concurrent.ProgressivePromise']['instanceObject']
   } & Omit<
     AllJavaClasses['io.netty.util.concurrent.EventExecutorGroup']['instanceObject'],
     '__javaClass'
@@ -13416,18 +13416,13 @@ type AllJavaClass_io_netty_util_concurrent_ProgressivePromise = {
     __javaClass: 'io.netty.util.concurrent.ProgressivePromise'
     sync(): AllJavaClasses['io.netty.util.concurrent.ProgressivePromise']['instanceObject']
     await(): AllJavaClasses['io.netty.util.concurrent.ProgressivePromise']['instanceObject']
-    awaitUninterruptibly(): AllJavaClasses['io.netty.util.concurrent.ProgressivePromise']['instanceObject']
-    syncUninterruptibly(): AllJavaClasses['io.netty.util.concurrent.ProgressivePromise']['instanceObject']
     addListener(
       arg0: AllJavaClasses['io.netty.util.concurrent.GenericFutureListener']['instanceObject'],
     ): AllJavaClasses['io.netty.util.concurrent.ProgressivePromise']['instanceObject']
-    removeListeners(
+    addListeners(
       arg0: AllJavaClasses['io.netty.util.concurrent.GenericFutureListener']['instanceObject'][],
     ): AllJavaClasses['io.netty.util.concurrent.ProgressivePromise']['instanceObject']
-    setSuccess(
-      arg0: AllJavaClasses['java.lang.Object']['instanceObject'],
-    ): AllJavaClasses['io.netty.util.concurrent.ProgressivePromise']['instanceObject']
-    addListeners(
+    removeListeners(
       arg0: AllJavaClasses['io.netty.util.concurrent.GenericFutureListener']['instanceObject'][],
     ): AllJavaClasses['io.netty.util.concurrent.ProgressivePromise']['instanceObject']
     removeListener(
@@ -13436,11 +13431,16 @@ type AllJavaClass_io_netty_util_concurrent_ProgressivePromise = {
     setFailure(
       arg0: AllJavaClasses['java.lang.Throwable']['instanceObject'],
     ): AllJavaClasses['io.netty.util.concurrent.ProgressivePromise']['instanceObject']
+    setSuccess(
+      arg0: AllJavaClasses['java.lang.Object']['instanceObject'],
+    ): AllJavaClasses['io.netty.util.concurrent.ProgressivePromise']['instanceObject']
     tryProgress(arg0: number, arg1: number): boolean
     setProgress(
       arg0: number,
       arg1: number,
     ): AllJavaClasses['io.netty.util.concurrent.ProgressivePromise']['instanceObject']
+    awaitUninterruptibly(): AllJavaClasses['io.netty.util.concurrent.ProgressivePromise']['instanceObject']
+    syncUninterruptibly(): AllJavaClasses['io.netty.util.concurrent.ProgressivePromise']['instanceObject']
   } & Omit<
     AllJavaClasses['io.netty.util.concurrent.Promise']['instanceObject'],
     '__javaClass'
@@ -13456,20 +13456,20 @@ type AllJavaClass_io_netty_util_concurrent_ProgressiveFuture = {
     __javaClass: 'io.netty.util.concurrent.ProgressiveFuture'
     sync(): AllJavaClasses['io.netty.util.concurrent.ProgressiveFuture']['instanceObject']
     await(): AllJavaClasses['io.netty.util.concurrent.ProgressiveFuture']['instanceObject']
-    awaitUninterruptibly(): AllJavaClasses['io.netty.util.concurrent.ProgressiveFuture']['instanceObject']
-    syncUninterruptibly(): AllJavaClasses['io.netty.util.concurrent.ProgressiveFuture']['instanceObject']
     addListener(
       arg0: AllJavaClasses['io.netty.util.concurrent.GenericFutureListener']['instanceObject'],
     ): AllJavaClasses['io.netty.util.concurrent.ProgressiveFuture']['instanceObject']
-    removeListeners(
+    addListeners(
       arg0: AllJavaClasses['io.netty.util.concurrent.GenericFutureListener']['instanceObject'][],
     ): AllJavaClasses['io.netty.util.concurrent.ProgressiveFuture']['instanceObject']
-    addListeners(
+    removeListeners(
       arg0: AllJavaClasses['io.netty.util.concurrent.GenericFutureListener']['instanceObject'][],
     ): AllJavaClasses['io.netty.util.concurrent.ProgressiveFuture']['instanceObject']
     removeListener(
       arg0: AllJavaClasses['io.netty.util.concurrent.GenericFutureListener']['instanceObject'],
     ): AllJavaClasses['io.netty.util.concurrent.ProgressiveFuture']['instanceObject']
+    awaitUninterruptibly(): AllJavaClasses['io.netty.util.concurrent.ProgressiveFuture']['instanceObject']
+    syncUninterruptibly(): AllJavaClasses['io.netty.util.concurrent.ProgressiveFuture']['instanceObject']
   } & Omit<
     AllJavaClasses['io.netty.util.concurrent.Future']['instanceObject'],
     '__javaClass'
@@ -13517,6 +13517,16 @@ type AllJavaClass_java_util_concurrent_ScheduledExecutorService = {
   staticObject: object
   instanceObject: {
     __javaClass: 'java.util.concurrent.ScheduledExecutorService'
+    schedule(
+      arg0: AllJavaClasses['java.lang.Runnable']['instanceObject'],
+      arg1: number,
+      arg2: AllJavaClasses['java.util.concurrent.TimeUnit']['instanceObject'],
+    ): AllJavaClasses['java.util.concurrent.ScheduledFuture']['instanceObject']
+    schedule(
+      arg0: AllJavaClasses['java.util.concurrent.Callable']['instanceObject'],
+      arg1: number,
+      arg2: AllJavaClasses['java.util.concurrent.TimeUnit']['instanceObject'],
+    ): AllJavaClasses['java.util.concurrent.ScheduledFuture']['instanceObject']
     scheduleAtFixedRate(
       arg0: AllJavaClasses['java.lang.Runnable']['instanceObject'],
       arg1: number,
@@ -13528,16 +13538,6 @@ type AllJavaClass_java_util_concurrent_ScheduledExecutorService = {
       arg1: number,
       arg2: number,
       arg3: AllJavaClasses['java.util.concurrent.TimeUnit']['instanceObject'],
-    ): AllJavaClasses['java.util.concurrent.ScheduledFuture']['instanceObject']
-    schedule(
-      arg0: AllJavaClasses['java.util.concurrent.Callable']['instanceObject'],
-      arg1: number,
-      arg2: AllJavaClasses['java.util.concurrent.TimeUnit']['instanceObject'],
-    ): AllJavaClasses['java.util.concurrent.ScheduledFuture']['instanceObject']
-    schedule(
-      arg0: AllJavaClasses['java.lang.Runnable']['instanceObject'],
-      arg1: number,
-      arg2: AllJavaClasses['java.util.concurrent.TimeUnit']['instanceObject'],
     ): AllJavaClasses['java.util.concurrent.ScheduledFuture']['instanceObject']
   } & Omit<
     AllJavaClasses['java.util.concurrent.ExecutorService']['instanceObject'],
@@ -13564,72 +13564,72 @@ type AllJavaClass_io_netty_channel_RecvByteBufAllocator$Handle = {
       arg0: AllJavaClasses['io.netty.buffer.ByteBufAllocator']['instanceObject'],
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     guess(): number
+    readComplete(): void
+    continueReading(): boolean
     incMessagesRead(arg0: number): void
     attemptedBytesRead(): number
     attemptedBytesRead(arg0: number): void
-    continueReading(): boolean
     lastBytesRead(): number
     lastBytesRead(arg0: number): void
-    readComplete(): void
   }
 }
 type AllJavaClass_io_netty_channel_ChannelConfig = {
   staticObject: object
   instanceObject: {
     __javaClass: 'io.netty.channel.ChannelConfig'
+    getWriteBufferWaterMark(): AllJavaClasses['io.netty.channel.WriteBufferWaterMark']['instanceObject']
+    setMessageSizeEstimator(
+      arg0: AllJavaClasses['io.netty.channel.MessageSizeEstimator']['instanceObject'],
+    ): AllJavaClasses['io.netty.channel.ChannelConfig']['instanceObject']
+    getOption(
+      arg0: AllJavaClasses['io.netty.channel.ChannelOption']['instanceObject'],
+    ): AllJavaClasses['java.lang.Object']['instanceObject']
+    setAutoClose(
+      arg0: boolean,
+    ): AllJavaClasses['io.netty.channel.ChannelConfig']['instanceObject']
+    setWriteSpinCount(
+      arg0: number,
+    ): AllJavaClasses['io.netty.channel.ChannelConfig']['instanceObject']
+    setOptions(arg0: AllJavaClasses['java.util.Map']['instanceObject']): boolean
+    getWriteSpinCount(): number
+    setOption(
+      arg0: AllJavaClasses['io.netty.channel.ChannelOption']['instanceObject'],
+      arg1: AllJavaClasses['java.lang.Object']['instanceObject'],
+    ): boolean
+    getOptions(): AllJavaClasses['java.util.Map']['instanceObject']
+    setAllocator(
+      arg0: AllJavaClasses['io.netty.buffer.ByteBufAllocator']['instanceObject'],
+    ): AllJavaClasses['io.netty.channel.ChannelConfig']['instanceObject']
+    getAllocator(): AllJavaClasses['io.netty.buffer.ByteBufAllocator']['instanceObject']
+    isAutoClose(): boolean
+    isAutoRead(): boolean
+    setAutoRead(
+      arg0: boolean,
+    ): AllJavaClasses['io.netty.channel.ChannelConfig']['instanceObject']
+    setWriteBufferWaterMark(
+      arg0: AllJavaClasses['io.netty.channel.WriteBufferWaterMark']['instanceObject'],
+    ): AllJavaClasses['io.netty.channel.ChannelConfig']['instanceObject']
+    getMaxMessagesPerRead(): number
+    setRecvByteBufAllocator(
+      arg0: AllJavaClasses['io.netty.channel.RecvByteBufAllocator']['instanceObject'],
+    ): AllJavaClasses['io.netty.channel.ChannelConfig']['instanceObject']
     setMaxMessagesPerRead(
       arg0: number,
     ): AllJavaClasses['io.netty.channel.ChannelConfig']['instanceObject']
-    setConnectTimeoutMillis(
+    getWriteBufferHighWaterMark(): number
+    setWriteBufferHighWaterMark(
       arg0: number,
     ): AllJavaClasses['io.netty.channel.ChannelConfig']['instanceObject']
     getWriteBufferLowWaterMark(): number
     setWriteBufferLowWaterMark(
       arg0: number,
     ): AllJavaClasses['io.netty.channel.ChannelConfig']['instanceObject']
-    setWriteBufferWaterMark(
-      arg0: AllJavaClasses['io.netty.channel.WriteBufferWaterMark']['instanceObject'],
-    ): AllJavaClasses['io.netty.channel.ChannelConfig']['instanceObject']
-    setRecvByteBufAllocator(
-      arg0: AllJavaClasses['io.netty.channel.RecvByteBufAllocator']['instanceObject'],
-    ): AllJavaClasses['io.netty.channel.ChannelConfig']['instanceObject']
-    setWriteBufferHighWaterMark(
-      arg0: number,
-    ): AllJavaClasses['io.netty.channel.ChannelConfig']['instanceObject']
     getMessageSizeEstimator(): AllJavaClasses['io.netty.channel.MessageSizeEstimator']['instanceObject']
-    getConnectTimeoutMillis(): number
-    getMaxMessagesPerRead(): number
-    getRecvByteBufAllocator(): AllJavaClasses['io.netty.channel.RecvByteBufAllocator']['instanceObject']
-    setMessageSizeEstimator(
-      arg0: AllJavaClasses['io.netty.channel.MessageSizeEstimator']['instanceObject'],
-    ): AllJavaClasses['io.netty.channel.ChannelConfig']['instanceObject']
-    getWriteBufferWaterMark(): AllJavaClasses['io.netty.channel.WriteBufferWaterMark']['instanceObject']
-    getWriteBufferHighWaterMark(): number
-    isAutoRead(): boolean
-    isAutoClose(): boolean
-    setOptions(arg0: AllJavaClasses['java.util.Map']['instanceObject']): boolean
-    setWriteSpinCount(
+    setConnectTimeoutMillis(
       arg0: number,
     ): AllJavaClasses['io.netty.channel.ChannelConfig']['instanceObject']
-    getOption(
-      arg0: AllJavaClasses['io.netty.channel.ChannelOption']['instanceObject'],
-    ): AllJavaClasses['java.lang.Object']['instanceObject']
-    getWriteSpinCount(): number
-    setAllocator(
-      arg0: AllJavaClasses['io.netty.buffer.ByteBufAllocator']['instanceObject'],
-    ): AllJavaClasses['io.netty.channel.ChannelConfig']['instanceObject']
-    setOption(
-      arg0: AllJavaClasses['io.netty.channel.ChannelOption']['instanceObject'],
-      arg1: AllJavaClasses['java.lang.Object']['instanceObject'],
-    ): boolean
-    setAutoRead(
-      arg0: boolean,
-    ): AllJavaClasses['io.netty.channel.ChannelConfig']['instanceObject']
-    getOptions(): AllJavaClasses['java.util.Map']['instanceObject']
-    setAutoClose(
-      arg0: boolean,
-    ): AllJavaClasses['io.netty.channel.ChannelConfig']['instanceObject']
-    getAllocator(): AllJavaClasses['io.netty.buffer.ByteBufAllocator']['instanceObject']
+    getConnectTimeoutMillis(): number
+    getRecvByteBufAllocator(): AllJavaClasses['io.netty.channel.RecvByteBufAllocator']['instanceObject']
   }
 }
 type AllJavaClass_io_netty_channel_WriteBufferWaterMark = {
@@ -13646,13 +13646,6 @@ type AllJavaClass_io_netty_channel_WriteBufferWaterMark = {
     high(): number
     low(): number
   } & Omit<AllJavaClasses['java.lang.Object']['instanceObject'], '__javaClass'>
-}
-type AllJavaClass_io_netty_channel_RecvByteBufAllocator = {
-  staticObject: object
-  instanceObject: {
-    __javaClass: 'io.netty.channel.RecvByteBufAllocator'
-    newHandle(): AllJavaClasses['io.netty.channel.RecvByteBufAllocator$Handle']['instanceObject']
-  }
 }
 type AllJavaClass_io_netty_channel_MessageSizeEstimator = {
   staticObject: object
@@ -13743,36 +13736,36 @@ type AllJavaClass_io_netty_buffer_ByteBufAllocator = {
     directBuffer(
       arg0: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    isDirectBufferPooled(): boolean
-    compositeDirectBuffer(): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
-    compositeDirectBuffer(
-      arg0: number,
-    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
-    calculateNewCapacity(arg0: number, arg1: number): number
-    compositeHeapBuffer(): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
-    compositeHeapBuffer(
-      arg0: number,
-    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
+    ioBuffer(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     ioBuffer(
       arg0: number,
       arg1: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    ioBuffer(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     ioBuffer(
       arg0: number,
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    heapBuffer(
+      arg0: number,
+      arg1: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     heapBuffer(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     heapBuffer(
       arg0: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    heapBuffer(
-      arg0: number,
-      arg1: number,
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     compositeBuffer(): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
     compositeBuffer(
       arg0: number,
     ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
+    compositeHeapBuffer(): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
+    compositeHeapBuffer(
+      arg0: number,
+    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
+    calculateNewCapacity(arg0: number, arg1: number): number
+    compositeDirectBuffer(
+      arg0: number,
+    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
+    compositeDirectBuffer(): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
+    isDirectBufferPooled(): boolean
   }
 }
 type AllJavaClass_io_netty_buffer_ByteBuf = {
@@ -13810,28 +13803,13 @@ type AllJavaClass_io_netty_buffer_ByteBuf = {
     clear(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     getBytes(
       arg0: number,
-      arg1: number[],
+      arg1: AllJavaClasses['java.nio.channels.GatheringByteChannel']['instanceObject'],
       arg2: number,
-      arg3: number,
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    ): number
     getBytes(
       arg0: number,
-      arg1: number[],
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    getBytes(
-      arg0: number,
-      arg1: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
+      arg1: AllJavaClasses['java.io.OutputStream']['instanceObject'],
       arg2: number,
-      arg3: number,
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    getBytes(
-      arg0: number,
-      arg1: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
-      arg2: number,
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    getBytes(
-      arg0: number,
-      arg1: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     getBytes(
       arg0: number,
@@ -13841,13 +13819,28 @@ type AllJavaClass_io_netty_buffer_ByteBuf = {
     ): number
     getBytes(
       arg0: number,
-      arg1: AllJavaClasses['java.nio.channels.GatheringByteChannel']['instanceObject'],
-      arg2: number,
-    ): number
+      arg1: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     getBytes(
       arg0: number,
-      arg1: AllJavaClasses['java.io.OutputStream']['instanceObject'],
+      arg1: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
       arg2: number,
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    getBytes(
+      arg0: number,
+      arg1: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
+      arg2: number,
+      arg3: number,
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    getBytes(
+      arg0: number,
+      arg1: number[],
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    getBytes(
+      arg0: number,
+      arg1: number[],
+      arg2: number,
+      arg3: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     getBytes(
       arg0: number,
@@ -13893,31 +13886,27 @@ type AllJavaClass_io_netty_buffer_ByteBuf = {
       arg0: number,
       arg1: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    copy(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     copy(
       arg0: number,
       arg1: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    copy(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     unwrap(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    capacity(): number
     capacity(
       arg0: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    capacity(): number
     isReadOnly(): boolean
-    slice(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     slice(
       arg0: number,
       arg1: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    slice(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     duplicate(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    order(): AllJavaClasses['java.nio.ByteOrder']['instanceObject']
     order(
       arg0: AllJavaClasses['java.nio.ByteOrder']['instanceObject'],
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    readBytes(
-      arg0: AllJavaClasses['java.io.OutputStream']['instanceObject'],
-      arg1: number,
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    order(): AllJavaClasses['java.nio.ByteOrder']['instanceObject']
     readBytes(
       arg0: number[],
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
@@ -13927,28 +13916,40 @@ type AllJavaClass_io_netty_buffer_ByteBuf = {
       arg2: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     readBytes(
-      arg0: number[],
+      arg0: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
       arg1: number,
-      arg2: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     readBytes(
-      arg0: AllJavaClasses['java.nio.ByteBuffer']['instanceObject'],
+      arg0: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    readBytes(
+      arg0: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    readBytes(
+      arg0: AllJavaClasses['java.nio.channels.FileChannel']['instanceObject'],
+      arg1: number,
+      arg2: number,
+    ): number
     readBytes(
       arg0: AllJavaClasses['java.nio.channels.GatheringByteChannel']['instanceObject'],
       arg1: number,
     ): number
     readBytes(
-      arg0: number,
+      arg0: number[],
+      arg1: number,
+      arg2: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     readBytes(
-      arg0: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
+      arg0: AllJavaClasses['java.nio.ByteBuffer']['instanceObject'],
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     readBytes(
-      arg0: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
+      arg0: AllJavaClasses['java.io.OutputStream']['instanceObject'],
       arg1: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    readBytes(
+    writeBytes(
+      arg0: AllJavaClasses['java.nio.ByteBuffer']['instanceObject'],
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    writeBytes(
       arg0: AllJavaClasses['java.nio.channels.FileChannel']['instanceObject'],
       arg1: number,
       arg2: number,
@@ -13959,36 +13960,28 @@ type AllJavaClass_io_netty_buffer_ByteBuf = {
       arg2: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     writeBytes(
-      arg0: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
-      arg1: number,
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    writeBytes(
-      arg0: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
-      arg1: number,
-      arg2: number,
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    writeBytes(
-      arg0: AllJavaClasses['java.nio.channels.FileChannel']['instanceObject'],
-      arg1: number,
-      arg2: number,
-    ): number
-    writeBytes(
-      arg0: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    writeBytes(
       arg0: number[],
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     writeBytes(
-      arg0: AllJavaClasses['java.nio.channels.ScatteringByteChannel']['instanceObject'],
+      arg0: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
       arg1: number,
-    ): number
+      arg2: number,
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    writeBytes(
+      arg0: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
+      arg1: number,
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    writeBytes(
+      arg0: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     writeBytes(
       arg0: AllJavaClasses['java.io.InputStream']['instanceObject'],
       arg1: number,
     ): number
     writeBytes(
-      arg0: AllJavaClasses['java.nio.ByteBuffer']['instanceObject'],
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+      arg0: AllJavaClasses['java.nio.channels.ScatteringByteChannel']['instanceObject'],
+      arg1: number,
+    ): number
     writeChar(
       arg0: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
@@ -14003,8 +13996,8 @@ type AllJavaClass_io_netty_buffer_ByteBuf = {
     readShort(): number
     isReadable(arg0: number): boolean
     isReadable(): boolean
-    isWritable(arg0: number): boolean
     isWritable(): boolean
+    isWritable(arg0: number): boolean
     writeBoolean(
       arg0: boolean,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
@@ -14031,58 +14024,105 @@ type AllJavaClass_io_netty_buffer_ByteBuf = {
       arg1: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     alloc(): AllJavaClasses['io.netty.buffer.ByteBufAllocator']['instanceObject']
-    readUnsignedShortLE(): number
-    discardSomeReadBytes(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    maxFastWritableBytes(): number
-    getUnsignedMediumLE(arg0: number): number
-    readUnsignedMediumLE(): number
     setFloatLE(
       arg0: number,
       arg1: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     nioBufferCount(): number
     readableBytes(): number
-    readerIndex(
-      arg0: number,
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    readerIndex(): number
     nioBuffers(
       arg0: number,
       arg1: number,
     ): AllJavaClasses['java.nio.ByteBuffer']['instanceObject'][]
     nioBuffers(): AllJavaClasses['java.nio.ByteBuffer']['instanceObject'][]
-    writerIndex(
+    readerIndex(
       arg0: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    writerIndex(): number
+    readerIndex(): number
     internalNioBuffer(
       arg0: number,
       arg1: number,
     ): AllJavaClasses['java.nio.ByteBuffer']['instanceObject']
-    getUnsignedShort(arg0: number): number
-    asReadOnly(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    writableBytes(): number
+    writerIndex(
+      arg0: number,
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    writerIndex(): number
+    resetReaderIndex(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    markReaderIndex(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    resetWriterIndex(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     discardReadBytes(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    maxCapacity(): number
+    asReadOnly(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    maxWritableBytes(): number
+    getUnsignedShort(arg0: number): number
+    getUnsignedShortLE(arg0: number): number
+    getIntLE(arg0: number): number
+    getLongLE(arg0: number): number
+    getUnsignedByte(arg0: number): number
+    writableBytes(): number
+    getMediumLE(arg0: number): number
     getShortLE(arg0: number): number
+    getMedium(arg0: number): number
+    maxCapacity(): number
+    markWriterIndex(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    getUnsignedMedium(arg0: number): number
+    getUnsignedInt(arg0: number): number
+    getUnsignedIntLE(arg0: number): number
+    getFloatLE(arg0: number): number
+    getDoubleLE(arg0: number): number
     ensureWritable(arg0: number, arg1: boolean): number
     ensureWritable(
       arg0: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    getUnsignedByte(arg0: number): number
-    maxWritableBytes(): number
-    getUnsignedShortLE(arg0: number): number
-    markReaderIndex(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    markWriterIndex(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    getMedium(arg0: number): number
-    getMediumLE(arg0: number): number
-    getUnsignedMedium(arg0: number): number
-    getIntLE(arg0: number): number
-    resetReaderIndex(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    resetWriterIndex(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    readMediumLE(): number
+    readDoubleLE(): number
+    readSlice(
+      arg0: number,
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    setCharSequence(
+      arg0: number,
+      arg1: AllJavaClasses['java.lang.CharSequence']['instanceObject'],
+      arg2: AllJavaClasses['java.nio.charset.Charset']['instanceObject'],
+    ): number
+    readShortLE(): number
+    readUnsignedInt(): number
+    readLongLE(): number
+    readRetainedSlice(
+      arg0: number,
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    setMedium(
+      arg0: number,
+      arg1: number,
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    setZero(
+      arg0: number,
+      arg1: number,
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    getCharSequence(
+      arg0: number,
+      arg1: number,
+      arg2: AllJavaClasses['java.nio.charset.Charset']['instanceObject'],
+    ): AllJavaClasses['java.lang.CharSequence']['instanceObject']
+    readUnsignedIntLE(): number
+    readFloatLE(): number
+    setShortLE(
+      arg0: number,
+      arg1: number,
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    setIntLE(
+      arg0: number,
+      arg1: number,
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    setLongLE(
+      arg0: number,
+      arg1: number,
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     setMediumLE(
       arg0: number,
       arg1: number,
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    setBytes(
+      arg0: number,
+      arg1: number[],
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     setBytes(
       arg0: number,
@@ -14092,141 +14132,109 @@ type AllJavaClass_io_netty_buffer_ByteBuf = {
     ): number
     setBytes(
       arg0: number,
-      arg1: AllJavaClasses['java.nio.ByteBuffer']['instanceObject'],
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    setBytes(
-      arg0: number,
-      arg1: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    setBytes(
-      arg0: number,
-      arg1: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
-      arg2: number,
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    setBytes(
-      arg0: number,
-      arg1: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
-      arg2: number,
-      arg3: number,
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    setBytes(
-      arg0: number,
-      arg1: number[],
-      arg2: number,
-      arg3: number,
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    setBytes(
-      arg0: number,
-      arg1: number[],
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    setBytes(
-      arg0: number,
       arg1: AllJavaClasses['java.nio.channels.ScatteringByteChannel']['instanceObject'],
       arg2: number,
     ): number
     setBytes(
       arg0: number,
+      arg1: number[],
+      arg2: number,
+      arg3: number,
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    setBytes(
+      arg0: number,
+      arg1: AllJavaClasses['java.nio.ByteBuffer']['instanceObject'],
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    setBytes(
+      arg0: number,
       arg1: AllJavaClasses['java.io.InputStream']['instanceObject'],
       arg2: number,
     ): number
-    readMedium(): number
-    readUnsignedMedium(): number
-    getFloatLE(arg0: number): number
-    readIntLE(): number
-    readUnsignedInt(): number
-    readUnsignedIntLE(): number
-    getLongLE(arg0: number): number
-    getUnsignedInt(arg0: number): number
-    getCharSequence(
+    setBytes(
       arg0: number,
-      arg1: number,
-      arg2: AllJavaClasses['java.nio.charset.Charset']['instanceObject'],
-    ): AllJavaClasses['java.lang.CharSequence']['instanceObject']
-    setCharSequence(
-      arg0: number,
-      arg1: AllJavaClasses['java.lang.CharSequence']['instanceObject'],
-      arg2: AllJavaClasses['java.nio.charset.Charset']['instanceObject'],
-    ): number
-    readMediumLE(): number
-    setIntLE(
-      arg0: number,
-      arg1: number,
+      arg1: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    getDoubleLE(arg0: number): number
-    setLongLE(
+    setBytes(
       arg0: number,
-      arg1: number,
+      arg1: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
+      arg2: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    setZero(
+    setBytes(
       arg0: number,
-      arg1: number,
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    getUnsignedIntLE(arg0: number): number
-    setMedium(
-      arg0: number,
-      arg1: number,
+      arg1: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
+      arg2: number,
+      arg3: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     setDoubleLE(
       arg0: number,
       arg1: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    setShortLE(
-      arg0: number,
-      arg1: number,
+    readUnsignedMedium(): number
+    readIntLE(): number
+    readMedium(): number
+    isContiguous(): boolean
+    asByteBuf(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    touch(
+      arg0: AllJavaClasses['java.lang.Object']['instanceObject'],
+    ): AllJavaClasses['io.netty.util.ReferenceCounted']['instanceObject']
+    touch(
+      arg0: AllJavaClasses['java.lang.Object']['instanceObject'],
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    readShortLE(): number
-    readDoubleLE(): number
-    readLongLE(): number
-    writeZero(
+    touch(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    touch(): AllJavaClasses['io.netty.util.ReferenceCounted']['instanceObject']
+    readCharSequence(
       arg0: number,
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    readSlice(
-      arg0: number,
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    writeCharSequence(
-      arg0: AllJavaClasses['java.lang.CharSequence']['instanceObject'],
       arg1: AllJavaClasses['java.nio.charset.Charset']['instanceObject'],
-    ): number
-    forEachByte(
-      arg0: number,
-      arg1: number,
-      arg2: AllJavaClasses['io.netty.util.ByteProcessor']['instanceObject'],
-    ): number
-    forEachByte(
-      arg0: AllJavaClasses['io.netty.util.ByteProcessor']['instanceObject'],
-    ): number
-    readRetainedSlice(
-      arg0: number,
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    writeMediumLE(
-      arg0: number,
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    writeIntLE(
-      arg0: number,
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    forEachByteDesc(
-      arg0: number,
-      arg1: number,
-      arg2: AllJavaClasses['io.netty.util.ByteProcessor']['instanceObject'],
-    ): number
-    forEachByteDesc(
-      arg0: AllJavaClasses['io.netty.util.ByteProcessor']['instanceObject'],
-    ): number
+    ): AllJavaClasses['java.lang.CharSequence']['instanceObject']
     writeMedium(
       arg0: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    writeZero(
+      arg0: number,
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    retainedSlice(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    retainedSlice(
+      arg0: number,
+      arg1: number,
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     retainedDuplicate(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    readFloatLE(): number
+    forEachByteDesc(
+      arg0: AllJavaClasses['io.netty.util.ByteProcessor']['instanceObject'],
+    ): number
+    forEachByteDesc(
+      arg0: number,
+      arg1: number,
+      arg2: AllJavaClasses['io.netty.util.ByteProcessor']['instanceObject'],
+    ): number
     nioBuffer(
       arg0: number,
       arg1: number,
     ): AllJavaClasses['java.nio.ByteBuffer']['instanceObject']
     nioBuffer(): AllJavaClasses['java.nio.ByteBuffer']['instanceObject']
-    readCharSequence(
+    hasMemoryAddress(): boolean
+    memoryAddress(): number
+    retain(
       arg0: number,
-      arg1: AllJavaClasses['java.nio.charset.Charset']['instanceObject'],
-    ): AllJavaClasses['java.lang.CharSequence']['instanceObject']
+    ): AllJavaClasses['io.netty.util.ReferenceCounted']['instanceObject']
+    retain(
+      arg0: number,
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    retain(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    retain(): AllJavaClasses['io.netty.util.ReferenceCounted']['instanceObject']
     writeFloatLE(
+      arg0: number,
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    bytesBefore(arg0: number, arg1: number): number
+    bytesBefore(arg0: number, arg1: number, arg2: number): number
+    bytesBefore(arg0: number): number
+    writeCharSequence(
+      arg0: AllJavaClasses['java.lang.CharSequence']['instanceObject'],
+      arg1: AllJavaClasses['java.nio.charset.Charset']['instanceObject'],
+    ): number
+    writeIntLE(
+      arg0: number,
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    writeMediumLE(
       arg0: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     writeDoubleLE(
@@ -14235,37 +14243,22 @@ type AllJavaClass_io_netty_buffer_ByteBuf = {
     writeLongLE(
       arg0: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    bytesBefore(arg0: number, arg1: number, arg2: number): number
-    bytesBefore(arg0: number): number
-    bytesBefore(arg0: number, arg1: number): number
-    retainedSlice(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    retainedSlice(
+    forEachByte(
+      arg0: AllJavaClasses['io.netty.util.ByteProcessor']['instanceObject'],
+    ): number
+    forEachByte(
       arg0: number,
       arg1: number,
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+      arg2: AllJavaClasses['io.netty.util.ByteProcessor']['instanceObject'],
+    ): number
     writeShortLE(
       arg0: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    memoryAddress(): number
-    touch(
-      arg0: AllJavaClasses['java.lang.Object']['instanceObject'],
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    touch(
-      arg0: AllJavaClasses['java.lang.Object']['instanceObject'],
-    ): AllJavaClasses['io.netty.util.ReferenceCounted']['instanceObject']
-    touch(): AllJavaClasses['io.netty.util.ReferenceCounted']['instanceObject']
-    touch(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    hasMemoryAddress(): boolean
-    asByteBuf(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    isContiguous(): boolean
-    retain(
-      arg0: number,
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    retain(): AllJavaClasses['io.netty.util.ReferenceCounted']['instanceObject']
-    retain(
-      arg0: number,
-    ): AllJavaClasses['io.netty.util.ReferenceCounted']['instanceObject']
-    retain(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    maxFastWritableBytes(): number
+    discardSomeReadBytes(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    readUnsignedShortLE(): number
+    readUnsignedMediumLE(): number
+    getUnsignedMediumLE(arg0: number): number
   } & Omit<
     AllJavaClasses['java.lang.Object']['instanceObject'],
     '__javaClass'
@@ -14282,6 +14275,23 @@ type AllJavaClass_io_netty_buffer_ByteBuf = {
       AllJavaClasses['io.netty.buffer.ByteBufConvertible']['instanceObject'],
       '__javaClass'
     >
+}
+type AllJavaClass_io_netty_util_ReferenceCounted = {
+  staticObject: object
+  instanceObject: {
+    __javaClass: 'io.netty.util.ReferenceCounted'
+    release(arg0: number): boolean
+    release(): boolean
+    touch(): AllJavaClasses['io.netty.util.ReferenceCounted']['instanceObject']
+    touch(
+      arg0: AllJavaClasses['java.lang.Object']['instanceObject'],
+    ): AllJavaClasses['io.netty.util.ReferenceCounted']['instanceObject']
+    retain(
+      arg0: number,
+    ): AllJavaClasses['io.netty.util.ReferenceCounted']['instanceObject']
+    retain(): AllJavaClasses['io.netty.util.ReferenceCounted']['instanceObject']
+    refCnt(): number
+  }
 }
 type AllJavaClass_io_netty_util_ByteProcessor = {
   staticObject: {
@@ -14302,23 +14312,6 @@ type AllJavaClass_io_netty_util_ByteProcessor = {
   instanceObject: {
     __javaClass: 'io.netty.util.ByteProcessor'
     process(arg0: number): boolean
-  }
-}
-type AllJavaClass_io_netty_util_ReferenceCounted = {
-  staticObject: object
-  instanceObject: {
-    __javaClass: 'io.netty.util.ReferenceCounted'
-    release(arg0: number): boolean
-    release(): boolean
-    touch(): AllJavaClasses['io.netty.util.ReferenceCounted']['instanceObject']
-    touch(
-      arg0: AllJavaClasses['java.lang.Object']['instanceObject'],
-    ): AllJavaClasses['io.netty.util.ReferenceCounted']['instanceObject']
-    refCnt(): number
-    retain(): AllJavaClasses['io.netty.util.ReferenceCounted']['instanceObject']
-    retain(
-      arg0: number,
-    ): AllJavaClasses['io.netty.util.ReferenceCounted']['instanceObject']
   }
 }
 type AllJavaClass_io_netty_buffer_ByteBufConvertible = {
@@ -14506,52 +14499,52 @@ type AllJavaClass_io_netty_buffer_CompositeByteBuf = {
     setDouble(
       arg0: number,
       arg1: number,
-    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     setDouble(
       arg0: number,
       arg1: number,
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
     copy(
       arg0: number,
       arg1: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     unwrap(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    capacity(): number
     capacity(
       arg0: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     capacity(
       arg0: number,
     ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
-    capacity(): number
     order(): AllJavaClasses['java.nio.ByteOrder']['instanceObject']
     readBytes(
-      arg0: number[],
+      arg0: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
       arg1: number,
       arg2: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     readBytes(
       arg0: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
-    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
-    readBytes(
-      arg0: number[],
     ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
     readBytes(
       arg0: AllJavaClasses['java.io.OutputStream']['instanceObject'],
       arg1: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     readBytes(
-      arg0: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
-      arg1: number,
-      arg2: number,
-    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
-    readBytes(
-      arg0: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
-      arg1: number,
-    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
-    readBytes(
       arg0: number[],
       arg1: number,
       arg2: number,
+    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
+    readBytes(
+      arg0: number[],
+    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
+    readBytes(
+      arg0: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
+      arg1: number,
+      arg2: number,
+    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
+    readBytes(
+      arg0: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
+      arg1: number,
     ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
     readBytes(
       arg0: AllJavaClasses['java.nio.ByteBuffer']['instanceObject'],
@@ -14566,64 +14559,64 @@ type AllJavaClass_io_netty_buffer_CompositeByteBuf = {
     readBytes(
       arg0: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
       arg1: number,
-      arg2: number,
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    readBytes(
-      arg0: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
-      arg1: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     readBytes(
       arg0: number[],
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     readBytes(
+      arg0: number[],
+      arg1: number,
+      arg2: number,
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    readBytes(
+      arg0: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    writeBytes(
+      arg0: number[],
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    writeBytes(
       arg0: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     writeBytes(
       arg0: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
       arg1: number,
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    writeBytes(
+      arg0: number[],
+      arg1: number,
       arg2: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    writeBytes(
+      arg0: number[],
+    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
+    writeBytes(
+      arg0: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
+    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
+    writeBytes(
+      arg0: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
+      arg1: number,
+    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
+    writeBytes(
+      arg0: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
+      arg1: number,
+      arg2: number,
+    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
+    writeBytes(
+      arg0: number[],
+      arg1: number,
+      arg2: number,
+    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
+    writeBytes(
+      arg0: AllJavaClasses['java.nio.ByteBuffer']['instanceObject'],
+    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
     writeBytes(
       arg0: AllJavaClasses['java.nio.ByteBuffer']['instanceObject'],
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     writeBytes(
-      arg0: number[],
-      arg1: number,
-      arg2: number,
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    writeBytes(
-      arg0: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
-      arg1: number,
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    writeBytes(
-      arg0: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    writeBytes(
-      arg0: number[],
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    writeBytes(
-      arg0: AllJavaClasses['java.nio.ByteBuffer']['instanceObject'],
-    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
-    writeBytes(
-      arg0: number[],
-    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
-    writeBytes(
       arg0: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
       arg1: number,
       arg2: number,
-    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
-    writeBytes(
-      arg0: number[],
-      arg1: number,
-      arg2: number,
-    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
-    writeBytes(
-      arg0: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
-    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
-    writeBytes(
-      arg0: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
-      arg1: number,
-    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     writeChar(
       arg0: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
@@ -14632,16 +14625,16 @@ type AllJavaClass_io_netty_buffer_CompositeByteBuf = {
     ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
     writeFloat(
       arg0: number,
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
     writeFloat(
       arg0: number,
-    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
-    writeBoolean(
-      arg0: boolean,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     writeBoolean(
       arg0: boolean,
     ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
+    writeBoolean(
+      arg0: boolean,
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     writeByte(
       arg0: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
@@ -14681,54 +14674,75 @@ type AllJavaClass_io_netty_buffer_CompositeByteBuf = {
       arg1: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     alloc(): AllJavaClasses['io.netty.buffer.ByteBufAllocator']['instanceObject']
-    addFlattenedComponents(
-      arg0: boolean,
-      arg1: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
-    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
-    internalComponentAtOffset(
-      arg0: number,
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    discardReadComponents(): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
-    discardSomeReadBytes(): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
-    discardSomeReadBytes(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     nioBufferCount(): number
-    readerIndex(
-      arg0: number,
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    readerIndex(
-      arg0: number,
-    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
-    nioBuffers(): AllJavaClasses['java.nio.ByteBuffer']['instanceObject'][]
     nioBuffers(
       arg0: number,
       arg1: number,
     ): AllJavaClasses['java.nio.ByteBuffer']['instanceObject'][]
-    writerIndex(
-      arg0: number,
-    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
-    writerIndex(
+    nioBuffers(): AllJavaClasses['java.nio.ByteBuffer']['instanceObject'][]
+    readerIndex(
       arg0: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    readerIndex(
+      arg0: number,
+    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
     internalNioBuffer(
       arg0: number,
       arg1: number,
     ): AllJavaClasses['java.nio.ByteBuffer']['instanceObject']
-    discardReadBytes(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    discardReadBytes(): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
-    ensureWritable(
+    writerIndex(
+      arg0: number,
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    writerIndex(
       arg0: number,
     ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
+    resetReaderIndex(): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
+    resetReaderIndex(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    markReaderIndex(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    markReaderIndex(): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
+    resetWriterIndex(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    resetWriterIndex(): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
+    discardReadBytes(): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
+    discardReadBytes(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    markWriterIndex(): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
+    markWriterIndex(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     ensureWritable(
       arg0: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    markReaderIndex(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    markReaderIndex(): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
-    markWriterIndex(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    markWriterIndex(): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
-    resetReaderIndex(): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
-    resetReaderIndex(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    resetWriterIndex(): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
-    resetWriterIndex(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    ensureWritable(
+      arg0: number,
+    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
+    setMedium(
+      arg0: number,
+      arg1: number,
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    setMedium(
+      arg0: number,
+      arg1: number,
+    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
+    setZero(
+      arg0: number,
+      arg1: number,
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    setZero(
+      arg0: number,
+      arg1: number,
+    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
+    setBytes(
+      arg0: number,
+      arg1: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
+      arg2: number,
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    setBytes(
+      arg0: number,
+      arg1: number[],
+    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
+    setBytes(
+      arg0: number,
+      arg1: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
+      arg2: number,
+      arg3: number,
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     setBytes(
       arg0: number,
       arg1: number[],
@@ -14737,10 +14751,23 @@ type AllJavaClass_io_netty_buffer_CompositeByteBuf = {
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     setBytes(
       arg0: number,
+      arg1: AllJavaClasses['java.nio.ByteBuffer']['instanceObject'],
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    setBytes(
+      arg0: number,
+      arg1: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
+    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
+    setBytes(
+      arg0: number,
       arg1: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
       arg2: number,
+    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
+    setBytes(
+      arg0: number,
+      arg1: number[],
+      arg2: number,
       arg3: number,
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
     setBytes(
       arg0: number,
       arg1: AllJavaClasses['java.nio.ByteBuffer']['instanceObject'],
@@ -14753,16 +14780,16 @@ type AllJavaClass_io_netty_buffer_CompositeByteBuf = {
     ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
     setBytes(
       arg0: number,
-      arg1: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    setBytes(
-      arg0: number,
-      arg1: AllJavaClasses['java.nio.ByteBuffer']['instanceObject'],
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    setBytes(
-      arg0: number,
-      arg1: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
+      arg1: AllJavaClasses['java.io.InputStream']['instanceObject'],
       arg2: number,
+    ): number
+    setBytes(
+      arg0: number,
+      arg1: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    setBytes(
+      arg0: number,
+      arg1: number[],
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     setBytes(
       arg0: number,
@@ -14772,105 +14799,60 @@ type AllJavaClass_io_netty_buffer_CompositeByteBuf = {
     ): number
     setBytes(
       arg0: number,
-      arg1: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
-    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
-    setBytes(
-      arg0: number,
-      arg1: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
-      arg2: number,
-    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
-    setBytes(
-      arg0: number,
-      arg1: AllJavaClasses['java.io.InputStream']['instanceObject'],
-      arg2: number,
-    ): number
-    setBytes(
-      arg0: number,
-      arg1: number[],
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    setBytes(
-      arg0: number,
-      arg1: number[],
-    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
-    setBytes(
-      arg0: number,
-      arg1: number[],
-      arg2: number,
-      arg3: number,
-    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
-    setBytes(
-      arg0: number,
       arg1: AllJavaClasses['java.nio.channels.ScatteringByteChannel']['instanceObject'],
       arg2: number,
     ): number
-    setZero(
-      arg0: number,
-      arg1: number,
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    setZero(
-      arg0: number,
-      arg1: number,
+    touch(
+      arg0: AllJavaClasses['java.lang.Object']['instanceObject'],
     ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
-    setMedium(
-      arg0: number,
-      arg1: number,
+    touch(): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
+    touch(
+      arg0: AllJavaClasses['java.lang.Object']['instanceObject'],
+    ): AllJavaClasses['io.netty.util.ReferenceCounted']['instanceObject']
+    touch(
+      arg0: AllJavaClasses['java.lang.Object']['instanceObject'],
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    setMedium(
-      arg0: number,
-      arg1: number,
-    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
-    writeZero(
+    touch(): AllJavaClasses['io.netty.util.ReferenceCounted']['instanceObject']
+    touch(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    writeMedium(
       arg0: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    writeZero(
-      arg0: number,
-    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
     writeMedium(
       arg0: number,
     ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
-    writeMedium(
+    writeZero(
+      arg0: number,
+    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
+    writeZero(
       arg0: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     nioBuffer(
       arg0: number,
       arg1: number,
     ): AllJavaClasses['java.nio.ByteBuffer']['instanceObject']
-    memoryAddress(): number
-    touch(): AllJavaClasses['io.netty.util.ReferenceCounted']['instanceObject']
-    touch(
-      arg0: AllJavaClasses['java.lang.Object']['instanceObject'],
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    touch(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    touch(
-      arg0: AllJavaClasses['java.lang.Object']['instanceObject'],
-    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
-    touch(
-      arg0: AllJavaClasses['java.lang.Object']['instanceObject'],
-    ): AllJavaClasses['io.netty.util.ReferenceCounted']['instanceObject']
-    touch(): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
     hasMemoryAddress(): boolean
-    retain(
-      arg0: number,
-    ): AllJavaClasses['io.netty.util.ReferenceCounted']['instanceObject']
-    retain(
-      arg0: number,
-    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
-    retain(): AllJavaClasses['io.netty.util.ReferenceCounted']['instanceObject']
-    retain(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    retain(): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
+    memoryAddress(): number
     retain(
       arg0: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    maxNumComponents(): number
+    retain(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    retain(
+      arg0: number,
+    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
+    retain(
+      arg0: number,
+    ): AllJavaClasses['io.netty.util.ReferenceCounted']['instanceObject']
+    retain(): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
+    retain(): AllJavaClasses['io.netty.util.ReferenceCounted']['instanceObject']
+    addComponents(
+      arg0: AllJavaClasses['java.lang.Iterable']['instanceObject'],
+    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
     addComponents(
       arg0: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'][],
     ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
     addComponents(
       arg0: boolean,
-      arg1: AllJavaClasses['java.lang.Iterable']['instanceObject'],
-    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
-    addComponents(
-      arg0: AllJavaClasses['java.lang.Iterable']['instanceObject'],
+      arg1: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'][],
     ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
     addComponents(
       arg0: number,
@@ -14882,10 +14864,15 @@ type AllJavaClass_io_netty_buffer_CompositeByteBuf = {
     ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
     addComponents(
       arg0: boolean,
-      arg1: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'][],
+      arg1: AllJavaClasses['java.lang.Iterable']['instanceObject'],
     ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
+    maxNumComponents(): number
     addComponent(
       arg0: number,
+      arg1: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
+    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
+    addComponent(
+      arg0: boolean,
       arg1: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
     ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
     addComponent(
@@ -14894,37 +14881,43 @@ type AllJavaClass_io_netty_buffer_CompositeByteBuf = {
       arg2: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
     ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
     addComponent(
-      arg0: boolean,
-      arg1: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
-    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
-    addComponent(
       arg0: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
     ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
+    toByteIndex(arg0: number): number
+    removeComponent(
+      arg0: number,
+    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
+    numComponents(): number
     removeComponents(
       arg0: number,
       arg1: number,
-    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
-    numComponents(): number
-    removeComponent(
-      arg0: number,
     ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
     toComponentIndex(arg0: number): number
     decompose(
       arg0: number,
       arg1: number,
     ): AllJavaClasses['java.util.List']['instanceObject']
-    toByteIndex(arg0: number): number
-    internalComponent(
+    componentAtOffset(
       arg0: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    consolidate(): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
     consolidate(
       arg0: number,
       arg1: number,
     ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
-    consolidate(): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
-    componentAtOffset(
+    internalComponent(
       arg0: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    internalComponentAtOffset(
+      arg0: number,
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    addFlattenedComponents(
+      arg0: boolean,
+      arg1: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
+    ): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
+    discardReadComponents(): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
+    discardSomeReadBytes(): AllJavaClasses['io.netty.buffer.CompositeByteBuf']['instanceObject']
+    discardSomeReadBytes(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
   } & Omit<
     AllJavaClasses['io.netty.buffer.AbstractReferenceCountedByteBuf']['instanceObject'],
     '__javaClass'
@@ -14939,21 +14932,21 @@ type AllJavaClass_io_netty_buffer_AbstractReferenceCountedByteBuf = {
     release(arg0: number): boolean
     touch(
       arg0: AllJavaClasses['java.lang.Object']['instanceObject'],
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    touch(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    ): AllJavaClasses['io.netty.util.ReferenceCounted']['instanceObject']
     touch(): AllJavaClasses['io.netty.util.ReferenceCounted']['instanceObject']
     touch(
       arg0: AllJavaClasses['java.lang.Object']['instanceObject'],
-    ): AllJavaClasses['io.netty.util.ReferenceCounted']['instanceObject']
-    refCnt(): number
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    touch(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    retain(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     retain(): AllJavaClasses['io.netty.util.ReferenceCounted']['instanceObject']
     retain(
       arg0: number,
-    ): AllJavaClasses['io.netty.util.ReferenceCounted']['instanceObject']
-    retain(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     retain(
       arg0: number,
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    ): AllJavaClasses['io.netty.util.ReferenceCounted']['instanceObject']
+    refCnt(): number
   } & Omit<
     AllJavaClasses['io.netty.buffer.AbstractByteBuf']['instanceObject'],
     '__javaClass'
@@ -15166,44 +15159,88 @@ type AllJavaClass_io_netty_buffer_AbstractByteBuf = {
       arg0: number,
       arg1: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    readUnsignedShortLE(): number
-    discardSomeReadBytes(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    getUnsignedMediumLE(arg0: number): number
-    readUnsignedMediumLE(): number
     readableBytes(): number
-    readerIndex(): number
+    nioBuffers(): AllJavaClasses['java.nio.ByteBuffer']['instanceObject'][]
     readerIndex(
       arg0: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    nioBuffers(): AllJavaClasses['java.nio.ByteBuffer']['instanceObject'][]
-    writerIndex(): number
+    readerIndex(): number
     writerIndex(
       arg0: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    getUnsignedShort(arg0: number): number
-    asReadOnly(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    writableBytes(): number
+    writerIndex(): number
+    resetReaderIndex(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    markReaderIndex(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    resetWriterIndex(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     discardReadBytes(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    maxCapacity(): number
+    asReadOnly(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    maxWritableBytes(): number
+    getUnsignedShort(arg0: number): number
+    getUnsignedShortLE(arg0: number): number
+    getIntLE(arg0: number): number
+    getLongLE(arg0: number): number
+    getUnsignedByte(arg0: number): number
+    writableBytes(): number
+    getMediumLE(arg0: number): number
     getShortLE(arg0: number): number
+    getMedium(arg0: number): number
+    maxCapacity(): number
+    markWriterIndex(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    getUnsignedMedium(arg0: number): number
+    getUnsignedInt(arg0: number): number
+    getUnsignedIntLE(arg0: number): number
     ensureWritable(arg0: number, arg1: boolean): number
     ensureWritable(
       arg0: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    getUnsignedByte(arg0: number): number
-    maxWritableBytes(): number
-    getUnsignedShortLE(arg0: number): number
-    markReaderIndex(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    markWriterIndex(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    getMedium(arg0: number): number
-    getMediumLE(arg0: number): number
-    getUnsignedMedium(arg0: number): number
-    getIntLE(arg0: number): number
-    resetReaderIndex(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    resetWriterIndex(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    readMediumLE(): number
+    readSlice(
+      arg0: number,
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    setCharSequence(
+      arg0: number,
+      arg1: AllJavaClasses['java.lang.CharSequence']['instanceObject'],
+      arg2: AllJavaClasses['java.nio.charset.Charset']['instanceObject'],
+    ): number
+    readShortLE(): number
+    readUnsignedInt(): number
+    readLongLE(): number
+    readRetainedSlice(
+      arg0: number,
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    setMedium(
+      arg0: number,
+      arg1: number,
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    setZero(
+      arg0: number,
+      arg1: number,
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    getCharSequence(
+      arg0: number,
+      arg1: number,
+      arg2: AllJavaClasses['java.nio.charset.Charset']['instanceObject'],
+    ): AllJavaClasses['java.lang.CharSequence']['instanceObject']
+    readUnsignedIntLE(): number
+    setShortLE(
+      arg0: number,
+      arg1: number,
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    setIntLE(
+      arg0: number,
+      arg1: number,
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    setLongLE(
+      arg0: number,
+      arg1: number,
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     setMediumLE(
       arg0: number,
       arg1: number,
+    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    setBytes(
+      arg0: number,
+      arg1: number[],
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     setBytes(
       arg0: number,
@@ -15214,151 +15251,114 @@ type AllJavaClass_io_netty_buffer_AbstractByteBuf = {
       arg0: number,
       arg1: AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    setBytes(
-      arg0: number,
-      arg1: number[],
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    readMedium(): number
     readUnsignedMedium(): number
     readIntLE(): number
-    readUnsignedInt(): number
-    readUnsignedIntLE(): number
-    getLongLE(arg0: number): number
-    getUnsignedInt(arg0: number): number
-    getCharSequence(
+    readMedium(): number
+    readCharSequence(
       arg0: number,
-      arg1: number,
-      arg2: AllJavaClasses['java.nio.charset.Charset']['instanceObject'],
+      arg1: AllJavaClasses['java.nio.charset.Charset']['instanceObject'],
     ): AllJavaClasses['java.lang.CharSequence']['instanceObject']
-    setCharSequence(
+    writeMedium(
       arg0: number,
-      arg1: AllJavaClasses['java.lang.CharSequence']['instanceObject'],
-      arg2: AllJavaClasses['java.nio.charset.Charset']['instanceObject'],
-    ): number
-    readMediumLE(): number
-    setIntLE(
-      arg0: number,
-      arg1: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    setLongLE(
-      arg0: number,
-      arg1: number,
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    setZero(
-      arg0: number,
-      arg1: number,
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    getUnsignedIntLE(arg0: number): number
-    setMedium(
-      arg0: number,
-      arg1: number,
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    setShortLE(
-      arg0: number,
-      arg1: number,
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    readShortLE(): number
-    readLongLE(): number
     writeZero(
       arg0: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    readSlice(
+    retainedSlice(
       arg0: number,
+      arg1: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    writeCharSequence(
-      arg0: AllJavaClasses['java.lang.CharSequence']['instanceObject'],
-      arg1: AllJavaClasses['java.nio.charset.Charset']['instanceObject'],
-    ): number
-    forEachByte(
+    retainedSlice(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    retainedDuplicate(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    forEachByteDesc(
       arg0: AllJavaClasses['io.netty.util.ByteProcessor']['instanceObject'],
     ): number
-    forEachByte(
+    forEachByteDesc(
       arg0: number,
       arg1: number,
       arg2: AllJavaClasses['io.netty.util.ByteProcessor']['instanceObject'],
     ): number
-    readRetainedSlice(
+    nioBuffer(): AllJavaClasses['java.nio.ByteBuffer']['instanceObject']
+    bytesBefore(arg0: number): number
+    bytesBefore(arg0: number, arg1: number): number
+    bytesBefore(arg0: number, arg1: number, arg2: number): number
+    writeCharSequence(
+      arg0: AllJavaClasses['java.lang.CharSequence']['instanceObject'],
+      arg1: AllJavaClasses['java.nio.charset.Charset']['instanceObject'],
+    ): number
+    writeIntLE(
       arg0: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     writeMediumLE(
       arg0: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    writeIntLE(
+    writeLongLE(
       arg0: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    forEachByteDesc(
+    forEachByte(
       arg0: AllJavaClasses['io.netty.util.ByteProcessor']['instanceObject'],
     ): number
-    forEachByteDesc(
+    forEachByte(
       arg0: number,
       arg1: number,
       arg2: AllJavaClasses['io.netty.util.ByteProcessor']['instanceObject'],
     ): number
-    writeMedium(
-      arg0: number,
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    retainedDuplicate(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    nioBuffer(): AllJavaClasses['java.nio.ByteBuffer']['instanceObject']
-    readCharSequence(
-      arg0: number,
-      arg1: AllJavaClasses['java.nio.charset.Charset']['instanceObject'],
-    ): AllJavaClasses['java.lang.CharSequence']['instanceObject']
-    writeLongLE(
-      arg0: number,
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    bytesBefore(arg0: number, arg1: number, arg2: number): number
-    bytesBefore(arg0: number, arg1: number): number
-    bytesBefore(arg0: number): number
-    retainedSlice(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
-    retainedSlice(
-      arg0: number,
-      arg1: number,
-    ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
     writeShortLE(
       arg0: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    discardSomeReadBytes(): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    readUnsignedShortLE(): number
+    readUnsignedMediumLE(): number
+    getUnsignedMediumLE(arg0: number): number
   } & Omit<
     AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject'],
     '__javaClass'
   >
 }
+type AllJavaClass_io_netty_channel_RecvByteBufAllocator = {
+  staticObject: object
+  instanceObject: {
+    __javaClass: 'io.netty.channel.RecvByteBufAllocator'
+    newHandle(): AllJavaClasses['io.netty.channel.RecvByteBufAllocator$Handle']['instanceObject']
+  }
+}
 type AllJavaClass_io_netty_channel_ChannelOutboundBuffer = {
   staticObject: object
   instanceObject: {
     __javaClass: 'io.netty.channel.ChannelOutboundBuffer'
-    remove(): boolean
     remove(
       arg0: AllJavaClasses['java.lang.Throwable']['instanceObject'],
     ): boolean
+    remove(): boolean
     isEmpty(): boolean
     size(): number
     current(): AllJavaClasses['java.lang.Object']['instanceObject']
     isWritable(): boolean
-    bytesBeforeUnwritable(): number
     bytesBeforeWritable(): number
-    forEachFlushedMessage(
-      arg0: AllJavaClasses['io.netty.channel.ChannelOutboundBuffer$MessageProcessor']['instanceObject'],
-    ): void
-    totalPendingWriteBytes(): number
-    setUserDefinedWritability(arg0: number, arg1: boolean): void
-    getUserDefinedWritability(arg0: number): boolean
+    bytesBeforeUnwritable(): number
+    nioBufferCount(): number
+    nioBufferSize(): number
+    nioBuffers(
+      arg0: number,
+      arg1: number,
+    ): AllJavaClasses['java.nio.ByteBuffer']['instanceObject'][]
+    nioBuffers(): AllJavaClasses['java.nio.ByteBuffer']['instanceObject'][]
+    removeBytes(arg0: number): void
+    progress(arg0: number): void
     addMessage(
       arg0: AllJavaClasses['java.lang.Object']['instanceObject'],
       arg1: number,
       arg2: AllJavaClasses['io.netty.channel.ChannelPromise']['instanceObject'],
     ): void
-    nioBufferSize(): number
-    nioBufferCount(): number
-    currentProgress(): number
-    removeBytes(arg0: number): void
-    progress(arg0: number): void
     addFlush(): void
-    nioBuffers(): AllJavaClasses['java.nio.ByteBuffer']['instanceObject'][]
-    nioBuffers(
-      arg0: number,
-      arg1: number,
-    ): AllJavaClasses['java.nio.ByteBuffer']['instanceObject'][]
+    currentProgress(): number
     recycle(): void
+    forEachFlushedMessage(
+      arg0: AllJavaClasses['io.netty.channel.ChannelOutboundBuffer$MessageProcessor']['instanceObject'],
+    ): void
+    getUserDefinedWritability(arg0: number): boolean
+    setUserDefinedWritability(arg0: number, arg1: boolean): void
+    totalPendingWriteBytes(): number
   } & Omit<AllJavaClasses['java.lang.Object']['instanceObject'], '__javaClass'>
 }
 type AllJavaClass_io_netty_channel_ChannelOutboundBuffer$MessageProcessor = {
@@ -15453,45 +15453,45 @@ type AllJavaClass_io_netty_channel_ChannelPipeline = {
     ): AllJavaClasses['io.netty.channel.ChannelPipeline']['instanceObject']
     removeFirst(): AllJavaClasses['io.netty.channel.ChannelHandler']['instanceObject']
     removeLast(): AllJavaClasses['io.netty.channel.ChannelHandler']['instanceObject']
+    firstContext(): AllJavaClasses['io.netty.channel.ChannelHandlerContext']['instanceObject']
+    addBefore(
+      arg0: AllJavaClasses['io.netty.util.concurrent.EventExecutorGroup']['instanceObject'],
+      arg1: string,
+      arg2: string,
+      arg3: AllJavaClasses['io.netty.channel.ChannelHandler']['instanceObject'],
+    ): AllJavaClasses['io.netty.channel.ChannelPipeline']['instanceObject']
+    addBefore(
+      arg0: string,
+      arg1: string,
+      arg2: AllJavaClasses['io.netty.channel.ChannelHandler']['instanceObject'],
+    ): AllJavaClasses['io.netty.channel.ChannelPipeline']['instanceObject']
+    addAfter(
+      arg0: AllJavaClasses['io.netty.util.concurrent.EventExecutorGroup']['instanceObject'],
+      arg1: string,
+      arg2: string,
+      arg3: AllJavaClasses['io.netty.channel.ChannelHandler']['instanceObject'],
+    ): AllJavaClasses['io.netty.channel.ChannelPipeline']['instanceObject']
+    addAfter(
+      arg0: string,
+      arg1: string,
+      arg2: AllJavaClasses['io.netty.channel.ChannelHandler']['instanceObject'],
+    ): AllJavaClasses['io.netty.channel.ChannelPipeline']['instanceObject']
+    lastContext(): AllJavaClasses['io.netty.channel.ChannelHandlerContext']['instanceObject']
+    fireUserEventTriggered(
+      arg0: AllJavaClasses['java.lang.Object']['instanceObject'],
+    ): AllJavaClasses['io.netty.channel.ChannelPipeline']['instanceObject']
+    fireChannelReadComplete(): AllJavaClasses['io.netty.channel.ChannelPipeline']['instanceObject']
+    fireChannelInactive(): AllJavaClasses['io.netty.channel.ChannelPipeline']['instanceObject']
+    fireChannelUnregistered(): AllJavaClasses['io.netty.channel.ChannelPipeline']['instanceObject']
+    fireChannelRegistered(): AllJavaClasses['io.netty.channel.ChannelPipeline']['instanceObject']
+    fireExceptionCaught(
+      arg0: AllJavaClasses['java.lang.Throwable']['instanceObject'],
+    ): AllJavaClasses['io.netty.channel.ChannelPipeline']['instanceObject']
+    fireChannelWritabilityChanged(): AllJavaClasses['io.netty.channel.ChannelPipeline']['instanceObject']
     fireChannelRead(
       arg0: AllJavaClasses['java.lang.Object']['instanceObject'],
     ): AllJavaClasses['io.netty.channel.ChannelPipeline']['instanceObject']
     fireChannelActive(): AllJavaClasses['io.netty.channel.ChannelPipeline']['instanceObject']
-    addBefore(
-      arg0: AllJavaClasses['io.netty.util.concurrent.EventExecutorGroup']['instanceObject'],
-      arg1: string,
-      arg2: string,
-      arg3: AllJavaClasses['io.netty.channel.ChannelHandler']['instanceObject'],
-    ): AllJavaClasses['io.netty.channel.ChannelPipeline']['instanceObject']
-    addBefore(
-      arg0: string,
-      arg1: string,
-      arg2: AllJavaClasses['io.netty.channel.ChannelHandler']['instanceObject'],
-    ): AllJavaClasses['io.netty.channel.ChannelPipeline']['instanceObject']
-    addAfter(
-      arg0: string,
-      arg1: string,
-      arg2: AllJavaClasses['io.netty.channel.ChannelHandler']['instanceObject'],
-    ): AllJavaClasses['io.netty.channel.ChannelPipeline']['instanceObject']
-    addAfter(
-      arg0: AllJavaClasses['io.netty.util.concurrent.EventExecutorGroup']['instanceObject'],
-      arg1: string,
-      arg2: string,
-      arg3: AllJavaClasses['io.netty.channel.ChannelHandler']['instanceObject'],
-    ): AllJavaClasses['io.netty.channel.ChannelPipeline']['instanceObject']
-    firstContext(): AllJavaClasses['io.netty.channel.ChannelHandlerContext']['instanceObject']
-    lastContext(): AllJavaClasses['io.netty.channel.ChannelHandlerContext']['instanceObject']
-    fireChannelReadComplete(): AllJavaClasses['io.netty.channel.ChannelPipeline']['instanceObject']
-    fireExceptionCaught(
-      arg0: AllJavaClasses['java.lang.Throwable']['instanceObject'],
-    ): AllJavaClasses['io.netty.channel.ChannelPipeline']['instanceObject']
-    fireUserEventTriggered(
-      arg0: AllJavaClasses['java.lang.Object']['instanceObject'],
-    ): AllJavaClasses['io.netty.channel.ChannelPipeline']['instanceObject']
-    fireChannelUnregistered(): AllJavaClasses['io.netty.channel.ChannelPipeline']['instanceObject']
-    fireChannelRegistered(): AllJavaClasses['io.netty.channel.ChannelPipeline']['instanceObject']
-    fireChannelInactive(): AllJavaClasses['io.netty.channel.ChannelPipeline']['instanceObject']
-    fireChannelWritabilityChanged(): AllJavaClasses['io.netty.channel.ChannelPipeline']['instanceObject']
   } & Omit<
     AllJavaClasses['io.netty.channel.ChannelInboundInvoker']['instanceObject'],
     '__javaClass'
@@ -15506,21 +15506,21 @@ type AllJavaClass_io_netty_channel_ChannelInboundInvoker = {
   staticObject: object
   instanceObject: {
     __javaClass: 'io.netty.channel.ChannelInboundInvoker'
+    fireUserEventTriggered(
+      arg0: AllJavaClasses['java.lang.Object']['instanceObject'],
+    ): AllJavaClasses['io.netty.channel.ChannelInboundInvoker']['instanceObject']
+    fireChannelReadComplete(): AllJavaClasses['io.netty.channel.ChannelInboundInvoker']['instanceObject']
+    fireChannelInactive(): AllJavaClasses['io.netty.channel.ChannelInboundInvoker']['instanceObject']
+    fireChannelUnregistered(): AllJavaClasses['io.netty.channel.ChannelInboundInvoker']['instanceObject']
+    fireChannelRegistered(): AllJavaClasses['io.netty.channel.ChannelInboundInvoker']['instanceObject']
+    fireExceptionCaught(
+      arg0: AllJavaClasses['java.lang.Throwable']['instanceObject'],
+    ): AllJavaClasses['io.netty.channel.ChannelInboundInvoker']['instanceObject']
+    fireChannelWritabilityChanged(): AllJavaClasses['io.netty.channel.ChannelInboundInvoker']['instanceObject']
     fireChannelRead(
       arg0: AllJavaClasses['java.lang.Object']['instanceObject'],
     ): AllJavaClasses['io.netty.channel.ChannelInboundInvoker']['instanceObject']
     fireChannelActive(): AllJavaClasses['io.netty.channel.ChannelInboundInvoker']['instanceObject']
-    fireChannelReadComplete(): AllJavaClasses['io.netty.channel.ChannelInboundInvoker']['instanceObject']
-    fireExceptionCaught(
-      arg0: AllJavaClasses['java.lang.Throwable']['instanceObject'],
-    ): AllJavaClasses['io.netty.channel.ChannelInboundInvoker']['instanceObject']
-    fireUserEventTriggered(
-      arg0: AllJavaClasses['java.lang.Object']['instanceObject'],
-    ): AllJavaClasses['io.netty.channel.ChannelInboundInvoker']['instanceObject']
-    fireChannelUnregistered(): AllJavaClasses['io.netty.channel.ChannelInboundInvoker']['instanceObject']
-    fireChannelRegistered(): AllJavaClasses['io.netty.channel.ChannelInboundInvoker']['instanceObject']
-    fireChannelInactive(): AllJavaClasses['io.netty.channel.ChannelInboundInvoker']['instanceObject']
-    fireChannelWritabilityChanged(): AllJavaClasses['io.netty.channel.ChannelInboundInvoker']['instanceObject']
   }
 }
 type AllJavaClass_io_netty_channel_ChannelOutboundInvoker = {
@@ -15530,19 +15530,19 @@ type AllJavaClass_io_netty_channel_ChannelOutboundInvoker = {
     flush(): AllJavaClasses['io.netty.channel.ChannelOutboundInvoker']['instanceObject']
     write(
       arg0: AllJavaClasses['java.lang.Object']['instanceObject'],
-      arg1: AllJavaClasses['io.netty.channel.ChannelPromise']['instanceObject'],
     ): AllJavaClasses['io.netty.channel.ChannelFuture']['instanceObject']
     write(
       arg0: AllJavaClasses['java.lang.Object']['instanceObject'],
+      arg1: AllJavaClasses['io.netty.channel.ChannelPromise']['instanceObject'],
     ): AllJavaClasses['io.netty.channel.ChannelFuture']['instanceObject']
     read(): AllJavaClasses['io.netty.channel.ChannelOutboundInvoker']['instanceObject']
     connect(
       arg0: AllJavaClasses['java.net.SocketAddress']['instanceObject'],
+      arg1: AllJavaClasses['java.net.SocketAddress']['instanceObject'],
+      arg2: AllJavaClasses['io.netty.channel.ChannelPromise']['instanceObject'],
     ): AllJavaClasses['io.netty.channel.ChannelFuture']['instanceObject']
     connect(
       arg0: AllJavaClasses['java.net.SocketAddress']['instanceObject'],
-      arg1: AllJavaClasses['java.net.SocketAddress']['instanceObject'],
-      arg2: AllJavaClasses['io.netty.channel.ChannelPromise']['instanceObject'],
     ): AllJavaClasses['io.netty.channel.ChannelFuture']['instanceObject']
     connect(
       arg0: AllJavaClasses['java.net.SocketAddress']['instanceObject'],
@@ -15563,28 +15563,28 @@ type AllJavaClass_io_netty_channel_ChannelOutboundInvoker = {
       arg0: AllJavaClasses['java.net.SocketAddress']['instanceObject'],
       arg1: AllJavaClasses['io.netty.channel.ChannelPromise']['instanceObject'],
     ): AllJavaClasses['io.netty.channel.ChannelFuture']['instanceObject']
+    newProgressivePromise(): AllJavaClasses['io.netty.channel.ChannelProgressivePromise']['instanceObject']
+    deregister(): AllJavaClasses['io.netty.channel.ChannelFuture']['instanceObject']
     deregister(
       arg0: AllJavaClasses['io.netty.channel.ChannelPromise']['instanceObject'],
     ): AllJavaClasses['io.netty.channel.ChannelFuture']['instanceObject']
-    deregister(): AllJavaClasses['io.netty.channel.ChannelFuture']['instanceObject']
-    disconnect(): AllJavaClasses['io.netty.channel.ChannelFuture']['instanceObject']
     disconnect(
       arg0: AllJavaClasses['io.netty.channel.ChannelPromise']['instanceObject'],
     ): AllJavaClasses['io.netty.channel.ChannelFuture']['instanceObject']
+    disconnect(): AllJavaClasses['io.netty.channel.ChannelFuture']['instanceObject']
     newSucceededFuture(): AllJavaClasses['io.netty.channel.ChannelFuture']['instanceObject']
+    voidPromise(): AllJavaClasses['io.netty.channel.ChannelPromise']['instanceObject']
     newFailedFuture(
       arg0: AllJavaClasses['java.lang.Throwable']['instanceObject'],
     ): AllJavaClasses['io.netty.channel.ChannelFuture']['instanceObject']
-    writeAndFlush(
-      arg0: AllJavaClasses['java.lang.Object']['instanceObject'],
-    ): AllJavaClasses['io.netty.channel.ChannelFuture']['instanceObject']
+    newPromise(): AllJavaClasses['io.netty.channel.ChannelPromise']['instanceObject']
     writeAndFlush(
       arg0: AllJavaClasses['java.lang.Object']['instanceObject'],
       arg1: AllJavaClasses['io.netty.channel.ChannelPromise']['instanceObject'],
     ): AllJavaClasses['io.netty.channel.ChannelFuture']['instanceObject']
-    newPromise(): AllJavaClasses['io.netty.channel.ChannelPromise']['instanceObject']
-    voidPromise(): AllJavaClasses['io.netty.channel.ChannelPromise']['instanceObject']
-    newProgressivePromise(): AllJavaClasses['io.netty.channel.ChannelProgressivePromise']['instanceObject']
+    writeAndFlush(
+      arg0: AllJavaClasses['java.lang.Object']['instanceObject'],
+    ): AllJavaClasses['io.netty.channel.ChannelFuture']['instanceObject']
   }
 }
 type AllJavaClass_io_netty_channel_ChannelProgressivePromise = {
@@ -15593,32 +15593,32 @@ type AllJavaClass_io_netty_channel_ChannelProgressivePromise = {
     __javaClass: 'io.netty.channel.ChannelProgressivePromise'
     sync(): AllJavaClasses['io.netty.channel.ChannelProgressivePromise']['instanceObject']
     await(): AllJavaClasses['io.netty.channel.ChannelProgressivePromise']['instanceObject']
-    awaitUninterruptibly(): AllJavaClasses['io.netty.channel.ChannelProgressivePromise']['instanceObject']
-    syncUninterruptibly(): AllJavaClasses['io.netty.channel.ChannelProgressivePromise']['instanceObject']
     addListener(
       arg0: AllJavaClasses['io.netty.util.concurrent.GenericFutureListener']['instanceObject'],
     ): AllJavaClasses['io.netty.channel.ChannelProgressivePromise']['instanceObject']
-    removeListeners(
+    addListeners(
       arg0: AllJavaClasses['io.netty.util.concurrent.GenericFutureListener']['instanceObject'][],
     ): AllJavaClasses['io.netty.channel.ChannelProgressivePromise']['instanceObject']
-    setSuccess(): AllJavaClasses['io.netty.channel.ChannelProgressivePromise']['instanceObject']
-    setSuccess(
-      arg0: void,
-    ): AllJavaClasses['io.netty.channel.ChannelProgressivePromise']['instanceObject']
-    addListeners(
+    removeListeners(
       arg0: AllJavaClasses['io.netty.util.concurrent.GenericFutureListener']['instanceObject'][],
     ): AllJavaClasses['io.netty.channel.ChannelProgressivePromise']['instanceObject']
     removeListener(
       arg0: AllJavaClasses['io.netty.util.concurrent.GenericFutureListener']['instanceObject'],
     ): AllJavaClasses['io.netty.channel.ChannelProgressivePromise']['instanceObject']
-    unvoid(): AllJavaClasses['io.netty.channel.ChannelProgressivePromise']['instanceObject']
     setFailure(
       arg0: AllJavaClasses['java.lang.Throwable']['instanceObject'],
     ): AllJavaClasses['io.netty.channel.ChannelProgressivePromise']['instanceObject']
+    setSuccess(
+      arg0: void,
+    ): AllJavaClasses['io.netty.channel.ChannelProgressivePromise']['instanceObject']
+    setSuccess(): AllJavaClasses['io.netty.channel.ChannelProgressivePromise']['instanceObject']
+    unvoid(): AllJavaClasses['io.netty.channel.ChannelProgressivePromise']['instanceObject']
     setProgress(
       arg0: number,
       arg1: number,
     ): AllJavaClasses['io.netty.channel.ChannelProgressivePromise']['instanceObject']
+    awaitUninterruptibly(): AllJavaClasses['io.netty.channel.ChannelProgressivePromise']['instanceObject']
+    syncUninterruptibly(): AllJavaClasses['io.netty.channel.ChannelProgressivePromise']['instanceObject']
   } & Omit<
     AllJavaClasses['io.netty.util.concurrent.ProgressivePromise']['instanceObject'],
     '__javaClass'
@@ -15638,20 +15638,20 @@ type AllJavaClass_io_netty_channel_ChannelProgressiveFuture = {
     __javaClass: 'io.netty.channel.ChannelProgressiveFuture'
     sync(): AllJavaClasses['io.netty.channel.ChannelProgressiveFuture']['instanceObject']
     await(): AllJavaClasses['io.netty.channel.ChannelProgressiveFuture']['instanceObject']
-    awaitUninterruptibly(): AllJavaClasses['io.netty.channel.ChannelProgressiveFuture']['instanceObject']
-    syncUninterruptibly(): AllJavaClasses['io.netty.channel.ChannelProgressiveFuture']['instanceObject']
     addListener(
       arg0: AllJavaClasses['io.netty.util.concurrent.GenericFutureListener']['instanceObject'],
     ): AllJavaClasses['io.netty.channel.ChannelProgressiveFuture']['instanceObject']
-    removeListeners(
+    addListeners(
       arg0: AllJavaClasses['io.netty.util.concurrent.GenericFutureListener']['instanceObject'][],
     ): AllJavaClasses['io.netty.channel.ChannelProgressiveFuture']['instanceObject']
-    addListeners(
+    removeListeners(
       arg0: AllJavaClasses['io.netty.util.concurrent.GenericFutureListener']['instanceObject'][],
     ): AllJavaClasses['io.netty.channel.ChannelProgressiveFuture']['instanceObject']
     removeListener(
       arg0: AllJavaClasses['io.netty.util.concurrent.GenericFutureListener']['instanceObject'],
     ): AllJavaClasses['io.netty.channel.ChannelProgressiveFuture']['instanceObject']
+    awaitUninterruptibly(): AllJavaClasses['io.netty.channel.ChannelProgressiveFuture']['instanceObject']
+    syncUninterruptibly(): AllJavaClasses['io.netty.channel.ChannelProgressiveFuture']['instanceObject']
   } & Omit<
     AllJavaClasses['io.netty.channel.ChannelFuture']['instanceObject'],
     '__javaClass'
@@ -15673,8 +15673,8 @@ type AllJavaClass_io_netty_channel_ChannelMetadata = {
   }
   instanceObject: {
     __javaClass: 'io.netty.channel.ChannelMetadata'
-    defaultMaxMessagesPerRead(): number
     hasDisconnect(): boolean
+    defaultMaxMessagesPerRead(): number
   } & Omit<AllJavaClasses['java.lang.Object']['instanceObject'], '__javaClass'>
 }
 type AllJavaClass_io_netty_util_AttributeMap = {
@@ -15700,13 +15700,13 @@ type AllJavaClass_net_rwhps_server_net_handler_bio_PackagingSocket = {
     close(): void
     getType(): AllJavaClasses['net.rwhps.server.net.core.TypeConnect']['instanceObject']
     getInputStream(): AllJavaClasses['java.io.InputStream']['instanceObject']
+    getOutputStream(): AllJavaClasses['java.io.OutputStream']['instanceObject']
+    isClosed(): boolean
+    getLocalPort(): number
     setType(
       arg0: AllJavaClasses['net.rwhps.server.net.core.TypeConnect']['instanceObject'],
     ): void
     getRemoteSocketAddressString(): string
-    isClosed(): boolean
-    getLocalPort(): number
-    getOutputStream(): AllJavaClasses['java.io.OutputStream']['instanceObject']
   } & Omit<AllJavaClasses['java.lang.Object']['instanceObject'], '__javaClass'>
 }
 type AllJavaClass_java_net_Socket = {
@@ -15764,16 +15764,6 @@ type AllJavaClass_java_net_Socket = {
     getInputStream(): AllJavaClasses['java.io.InputStream']['instanceObject']
     bind(arg0: AllJavaClasses['java.net.SocketAddress']['instanceObject']): void
     getChannel(): AllJavaClasses['java.nio.channels.SocketChannel']['instanceObject']
-    getRemoteSocketAddress(): AllJavaClasses['java.net.SocketAddress']['instanceObject']
-    isClosed(): boolean
-    getLocalPort(): number
-    getOption(
-      arg0: AllJavaClasses['java.net.SocketOption']['instanceObject'],
-    ): AllJavaClasses['java.lang.Object']['instanceObject']
-    setOption(
-      arg0: AllJavaClasses['java.net.SocketOption']['instanceObject'],
-      arg1: AllJavaClasses['java.lang.Object']['instanceObject'],
-    ): AllJavaClasses['java.net.Socket']['instanceObject']
     getOutputStream(): AllJavaClasses['java.io.OutputStream']['instanceObject']
     isConnected(): boolean
     isBound(): boolean
@@ -15805,6 +15795,16 @@ type AllJavaClass_java_net_Socket = {
     setReuseAddress(arg0: boolean): void
     getReuseAddress(): boolean
     setPerformancePreferences(arg0: number, arg1: number, arg2: number): void
+    isClosed(): boolean
+    getLocalPort(): number
+    getRemoteSocketAddress(): AllJavaClasses['java.net.SocketAddress']['instanceObject']
+    getOption(
+      arg0: AllJavaClasses['java.net.SocketOption']['instanceObject'],
+    ): AllJavaClasses['java.lang.Object']['instanceObject']
+    setOption(
+      arg0: AllJavaClasses['java.net.SocketOption']['instanceObject'],
+      arg1: AllJavaClasses['java.lang.Object']['instanceObject'],
+    ): AllJavaClasses['java.net.Socket']['instanceObject']
   } & Omit<
     AllJavaClasses['java.lang.Object']['instanceObject'],
     '__javaClass'
@@ -15935,19 +15935,10 @@ type AllJavaClass_java_nio_channels_SocketChannel = {
     ): boolean
     bind(
       arg0: AllJavaClasses['java.net.SocketAddress']['instanceObject'],
-    ): AllJavaClasses['java.nio.channels.NetworkChannel']['instanceObject']
+    ): AllJavaClasses['java.nio.channels.SocketChannel']['instanceObject']
     bind(
       arg0: AllJavaClasses['java.net.SocketAddress']['instanceObject'],
-    ): AllJavaClasses['java.nio.channels.SocketChannel']['instanceObject']
-    socket(): AllJavaClasses['java.net.Socket']['instanceObject']
-    setOption(
-      arg0: AllJavaClasses['java.net.SocketOption']['instanceObject'],
-      arg1: AllJavaClasses['java.lang.Object']['instanceObject'],
     ): AllJavaClasses['java.nio.channels.NetworkChannel']['instanceObject']
-    setOption(
-      arg0: AllJavaClasses['java.net.SocketOption']['instanceObject'],
-      arg1: AllJavaClasses['java.lang.Object']['instanceObject'],
-    ): AllJavaClasses['java.nio.channels.SocketChannel']['instanceObject']
     isConnected(): boolean
     getLocalAddress(): AllJavaClasses['java.net.SocketAddress']['instanceObject']
     shutdownInput(): AllJavaClasses['java.nio.channels.SocketChannel']['instanceObject']
@@ -15956,6 +15947,15 @@ type AllJavaClass_java_nio_channels_SocketChannel = {
     isConnectionPending(): boolean
     finishConnect(): boolean
     getRemoteAddress(): AllJavaClasses['java.net.SocketAddress']['instanceObject']
+    socket(): AllJavaClasses['java.net.Socket']['instanceObject']
+    setOption(
+      arg0: AllJavaClasses['java.net.SocketOption']['instanceObject'],
+      arg1: AllJavaClasses['java.lang.Object']['instanceObject'],
+    ): AllJavaClasses['java.nio.channels.SocketChannel']['instanceObject']
+    setOption(
+      arg0: AllJavaClasses['java.net.SocketOption']['instanceObject'],
+      arg1: AllJavaClasses['java.lang.Object']['instanceObject'],
+    ): AllJavaClasses['java.nio.channels.NetworkChannel']['instanceObject']
   } & Omit<
     AllJavaClasses['java.nio.channels.spi.AbstractSelectableChannel']['instanceObject'],
     '__javaClass'
@@ -15988,6 +15988,8 @@ type AllJavaClass_java_nio_channels_NetworkChannel = {
     bind(
       arg0: AllJavaClasses['java.net.SocketAddress']['instanceObject'],
     ): AllJavaClasses['java.nio.channels.NetworkChannel']['instanceObject']
+    getLocalAddress(): AllJavaClasses['java.net.SocketAddress']['instanceObject']
+    supportedOptions(): AllJavaClasses['java.util.Set']['instanceObject']
     getOption(
       arg0: AllJavaClasses['java.net.SocketOption']['instanceObject'],
     ): AllJavaClasses['java.lang.Object']['instanceObject']
@@ -15995,8 +15997,6 @@ type AllJavaClass_java_nio_channels_NetworkChannel = {
       arg0: AllJavaClasses['java.net.SocketOption']['instanceObject'],
       arg1: AllJavaClasses['java.lang.Object']['instanceObject'],
     ): AllJavaClasses['java.nio.channels.NetworkChannel']['instanceObject']
-    getLocalAddress(): AllJavaClasses['java.net.SocketAddress']['instanceObject']
-    supportedOptions(): AllJavaClasses['java.util.Set']['instanceObject']
   } & Omit<
     AllJavaClasses['java.nio.channels.Channel']['instanceObject'],
     '__javaClass'
@@ -16187,12 +16187,19 @@ type AllJavaClass_java_nio_channels_DatagramChannel = {
     bind(
       arg0: AllJavaClasses['java.net.SocketAddress']['instanceObject'],
     ): AllJavaClasses['java.nio.channels.DatagramChannel']['instanceObject']
-    disconnect(): AllJavaClasses['java.nio.channels.DatagramChannel']['instanceObject']
+    isConnected(): boolean
+    getLocalAddress(): AllJavaClasses['java.net.SocketAddress']['instanceObject']
+    validOps(): number
+    getRemoteAddress(): AllJavaClasses['java.net.SocketAddress']['instanceObject']
+    receive(
+      arg0: AllJavaClasses['java.nio.ByteBuffer']['instanceObject'],
+    ): AllJavaClasses['java.net.SocketAddress']['instanceObject']
     send(
       arg0: AllJavaClasses['java.nio.ByteBuffer']['instanceObject'],
       arg1: AllJavaClasses['java.net.SocketAddress']['instanceObject'],
     ): number
     socket(): AllJavaClasses['java.net.DatagramSocket']['instanceObject']
+    disconnect(): AllJavaClasses['java.nio.channels.DatagramChannel']['instanceObject']
     setOption(
       arg0: AllJavaClasses['java.net.SocketOption']['instanceObject'],
       arg1: AllJavaClasses['java.lang.Object']['instanceObject'],
@@ -16201,13 +16208,6 @@ type AllJavaClass_java_nio_channels_DatagramChannel = {
       arg0: AllJavaClasses['java.net.SocketOption']['instanceObject'],
       arg1: AllJavaClasses['java.lang.Object']['instanceObject'],
     ): AllJavaClasses['java.nio.channels.DatagramChannel']['instanceObject']
-    isConnected(): boolean
-    getLocalAddress(): AllJavaClasses['java.net.SocketAddress']['instanceObject']
-    validOps(): number
-    getRemoteAddress(): AllJavaClasses['java.net.SocketAddress']['instanceObject']
-    receive(
-      arg0: AllJavaClasses['java.nio.ByteBuffer']['instanceObject'],
-    ): AllJavaClasses['java.net.SocketAddress']['instanceObject']
   } & Omit<
     AllJavaClasses['java.nio.channels.spi.AbstractSelectableChannel']['instanceObject'],
     '__javaClass'
@@ -16260,20 +16260,6 @@ type AllJavaClass_java_net_DatagramSocket = {
     bind(arg0: AllJavaClasses['java.net.SocketAddress']['instanceObject']): void
     getChannel(): AllJavaClasses['java.nio.channels.DatagramChannel']['instanceObject']
     getBroadcast(): boolean
-    disconnect(): void
-    getRemoteSocketAddress(): AllJavaClasses['java.net.SocketAddress']['instanceObject']
-    send(
-      arg0: AllJavaClasses['java.net.DatagramPacket']['instanceObject'],
-    ): void
-    isClosed(): boolean
-    getLocalPort(): number
-    getOption(
-      arg0: AllJavaClasses['java.net.SocketOption']['instanceObject'],
-    ): AllJavaClasses['java.lang.Object']['instanceObject']
-    setOption(
-      arg0: AllJavaClasses['java.net.SocketOption']['instanceObject'],
-      arg1: AllJavaClasses['java.lang.Object']['instanceObject'],
-    ): AllJavaClasses['java.net.DatagramSocket']['instanceObject']
     isConnected(): boolean
     isBound(): boolean
     getInetAddress(): AllJavaClasses['java.net.InetAddress']['instanceObject']
@@ -16302,6 +16288,20 @@ type AllJavaClass_java_net_DatagramSocket = {
       arg0: AllJavaClasses['java.net.SocketAddress']['instanceObject'],
       arg1: AllJavaClasses['java.net.NetworkInterface']['instanceObject'],
     ): void
+    isClosed(): boolean
+    send(
+      arg0: AllJavaClasses['java.net.DatagramPacket']['instanceObject'],
+    ): void
+    getLocalPort(): number
+    disconnect(): void
+    getRemoteSocketAddress(): AllJavaClasses['java.net.SocketAddress']['instanceObject']
+    getOption(
+      arg0: AllJavaClasses['java.net.SocketOption']['instanceObject'],
+    ): AllJavaClasses['java.lang.Object']['instanceObject']
+    setOption(
+      arg0: AllJavaClasses['java.net.SocketOption']['instanceObject'],
+      arg1: AllJavaClasses['java.lang.Object']['instanceObject'],
+    ): AllJavaClasses['java.net.DatagramSocket']['instanceObject']
   } & Omit<
     AllJavaClasses['java.lang.Object']['instanceObject'],
     '__javaClass'
@@ -16351,8 +16351,6 @@ type AllJavaClass_java_net_DatagramPacket = {
     getAddress(): AllJavaClasses['java.net.InetAddress']['instanceObject']
     getPort(): number
     getOffset(): number
-    setData(arg0: number[]): void
-    setData(arg0: number[], arg1: number, arg2: number): void
     setAddress(
       arg0: AllJavaClasses['java.net.InetAddress']['instanceObject'],
     ): void
@@ -16362,6 +16360,8 @@ type AllJavaClass_java_net_DatagramPacket = {
     ): void
     getData(): number[]
     getSocketAddress(): AllJavaClasses['java.net.SocketAddress']['instanceObject']
+    setData(arg0: number[]): void
+    setData(arg0: number[], arg1: number, arg2: number): void
   } & Omit<AllJavaClasses['java.lang.Object']['instanceObject'], '__javaClass'>
 }
 type AllJavaClass_java_net_DatagramSocketImplFactory = {
@@ -16528,6 +16528,8 @@ type AllJavaClass_java_nio_channels_ServerSocketChannel = {
     bind(
       arg0: AllJavaClasses['java.net.SocketAddress']['instanceObject'],
     ): AllJavaClasses['java.nio.channels.ServerSocketChannel']['instanceObject']
+    getLocalAddress(): AllJavaClasses['java.net.SocketAddress']['instanceObject']
+    validOps(): number
     socket(): AllJavaClasses['java.net.ServerSocket']['instanceObject']
     setOption(
       arg0: AllJavaClasses['java.net.SocketOption']['instanceObject'],
@@ -16537,8 +16539,6 @@ type AllJavaClass_java_nio_channels_ServerSocketChannel = {
       arg0: AllJavaClasses['java.net.SocketOption']['instanceObject'],
       arg1: AllJavaClasses['java.lang.Object']['instanceObject'],
     ): AllJavaClasses['java.nio.channels.NetworkChannel']['instanceObject']
-    getLocalAddress(): AllJavaClasses['java.net.SocketAddress']['instanceObject']
-    validOps(): number
   } & Omit<
     AllJavaClasses['java.nio.channels.spi.AbstractSelectableChannel']['instanceObject'],
     '__javaClass'
@@ -16578,15 +16578,6 @@ type AllJavaClass_java_net_ServerSocket = {
     ): void
     bind(arg0: AllJavaClasses['java.net.SocketAddress']['instanceObject']): void
     getChannel(): AllJavaClasses['java.nio.channels.ServerSocketChannel']['instanceObject']
-    isClosed(): boolean
-    getLocalPort(): number
-    getOption(
-      arg0: AllJavaClasses['java.net.SocketOption']['instanceObject'],
-    ): AllJavaClasses['java.lang.Object']['instanceObject']
-    setOption(
-      arg0: AllJavaClasses['java.net.SocketOption']['instanceObject'],
-      arg1: AllJavaClasses['java.lang.Object']['instanceObject'],
-    ): AllJavaClasses['java.net.ServerSocket']['instanceObject']
     isBound(): boolean
     getInetAddress(): AllJavaClasses['java.net.InetAddress']['instanceObject']
     supportedOptions(): AllJavaClasses['java.util.Set']['instanceObject']
@@ -16598,6 +16589,15 @@ type AllJavaClass_java_net_ServerSocket = {
     setReuseAddress(arg0: boolean): void
     getReuseAddress(): boolean
     setPerformancePreferences(arg0: number, arg1: number, arg2: number): void
+    isClosed(): boolean
+    getLocalPort(): number
+    getOption(
+      arg0: AllJavaClasses['java.net.SocketOption']['instanceObject'],
+    ): AllJavaClasses['java.lang.Object']['instanceObject']
+    setOption(
+      arg0: AllJavaClasses['java.net.SocketOption']['instanceObject'],
+      arg1: AllJavaClasses['java.lang.Object']['instanceObject'],
+    ): AllJavaClasses['java.net.ServerSocket']['instanceObject']
   } & Omit<
     AllJavaClasses['java.lang.Object']['instanceObject'],
     '__javaClass'
@@ -16636,10 +16636,10 @@ type AllJavaClass_net_rwhps_server_net_core_TypeConnect = {
     getTypeConnect(
       arg0: AllJavaClasses['net.rwhps.server.net.core.ConnectionAgreement']['instanceObject'],
     ): AllJavaClasses['net.rwhps.server.net.core.TypeConnect']['instanceObject']
-    setData(arg0: AllJavaClasses['java.lang.Object']['instanceObject']): void
     processConnect(
       arg0: AllJavaClasses['net.rwhps.server.io.packet.Packet']['instanceObject'],
     ): void
+    setData(arg0: AllJavaClasses['java.lang.Object']['instanceObject']): void
   }
 }
 type AllJavaClass_net_rwhps_server_net_core_server_AbstractNetConnect = {
@@ -16655,31 +16655,31 @@ type AllJavaClass_net_rwhps_server_net_core_server_AbstractNetConnect = {
     ): void
     getPort(): number
     getVersion(): string
-    disconnect(): void
     getIpLong24(): string
-    getIpCountryAll(): string
     getIp(): string
     getIpCountry(): string
-    getUseConnectionAgreement(): string
-    getLastReceivedTime(): number
-    getConnectReceiveData(): AllJavaClasses['net.rwhps.server.data.temp.ConnectReceiveData']['instanceObject']
+    getIpCountryAll(): string
+    disconnect(): void
+    setDis(arg0: boolean): void
     sendPacket(
       arg0: AllJavaClasses['net.rwhps.server.io.packet.Packet']['instanceObject'],
     ): void
+    isDis(): boolean
     receivePacket(
       arg0: AllJavaClasses['net.rwhps.server.io.packet.Packet']['instanceObject'],
     ): void
     sendDebug(arg0: string): void
-    setTryBoolean(arg0: boolean): void
-    getNumberOfRetries(): number
     setNumberOfRetries(arg0: number): void
-    setDis(arg0: boolean): void
-    lastReceivedTime(): void
+    getNumberOfRetries(): number
+    setTryBoolean(arg0: boolean): void
     getTryBoolean(): boolean
-    isDis(): boolean
+    lastReceivedTime(): void
     exCommand(
       arg0: AllJavaClasses['net.rwhps.server.io.packet.Packet']['instanceObject'],
     ): boolean
+    getConnectReceiveData(): AllJavaClasses['net.rwhps.server.data.temp.ConnectReceiveData']['instanceObject']
+    getLastReceivedTime(): number
+    getUseConnectionAgreement(): string
   } & Omit<AllJavaClasses['java.lang.Object']['instanceObject'], '__javaClass'>
 }
 type AllJavaClass_net_rwhps_server_io_packet_Packet = {
@@ -16702,10 +16702,10 @@ type AllJavaClass_net_rwhps_server_io_packet_Packet = {
     hashCode(): number
     getBytes(): number[]
     getType(): AllJavaClasses['net.rwhps.server.util.PacketType']['instanceObject']
-    getStatus(): AllJavaClasses['net.rwhps.server.func.Control$EventNext']['instanceObject']
     setStatus(
       arg0: AllJavaClasses['net.rwhps.server.func.Control$EventNext']['instanceObject'],
     ): void
+    getStatus(): AllJavaClasses['net.rwhps.server.func.Control$EventNext']['instanceObject']
   } & Omit<AllJavaClasses['java.lang.Object']['instanceObject'], '__javaClass'>
 }
 type AllJavaClass_net_rwhps_server_io_packet_Packet$Companion = {
@@ -16790,9 +16790,13 @@ type AllJavaClass_net_rwhps_server_io_GameOutputStream = {
     writeLong(
       arg0: number,
     ): AllJavaClasses['net.rwhps.server.io.GameOutputStream']['instanceObject']
-    writeBytesAndLength(
-      arg0: number[],
-    ): AllJavaClasses['net.rwhps.server.io.GameOutputStream']['instanceObject']
+    writeEnum(arg0: AllJavaClasses['java.lang.Enum']['instanceObject']): void
+    createPacket(
+      arg0: AllJavaClasses['net.rwhps.server.util.PacketType']['instanceObject'],
+    ): AllJavaClasses['net.rwhps.server.io.packet.Packet']['instanceObject']
+    createPacket(
+      arg0: number,
+    ): AllJavaClasses['net.rwhps.server.io.packet.Packet']['instanceObject']
     writeBackwardsShort(
       arg0: number,
     ): AllJavaClasses['net.rwhps.server.io.GameOutputStream']['instanceObject']
@@ -16800,21 +16804,18 @@ type AllJavaClass_net_rwhps_server_io_GameOutputStream = {
       arg0: AllJavaClasses['net.rwhps.server.io.GameInputStream']['instanceObject'],
       arg1: number,
     ): void
-    createPacket(
-      arg0: number,
-    ): AllJavaClasses['net.rwhps.server.io.packet.Packet']['instanceObject']
-    createPacket(
-      arg0: AllJavaClasses['net.rwhps.server.util.PacketType']['instanceObject'],
-    ): AllJavaClasses['net.rwhps.server.io.packet.Packet']['instanceObject']
-    writeIsInt(
-      arg0: AllJavaClasses['net.rwhps.server.io.GameInputStream']['instanceObject'],
-    ): void
-    writeIsInt(
-      arg0: AllJavaClasses['java.lang.Integer']['instanceObject'],
+    writeBytesAndLength(
+      arg0: number[],
     ): AllJavaClasses['net.rwhps.server.io.GameOutputStream']['instanceObject']
     getByteBuf(
       arg0: number,
     ): AllJavaClasses['io.netty.buffer.ByteBuf']['instanceObject']
+    writeIsInt(
+      arg0: AllJavaClasses['java.lang.Integer']['instanceObject'],
+    ): AllJavaClasses['net.rwhps.server.io.GameOutputStream']['instanceObject']
+    writeIsInt(
+      arg0: AllJavaClasses['net.rwhps.server.io.GameInputStream']['instanceObject'],
+    ): void
     writeBackwardsInt(
       arg0: number,
     ): AllJavaClasses['net.rwhps.server.io.GameOutputStream']['instanceObject']
@@ -16826,11 +16827,10 @@ type AllJavaClass_net_rwhps_server_io_GameOutputStream = {
       arg0: AllJavaClasses['net.rwhps.server.io.GameInputStream']['instanceObject'],
     ): void
     flushMapData(arg0: number, arg1: number[]): void
-    writeIsString(arg0: string): void
     writeIsString(
       arg0: AllJavaClasses['net.rwhps.server.io.GameInputStream']['instanceObject'],
     ): void
-    writeEnum(arg0: AllJavaClasses['java.lang.Enum']['instanceObject']): void
+    writeIsString(arg0: string): void
   } & Omit<
     AllJavaClasses['java.lang.Object']['instanceObject'],
     '__javaClass'
@@ -16956,25 +16956,25 @@ type AllJavaClass_net_rwhps_server_io_GameInputStream = {
     readShort(): number
     readString(): string
     readBoolean(): boolean
+    readEnum(
+      arg0: AllJavaClasses['java.lang.Class']['instanceObject'],
+    ): AllJavaClasses['java.lang.Enum']['instanceObject']
     transferToFixedLength(
       arg0: AllJavaClasses['java.io.OutputStream']['instanceObject'],
       arg1: number,
     ): void
     getStream(): AllJavaClasses['net.rwhps.server.io.GameInputStream']['instanceObject']
+    readStreamBytes(): number[]
+    readBackwardsInt(): number
     getParseVersion(): number
     readBackwardsShort(): number
-    readBackwardsInt(): number
+    readIsInt(): number
+    readStreamBytesNew(): number[]
+    readIsString(): string
+    getDecodeBytes(): number[]
     getDecodeStream(
       arg0: boolean,
     ): AllJavaClasses['net.rwhps.server.io.GameInputStream']['instanceObject']
-    readStreamBytes(): number[]
-    readIsString(): string
-    readIsInt(): number
-    readStreamBytesNew(): number[]
-    getDecodeBytes(): number[]
-    readEnum(
-      arg0: AllJavaClasses['java.lang.Class']['instanceObject'],
-    ): AllJavaClasses['java.lang.Enum']['instanceObject']
   } & Omit<
     AllJavaClasses['java.lang.Object']['instanceObject'],
     '__javaClass'
@@ -17044,13 +17044,13 @@ type AllJavaClass_net_rwhps_server_util_PacketType = {
       arg0: string,
     ): AllJavaClasses['net.rwhps.server.util.PacketType']['instanceObject']
     getEntries(): AllJavaClasses['kotlin.enums.EnumEntries']['instanceObject']
-    access$getNullPacket$cp(): AllJavaClasses['net.rwhps.server.io.packet.Packet']['instanceObject']
     access$getTypeMap$cp(): AllJavaClasses['net.rwhps.server.struct.map.IntMap']['instanceObject']
+    access$getNullPacket$cp(): AllJavaClasses['net.rwhps.server.io.packet.Packet']['instanceObject']
   }
   instanceObject: {
     __javaClass: 'net.rwhps.server.util.PacketType'
-    getTypeInt(): number
     getTypeIntBytes(): number[]
+    getTypeInt(): number
   } & Omit<AllJavaClasses['java.lang.Enum']['instanceObject'], '__javaClass'>
 }
 type AllJavaClass_net_rwhps_server_util_PacketType$Companion = {
@@ -17202,10 +17202,6 @@ type AllJavaClass_net_rwhps_server_struct_map_BaseMap = {
     getEntries(): AllJavaClasses['java.util.Set']['instanceObject']
     getKeys(): AllJavaClasses['java.util.Set']['instanceObject']
     getValues(): AllJavaClasses['java.util.Collection']['instanceObject']
-    eachFind(
-      arg0: AllJavaClasses['net.rwhps.server.func.FindMapKV']['instanceObject'],
-      arg1: AllJavaClasses['net.rwhps.server.func.ConsMap']['instanceObject'],
-    ): AllJavaClasses['kotlin.Unit']['instanceObject']
     eachAll(
       arg0: AllJavaClasses['net.rwhps.server.func.ConsMap']['instanceObject'],
     ): void
@@ -17218,14 +17214,18 @@ type AllJavaClass_net_rwhps_server_struct_map_BaseMap = {
       arg1: AllJavaClasses['net.rwhps.server.func.FindMapKV']['instanceObject'],
       arg2: AllJavaClasses['net.rwhps.server.func.ConsMap']['instanceObject'],
     ): AllJavaClasses['kotlin.Unit']['instanceObject']
+    eachFind(
+      arg0: AllJavaClasses['net.rwhps.server.func.FindMapKV']['instanceObject'],
+      arg1: AllJavaClasses['net.rwhps.server.func.ConsMap']['instanceObject'],
+    ): AllJavaClasses['kotlin.Unit']['instanceObject']
+    toArrayValues(): AllJavaClasses['net.rwhps.server.struct.list.Seq']['instanceObject']
+    toArrayKey(): AllJavaClasses['net.rwhps.server.struct.list.Seq']['instanceObject']
     eachControl(
       arg0: AllJavaClasses['net.rwhps.server.func.FindMapKV']['instanceObject'],
     ): void
     eachControl(
       arg0: AllJavaClasses['net.rwhps.server.func.FindMapE']['instanceObject'],
     ): void
-    toArrayValues(): AllJavaClasses['net.rwhps.server.struct.list.Seq']['instanceObject']
-    toArrayKey(): AllJavaClasses['net.rwhps.server.struct.list.Seq']['instanceObject']
   } & Omit<
     AllJavaClasses['java.lang.Object']['instanceObject'],
     '__javaClass'
@@ -17392,25 +17392,25 @@ type AllJavaClass_net_rwhps_server_struct_list_BaseSeq = {
     pop(): AllJavaClasses['java.lang.Object']['instanceObject']
     removeFirst(): AllJavaClasses['java.lang.Object']['instanceObject']
     any(): boolean
-    eachFind(
-      arg0: AllJavaClasses['net.rwhps.server.func.FindSeq']['instanceObject'],
-      arg1: AllJavaClasses['net.rwhps.server.func.ConsSeq']['instanceObject'],
-    ): AllJavaClasses['kotlin.Unit']['instanceObject']
     eachAll(
       arg0: AllJavaClasses['net.rwhps.server.func.ConsSeq']['instanceObject'],
-    ): void
-    eachControlAll(
-      arg0: AllJavaClasses['net.rwhps.server.func.FindSeq']['instanceObject'],
     ): void
     removeAt(arg0: number): AllJavaClasses['java.lang.Object']['instanceObject']
     eachAllFind(
       arg0: AllJavaClasses['net.rwhps.server.func.FindSeq']['instanceObject'],
       arg1: AllJavaClasses['net.rwhps.server.func.ConsSeq']['instanceObject'],
     ): void
+    eachControlAll(
+      arg0: AllJavaClasses['net.rwhps.server.func.FindSeq']['instanceObject'],
+    ): void
     eachAllFinds(
       arg0: AllJavaClasses['net.rwhps.server.func.FindSeq']['instanceObject'],
       arg1: AllJavaClasses['net.rwhps.server.func.FindSeq']['instanceObject'],
       arg2: AllJavaClasses['net.rwhps.server.func.ConsSeq']['instanceObject'],
+    ): AllJavaClasses['kotlin.Unit']['instanceObject']
+    eachFind(
+      arg0: AllJavaClasses['net.rwhps.server.func.FindSeq']['instanceObject'],
+      arg1: AllJavaClasses['net.rwhps.server.func.ConsSeq']['instanceObject'],
     ): AllJavaClasses['kotlin.Unit']['instanceObject']
   } & Omit<
     AllJavaClasses['java.lang.Object']['instanceObject'],
@@ -17435,19 +17435,19 @@ type AllJavaClass_net_rwhps_server_func_FindSeq = {
     ): AllJavaClasses['java.lang.Object']['instanceObject']
   }
 }
-type AllJavaClass_kotlin_Unit = {
-  staticObject: { INSTANCE: AllJavaClasses['kotlin.Unit']['instanceObject'] }
-  instanceObject: { __javaClass: 'kotlin.Unit'; toString(): string } & Omit<
-    AllJavaClasses['java.lang.Object']['instanceObject'],
-    '__javaClass'
-  >
-}
 type AllJavaClass_net_rwhps_server_func_ConsSeq = {
   staticObject: object
   instanceObject: {
     __javaClass: 'net.rwhps.server.func.ConsSeq'
     invoke(arg0: AllJavaClasses['java.lang.Object']['instanceObject']): void
   }
+}
+type AllJavaClass_kotlin_Unit = {
+  staticObject: { INSTANCE: AllJavaClasses['kotlin.Unit']['instanceObject'] }
+  instanceObject: { __javaClass: 'kotlin.Unit'; toString(): string } & Omit<
+    AllJavaClasses['java.lang.Object']['instanceObject'],
+    '__javaClass'
+  >
 }
 type AllJavaClass_kotlin_jvm_internal_markers_KMutableList = {
   staticObject: object
@@ -17508,8 +17508,8 @@ type AllJavaClass_net_rwhps_server_func_KeyValue = {
       arg0: AllJavaClasses['java.lang.Object']['instanceObject'],
       arg1: AllJavaClasses['java.lang.Object']['instanceObject'],
     ): AllJavaClasses['net.rwhps.server.func.KeyValue']['instanceObject']
-    component2(): AllJavaClasses['java.lang.Object']['instanceObject']
     component1(): AllJavaClasses['java.lang.Object']['instanceObject']
+    component2(): AllJavaClasses['java.lang.Object']['instanceObject']
   } & Omit<AllJavaClasses['java.lang.Object']['instanceObject'], '__javaClass'>
 }
 type AllJavaClass_net_rwhps_server_func_FindMapKV = {
@@ -17640,14 +17640,14 @@ type AllJavaClass_net_rwhps_server_data_temp_ConnectReceiveData = {
   }
   instanceObject: {
     __javaClass: 'net.rwhps.server.data.temp.ConnectReceiveData'
+    setInputPassword(arg0: boolean): void
+    getInputPassword(): boolean
+    getReceiveBigPacketCount(): AllJavaClasses['net.rwhps.server.data.totalizer.TimeAndNumber']['instanceObject']
     getReceiveBigPacket(): boolean
+    setReceiveBigPacket(arg0: boolean): void
     setReceiveBigPacketCount(
       arg0: AllJavaClasses['net.rwhps.server.data.totalizer.TimeAndNumber']['instanceObject'],
     ): void
-    getReceiveBigPacketCount(): AllJavaClasses['net.rwhps.server.data.totalizer.TimeAndNumber']['instanceObject']
-    setReceiveBigPacket(arg0: boolean): void
-    setInputPassword(arg0: boolean): void
-    getInputPassword(): boolean
   } & Omit<AllJavaClasses['java.lang.Object']['instanceObject'], '__javaClass'>
 }
 type AllJavaClass_net_rwhps_server_data_totalizer_TimeAndNumber = {
@@ -17777,21 +17777,21 @@ type AllJavaClass_io_netty_channel_group_ChannelGroupFuture = {
     ): AllJavaClasses['io.netty.channel.ChannelFuture']['instanceObject']
     sync(): AllJavaClasses['io.netty.channel.group.ChannelGroupFuture']['instanceObject']
     await(): AllJavaClasses['io.netty.channel.group.ChannelGroupFuture']['instanceObject']
-    awaitUninterruptibly(): AllJavaClasses['io.netty.channel.group.ChannelGroupFuture']['instanceObject']
-    syncUninterruptibly(): AllJavaClasses['io.netty.channel.group.ChannelGroupFuture']['instanceObject']
+    isSuccess(): boolean
     addListener(
       arg0: AllJavaClasses['io.netty.util.concurrent.GenericFutureListener']['instanceObject'],
     ): AllJavaClasses['io.netty.channel.group.ChannelGroupFuture']['instanceObject']
-    removeListeners(
+    addListeners(
       arg0: AllJavaClasses['io.netty.util.concurrent.GenericFutureListener']['instanceObject'][],
     ): AllJavaClasses['io.netty.channel.group.ChannelGroupFuture']['instanceObject']
-    isSuccess(): boolean
-    addListeners(
+    removeListeners(
       arg0: AllJavaClasses['io.netty.util.concurrent.GenericFutureListener']['instanceObject'][],
     ): AllJavaClasses['io.netty.channel.group.ChannelGroupFuture']['instanceObject']
     removeListener(
       arg0: AllJavaClasses['io.netty.util.concurrent.GenericFutureListener']['instanceObject'],
     ): AllJavaClasses['io.netty.channel.group.ChannelGroupFuture']['instanceObject']
+    awaitUninterruptibly(): AllJavaClasses['io.netty.channel.group.ChannelGroupFuture']['instanceObject']
+    syncUninterruptibly(): AllJavaClasses['io.netty.channel.group.ChannelGroupFuture']['instanceObject']
     isPartialFailure(): boolean
     isPartialSuccess(): boolean
   } & Omit<
@@ -17963,15 +17963,15 @@ type AllJavaClass_net_rwhps_server_game_simulation_core_AbstractGameModule = {
   instanceObject: {
     __javaClass: 'net.rwhps.server.game.simulation.core.AbstractGameModule'
     getGameLinkFunction(): AllJavaClasses['net.rwhps.server.game.simulation.core.AbstractLinkGameFunction']['instanceObject']
-    getGameLinkData(): AllJavaClasses['net.rwhps.server.game.simulation.core.AbstractLinkGameData']['instanceObject']
-    getEventManage(): AllJavaClasses['net.rwhps.server.game.event.EventManage']['instanceObject']
+    getGameUnitData(): AllJavaClasses['net.rwhps.server.game.simulation.core.AbstractGameUnitData']['instanceObject']
     getGameNet(): AllJavaClasses['net.rwhps.server.game.simulation.core.AbstractLinkGameNet']['instanceObject']
-    getGameFunction(): AllJavaClasses['net.rwhps.server.game.simulation.core.AbstractGameFunction']['instanceObject']
     getUseClassLoader(): AllJavaClasses['java.lang.ClassLoader']['instanceObject']
-    getRoom(): AllJavaClasses['net.rwhps.server.core.game.ServerRoom']['instanceObject']
     getGameHessData(): AllJavaClasses['net.rwhps.server.game.simulation.core.AbstractGameHessData']['instanceObject']
     getGameFast(): AllJavaClasses['net.rwhps.server.game.simulation.core.AbstractGameFast']['instanceObject']
-    getGameUnitData(): AllJavaClasses['net.rwhps.server.game.simulation.core.AbstractGameUnitData']['instanceObject']
+    getEventManage(): AllJavaClasses['net.rwhps.server.game.event.EventManage']['instanceObject']
+    getRoom(): AllJavaClasses['net.rwhps.server.core.game.ServerRoom']['instanceObject']
+    getGameFunction(): AllJavaClasses['net.rwhps.server.game.simulation.core.AbstractGameFunction']['instanceObject']
+    getGameLinkData(): AllJavaClasses['net.rwhps.server.game.simulation.core.AbstractLinkGameData']['instanceObject']
   }
 }
 type AllJavaClass_net_rwhps_server_game_simulation_core_AbstractLinkGameFunction =
@@ -17981,31 +17981,213 @@ type AllJavaClass_net_rwhps_server_game_simulation_core_AbstractLinkGameFunction
       __javaClass: 'net.rwhps.server.game.simulation.core.AbstractLinkGameFunction'
       battleRoom(arg0: number): void
       allPlayerSync(): void
-      saveGame(): void
       pauseGame(arg0: boolean): void
+      saveGame(): void
     }
   }
-type AllJavaClass_net_rwhps_server_game_simulation_core_AbstractLinkGameData = {
+type AllJavaClass_net_rwhps_server_game_simulation_core_AbstractGameUnitData = {
   staticObject: object
   instanceObject: {
-    __javaClass: 'net.rwhps.server.game.simulation.core.AbstractLinkGameData'
-    getTeamOperationsSyncObject(): AllJavaClasses['java.lang.Object']['instanceObject']
-    getCredits(): number
-    getMaxUnit(): number
-    getFog(): number
-    setFog(arg0: number): void
-    setNukes(arg0: boolean): void
-    getNukes(): boolean
-    setCredits(arg0: number): void
-    getAiDifficuld(): number
-    setMaxUnit(arg0: number): void
-    setAiDifficuld(arg0: number): void
-    getIncome(): number
-    setIncome(arg0: number): void
-    setStartingunits(arg0: number): void
-    getSharedcontrol(): boolean
-    setSharedcontrol(arg0: boolean): void
-    getStartingunits(): number
+    __javaClass: 'net.rwhps.server.game.simulation.core.AbstractGameUnitData'
+    getUseMod(): boolean
+    setUseMod(arg0: boolean): void
+    reloadUnitData(): void
+    getUnitData(
+      arg0: string,
+    ): AllJavaClasses['net.rwhps.server.struct.map.OrderedMap']['instanceObject']
+  }
+}
+type AllJavaClass_net_rwhps_server_struct_map_OrderedMap = {
+  staticObject: {
+    new (
+      arg0: number,
+    ): AllJavaClasses['net.rwhps.server.struct.map.OrderedMap']['instanceObject']
+    new (): AllJavaClasses['net.rwhps.server.struct.map.OrderedMap']['instanceObject']
+    new (
+      arg0: number,
+      arg1: boolean,
+      arg2: number,
+      arg3: AllJavaClasses['kotlin.jvm.internal.DefaultConstructorMarker']['instanceObject'],
+    ): AllJavaClasses['net.rwhps.server.struct.map.OrderedMap']['instanceObject']
+    new (
+      arg0: number,
+      arg1: boolean,
+    ): AllJavaClasses['net.rwhps.server.struct.map.OrderedMap']['instanceObject']
+    new (
+      arg0: boolean,
+      arg1: number,
+      arg2: AllJavaClasses['kotlin.jvm.internal.DefaultConstructorMarker']['instanceObject'],
+    ): AllJavaClasses['net.rwhps.server.struct.map.OrderedMap']['instanceObject']
+    new (
+      arg0: boolean,
+    ): AllJavaClasses['net.rwhps.server.struct.map.OrderedMap']['instanceObject']
+  }
+  instanceObject: {
+    __javaClass: 'net.rwhps.server.struct.map.OrderedMap'
+  } & Omit<
+    AllJavaClasses['net.rwhps.server.struct.map.BaseMap']['instanceObject'],
+    '__javaClass'
+  >
+}
+type AllJavaClass_net_rwhps_server_game_simulation_core_AbstractLinkGameNet = {
+  staticObject: object
+  instanceObject: {
+    __javaClass: 'net.rwhps.server.game.simulation.core.AbstractLinkGameNet'
+    startHessPort(arg0: number, arg1: string, arg2: string): void
+    newConnect(arg0: string, arg1: string): void
+  }
+}
+type AllJavaClass_net_rwhps_server_game_simulation_core_AbstractGameHessData = {
+  staticObject: object
+  instanceObject: {
+    __javaClass: 'net.rwhps.server.game.simulation.core.AbstractGameHessData'
+    clean(): void
+    getPlayerBirthPointXY(): void
+    getGameOverData(): AllJavaClasses['net.rwhps.server.game.event.game.ServerGameOverEvent$GameOverData']['instanceObject']
+    getPlayerData(
+      arg0: number,
+    ): AllJavaClasses['net.rwhps.server.game.simulation.core.AbstractLinkPlayerData']['instanceObject']
+    getWin(arg0: number): boolean
+    getTickHess(): number
+    getTickNetHess(): number
+    getDefPlayerData(): AllJavaClasses['net.rwhps.server.game.simulation.core.AbstractLinkPlayerData']['instanceObject']
+  }
+}
+type AllJavaClass_net_rwhps_server_game_event_game_ServerGameOverEvent$GameOverData =
+  {
+    staticObject: {
+      new (
+        arg0: number,
+        arg1: AllJavaClasses['net.rwhps.server.struct.list.Seq']['instanceObject'],
+        arg2: AllJavaClasses['net.rwhps.server.struct.list.Seq']['instanceObject'],
+        arg3: string,
+        arg4: AllJavaClasses['net.rwhps.server.struct.map.ObjectMap']['instanceObject'],
+        arg5: string,
+      ): AllJavaClasses['net.rwhps.server.game.event.game.ServerGameOverEvent$GameOverData']['instanceObject']
+      copy$default(
+        arg0: AllJavaClasses['net.rwhps.server.game.event.game.ServerGameOverEvent$GameOverData']['instanceObject'],
+        arg1: number,
+        arg2: AllJavaClasses['net.rwhps.server.struct.list.Seq']['instanceObject'],
+        arg3: AllJavaClasses['net.rwhps.server.struct.list.Seq']['instanceObject'],
+        arg4: string,
+        arg5: AllJavaClasses['net.rwhps.server.struct.map.ObjectMap']['instanceObject'],
+        arg6: string,
+        arg7: number,
+        arg8: AllJavaClasses['java.lang.Object']['instanceObject'],
+      ): AllJavaClasses['net.rwhps.server.game.event.game.ServerGameOverEvent$GameOverData']['instanceObject']
+    }
+    instanceObject: {
+      __javaClass: 'net.rwhps.server.game.event.game.ServerGameOverEvent$GameOverData'
+      equals(
+        arg0: AllJavaClasses['java.lang.Object']['instanceObject'],
+      ): boolean
+      toString(): string
+      hashCode(): number
+      copy(
+        arg0: number,
+        arg1: AllJavaClasses['net.rwhps.server.struct.list.Seq']['instanceObject'],
+        arg2: AllJavaClasses['net.rwhps.server.struct.list.Seq']['instanceObject'],
+        arg3: string,
+        arg4: AllJavaClasses['net.rwhps.server.struct.map.ObjectMap']['instanceObject'],
+        arg5: string,
+      ): AllJavaClasses['net.rwhps.server.game.event.game.ServerGameOverEvent$GameOverData']['instanceObject']
+      component3(): AllJavaClasses['net.rwhps.server.struct.list.Seq']['instanceObject']
+      component4(): string
+      component1(): number
+      component2(): AllJavaClasses['net.rwhps.server.struct.list.Seq']['instanceObject']
+      component5(): AllJavaClasses['net.rwhps.server.struct.map.ObjectMap']['instanceObject']
+      getPlayerData(): AllJavaClasses['net.rwhps.server.struct.map.ObjectMap']['instanceObject']
+      getMapName(): string
+      component6(): string
+      getGameTime(): number
+      getReplayName(): string
+      getAllPlayerList(): AllJavaClasses['net.rwhps.server.struct.list.Seq']['instanceObject']
+      getWinPlayerList(): AllJavaClasses['net.rwhps.server.struct.list.Seq']['instanceObject']
+    } & Omit<
+      AllJavaClasses['java.lang.Object']['instanceObject'],
+      '__javaClass'
+    >
+  }
+type AllJavaClass_net_rwhps_server_struct_map_ObjectMap = {
+  staticObject: {
+    Companion: AllJavaClasses['net.rwhps.server.struct.map.ObjectMap$Companion']['instanceObject']
+    new (
+      arg0: number,
+    ): AllJavaClasses['net.rwhps.server.struct.map.ObjectMap']['instanceObject']
+    new (): AllJavaClasses['net.rwhps.server.struct.map.ObjectMap']['instanceObject']
+    new (
+      arg0: number,
+      arg1: boolean,
+      arg2: number,
+      arg3: AllJavaClasses['kotlin.jvm.internal.DefaultConstructorMarker']['instanceObject'],
+    ): AllJavaClasses['net.rwhps.server.struct.map.ObjectMap']['instanceObject']
+    new (
+      arg0: boolean,
+    ): AllJavaClasses['net.rwhps.server.struct.map.ObjectMap']['instanceObject']
+    new (
+      arg0: boolean,
+      arg1: number,
+      arg2: AllJavaClasses['kotlin.jvm.internal.DefaultConstructorMarker']['instanceObject'],
+    ): AllJavaClasses['net.rwhps.server.struct.map.ObjectMap']['instanceObject']
+    new (
+      arg0: number,
+      arg1: boolean,
+    ): AllJavaClasses['net.rwhps.server.struct.map.ObjectMap']['instanceObject']
+  }
+  instanceObject: {
+    __javaClass: 'net.rwhps.server.struct.map.ObjectMap'
+  } & Omit<
+    AllJavaClasses['net.rwhps.server.struct.map.BaseMap']['instanceObject'],
+    '__javaClass'
+  >
+}
+type AllJavaClass_net_rwhps_server_struct_map_ObjectMap$Companion = {
+  staticObject: {
+    new (
+      arg0: AllJavaClasses['kotlin.jvm.internal.DefaultConstructorMarker']['instanceObject'],
+    ): AllJavaClasses['net.rwhps.server.struct.map.ObjectMap$Companion']['instanceObject']
+  }
+  instanceObject: {
+    __javaClass: 'net.rwhps.server.struct.map.ObjectMap$Companion'
+    of(
+      arg0: AllJavaClasses['java.lang.Object']['instanceObject'][],
+    ): AllJavaClasses['net.rwhps.server.struct.map.ObjectMap']['instanceObject']
+  } & Omit<AllJavaClasses['java.lang.Object']['instanceObject'], '__javaClass'>
+}
+type AllJavaClass_net_rwhps_server_game_simulation_core_AbstractLinkPlayerData =
+  {
+    staticObject: object
+    instanceObject: {
+      __javaClass: 'net.rwhps.server.game.simulation.core.AbstractLinkPlayerData'
+      getName(): string
+      setColor(arg0: number): void
+      getExperimentalsKilled(): number
+      getExperimentalsLost(): number
+      updateDate(): void
+      setCredits(arg0: number): void
+      getCredits(): number
+      getSurvive(): boolean
+      getUnitsKilled(): number
+      getColor(): number
+      setTeam(arg0: number): void
+      getStartUnit(): number
+      getBuildingsLost(): number
+      setSite(arg0: number): void
+      getConnectHexID(): string
+      getSite(): number
+      setStartUnit(arg0: number): void
+      getBuildingsKilled(): number
+      getTeam(): number
+      getUnitsLost(): number
+    }
+  }
+type AllJavaClass_net_rwhps_server_game_simulation_core_AbstractGameFast = {
+  staticObject: object
+  instanceObject: {
+    __javaClass: 'net.rwhps.server.game.simulation.core.AbstractGameFast'
+    filteredPacket(
+      arg0: AllJavaClasses['java.lang.Object']['instanceObject'],
+    ): boolean
   }
 }
 type AllJavaClass_net_rwhps_server_game_event_EventManage = {
@@ -18014,13 +18196,13 @@ type AllJavaClass_net_rwhps_server_game_event_EventManage = {
   }
   instanceObject: {
     __javaClass: 'net.rwhps.server.game.event.EventManage'
-    fire(
-      arg0: AllJavaClasses['net.rwhps.server.game.event.core.AbstractEvent']['instanceObject'],
-    ): AllJavaClasses['net.rwhps.server.util.concurrent.fature.AbstractFuture']['instanceObject']
     registerListener(
       arg0: AllJavaClasses['java.lang.Class']['instanceObject'],
       arg1: AllJavaClasses['java.util.function.Consumer']['instanceObject'],
     ): void
+    fire(
+      arg0: AllJavaClasses['net.rwhps.server.game.event.core.AbstractEvent']['instanceObject'],
+    ): AllJavaClasses['net.rwhps.server.util.concurrent.fature.AbstractFuture']['instanceObject']
   } & Omit<
     AllJavaClasses['net.rwhps.server.game.event.AbstractEventManage']['instanceObject'],
     '__javaClass'
@@ -18074,23 +18256,6 @@ type AllJavaClass_net_rwhps_server_game_event_core_EventListenerHost = {
     ): void
   }
 }
-type AllJavaClass_net_rwhps_server_game_simulation_core_AbstractLinkGameNet = {
-  staticObject: object
-  instanceObject: {
-    __javaClass: 'net.rwhps.server.game.simulation.core.AbstractLinkGameNet'
-    startHessPort(arg0: number, arg1: string, arg2: string): void
-    newConnect(arg0: string, arg1: string): void
-  }
-}
-type AllJavaClass_net_rwhps_server_game_simulation_core_AbstractGameFunction = {
-  staticObject: object
-  instanceObject: {
-    __javaClass: 'net.rwhps.server.game.simulation.core.AbstractGameFunction'
-    suspendMainThreadOperations(
-      arg0: AllJavaClasses['java.lang.Runnable']['instanceObject'],
-    ): void
-  }
-}
 type AllJavaClass_net_rwhps_server_core_game_ServerRoom = {
   staticObject: {
     new (
@@ -18100,195 +18265,157 @@ type AllJavaClass_net_rwhps_server_core_game_ServerRoom = {
   instanceObject: {
     __javaClass: 'net.rwhps.server.core.game.ServerRoom'
     roomID: string
-    getGameOverData$Server_Core(): AllJavaClasses['net.rwhps.server.game.event.game.ServerGameOverEvent$GameOverData']['instanceObject']
+    cleanThread$Server_Core(): void
     setGameOverData$Server_Core(
       arg0: AllJavaClasses['net.rwhps.server.game.event.game.ServerGameOverEvent$GameOverData']['instanceObject'],
     ): void
-    cleanThread$Server_Core(): void
     cleanData$Server_Core(): void
-    getStartTime(): number
-    getFlagData(): AllJavaClasses['net.rwhps.server.data.temp.ServerCacheFlag']['instanceObject']
+    getGameOverData$Server_Core(): AllJavaClasses['net.rwhps.server.game.event.game.ServerGameOverEvent$GameOverData']['instanceObject']
     getRoomID(): string
-    getCall(): AllJavaClasses['net.rwhps.server.core.CallHess']['instanceObject']
-    setStartGame(arg0: boolean): void
-    getPlayerManage(): AllJavaClasses['net.rwhps.server.data.player.PlayerHessManage']['instanceObject']
-    setAfk(arg0: boolean): void
     isAfk(): boolean
     getClientHandler(): AllJavaClasses['net.rwhps.server.util.game.CommandHandler']['instanceObject']
-    isStartGame(): boolean
-    setStartTime(arg0: number): void
-    getEndTime(): number
+    getPlayerManage(): AllJavaClasses['net.rwhps.server.data.player.PlayerHessManage']['instanceObject']
     setRoomID(arg0: string): void
+    setAfk(arg0: boolean): void
+    isStartGame(): boolean
     setFlagData(
       arg0: AllJavaClasses['net.rwhps.server.data.temp.ServerCacheFlag']['instanceObject'],
     ): void
-    getStartServer(): AllJavaClasses['kotlin.jvm.functions.Function0']['instanceObject']
-    setMapName(arg0: string): void
+    setStartTime(arg0: number): void
     getReplayFileName(): string
-    gr$Server_Core(): void
+    getStartTime(): number
+    getEndTime(): number
+    getFlagData(): AllJavaClasses['net.rwhps.server.data.temp.ServerCacheFlag']['instanceObject']
     setReplayFileName(arg0: string): void
+    setMapName(arg0: string): void
+    setStartGame(arg0: boolean): void
+    getCloseServer(): AllJavaClasses['kotlin.jvm.functions.Function0']['instanceObject']
+    getCall(): AllJavaClasses['net.rwhps.server.core.CallHess']['instanceObject']
     getMapName(): string
+    gr$Server_Core(): void
+    getStartServer(): AllJavaClasses['kotlin.jvm.functions.Function0']['instanceObject']
     setCloseServer(
       arg0: AllJavaClasses['kotlin.jvm.functions.Function0']['instanceObject'],
     ): void
-    getCloseServer(): AllJavaClasses['kotlin.jvm.functions.Function0']['instanceObject']
     setStartServer(
       arg0: AllJavaClasses['kotlin.jvm.functions.Function0']['instanceObject'],
     ): void
   } & Omit<AllJavaClasses['java.lang.Object']['instanceObject'], '__javaClass'>
 }
-type AllJavaClass_net_rwhps_server_game_event_game_ServerGameOverEvent$GameOverData =
-  {
-    staticObject: {
-      new (
-        arg0: number,
-        arg1: AllJavaClasses['net.rwhps.server.struct.list.Seq']['instanceObject'],
-        arg2: AllJavaClasses['net.rwhps.server.struct.list.Seq']['instanceObject'],
-        arg3: string,
-        arg4: AllJavaClasses['net.rwhps.server.struct.map.ObjectMap']['instanceObject'],
-        arg5: string,
-      ): AllJavaClasses['net.rwhps.server.game.event.game.ServerGameOverEvent$GameOverData']['instanceObject']
-      copy$default(
-        arg0: AllJavaClasses['net.rwhps.server.game.event.game.ServerGameOverEvent$GameOverData']['instanceObject'],
-        arg1: number,
-        arg2: AllJavaClasses['net.rwhps.server.struct.list.Seq']['instanceObject'],
-        arg3: AllJavaClasses['net.rwhps.server.struct.list.Seq']['instanceObject'],
-        arg4: string,
-        arg5: AllJavaClasses['net.rwhps.server.struct.map.ObjectMap']['instanceObject'],
-        arg6: string,
-        arg7: number,
-        arg8: AllJavaClasses['java.lang.Object']['instanceObject'],
-      ): AllJavaClasses['net.rwhps.server.game.event.game.ServerGameOverEvent$GameOverData']['instanceObject']
-    }
-    instanceObject: {
-      __javaClass: 'net.rwhps.server.game.event.game.ServerGameOverEvent$GameOverData'
-      equals(
-        arg0: AllJavaClasses['java.lang.Object']['instanceObject'],
-      ): boolean
-      toString(): string
-      hashCode(): number
-      copy(
-        arg0: number,
-        arg1: AllJavaClasses['net.rwhps.server.struct.list.Seq']['instanceObject'],
-        arg2: AllJavaClasses['net.rwhps.server.struct.list.Seq']['instanceObject'],
-        arg3: string,
-        arg4: AllJavaClasses['net.rwhps.server.struct.map.ObjectMap']['instanceObject'],
-        arg5: string,
-      ): AllJavaClasses['net.rwhps.server.game.event.game.ServerGameOverEvent$GameOverData']['instanceObject']
-      component4(): string
-      component2(): AllJavaClasses['net.rwhps.server.struct.list.Seq']['instanceObject']
-      component1(): number
-      component5(): AllJavaClasses['net.rwhps.server.struct.map.ObjectMap']['instanceObject']
-      component3(): AllJavaClasses['net.rwhps.server.struct.list.Seq']['instanceObject']
-      getMapName(): string
-      getPlayerData(): AllJavaClasses['net.rwhps.server.struct.map.ObjectMap']['instanceObject']
-      getAllPlayerList(): AllJavaClasses['net.rwhps.server.struct.list.Seq']['instanceObject']
-      getReplayName(): string
-      getGameTime(): number
-      getWinPlayerList(): AllJavaClasses['net.rwhps.server.struct.list.Seq']['instanceObject']
-      component6(): string
-    } & Omit<
-      AllJavaClasses['java.lang.Object']['instanceObject'],
-      '__javaClass'
-    >
-  }
-type AllJavaClass_net_rwhps_server_struct_map_ObjectMap = {
-  staticObject: {
-    Companion: AllJavaClasses['net.rwhps.server.struct.map.ObjectMap$Companion']['instanceObject']
-    new (
-      arg0: number,
-    ): AllJavaClasses['net.rwhps.server.struct.map.ObjectMap']['instanceObject']
-    new (): AllJavaClasses['net.rwhps.server.struct.map.ObjectMap']['instanceObject']
-    new (
-      arg0: number,
-      arg1: boolean,
-      arg2: number,
-      arg3: AllJavaClasses['kotlin.jvm.internal.DefaultConstructorMarker']['instanceObject'],
-    ): AllJavaClasses['net.rwhps.server.struct.map.ObjectMap']['instanceObject']
-    new (
-      arg0: boolean,
-    ): AllJavaClasses['net.rwhps.server.struct.map.ObjectMap']['instanceObject']
-    new (
-      arg0: boolean,
-      arg1: number,
-      arg2: AllJavaClasses['kotlin.jvm.internal.DefaultConstructorMarker']['instanceObject'],
-    ): AllJavaClasses['net.rwhps.server.struct.map.ObjectMap']['instanceObject']
-    new (
-      arg0: number,
-      arg1: boolean,
-    ): AllJavaClasses['net.rwhps.server.struct.map.ObjectMap']['instanceObject']
-  }
-  instanceObject: {
-    __javaClass: 'net.rwhps.server.struct.map.ObjectMap'
-  } & Omit<
-    AllJavaClasses['net.rwhps.server.struct.map.BaseMap']['instanceObject'],
-    '__javaClass'
-  >
-}
-type AllJavaClass_net_rwhps_server_struct_map_ObjectMap$Companion = {
+type AllJavaClass_net_rwhps_server_util_game_CommandHandler = {
   staticObject: {
     new (
-      arg0: AllJavaClasses['kotlin.jvm.internal.DefaultConstructorMarker']['instanceObject'],
-    ): AllJavaClasses['net.rwhps.server.struct.map.ObjectMap$Companion']['instanceObject']
-  }
-  instanceObject: {
-    __javaClass: 'net.rwhps.server.struct.map.ObjectMap$Companion'
-    of(
-      arg0: AllJavaClasses['java.lang.Object']['instanceObject'][],
-    ): AllJavaClasses['net.rwhps.server.struct.map.ObjectMap']['instanceObject']
-  } & Omit<AllJavaClasses['java.lang.Object']['instanceObject'], '__javaClass'>
-}
-type AllJavaClass_net_rwhps_server_data_temp_ServerCacheFlag = {
-  staticObject: {
-    new (): AllJavaClasses['net.rwhps.server.data.temp.ServerCacheFlag']['instanceObject']
-  }
-  instanceObject: {
-    __javaClass: 'net.rwhps.server.data.temp.ServerCacheFlag'
-    setForcedCloseSendMsg(arg0: boolean): void
-    getForcedCloseSendMsg(): boolean
-    setSendGameStatusFlag(arg0: boolean): void
-    getSendGameStatusFlag(): boolean
-    getAi(): boolean
-    getOneSay(): boolean
-    getAiWarn(): boolean
-    setAiWarn(arg0: boolean): void
-    setAi(arg0: boolean): void
-    setOneSay(arg0: boolean): void
-  } & Omit<AllJavaClasses['java.lang.Object']['instanceObject'], '__javaClass'>
-}
-type AllJavaClass_net_rwhps_server_core_CallHess = {
-  staticObject: {
-    new (
-      arg0: AllJavaClasses['net.rwhps.server.game.simulation.core.AbstractGameModule']['instanceObject'],
-    ): AllJavaClasses['net.rwhps.server.core.CallHess']['instanceObject']
-    killAllPlayer$default(
-      arg0: AllJavaClasses['net.rwhps.server.core.CallHess']['instanceObject'],
-      arg1: string,
-      arg2: number,
-      arg3: AllJavaClasses['java.lang.Object']['instanceObject'],
-    ): void
-  }
-  instanceObject: {
-    __javaClass: 'net.rwhps.server.core.CallHess'
-    sendSystemMessageLocal(
       arg0: string,
-      arg1: AllJavaClasses['java.lang.Object']['instanceObject'][],
-    ): void
-    sendSystemTeamMessageLocal(
-      arg0: number,
-      arg1: string,
-      arg2: AllJavaClasses['java.lang.Object']['instanceObject'][],
-    ): void
-    startCheckThread(): void
-    syncAllPlayer(): void
-    killAllPlayer(): void
-    killAllPlayer(arg0: string): void
-    sendSystemMessage(arg0: string): void
-    sendSystemMessage(
+    ): AllJavaClasses['net.rwhps.server.util.game.CommandHandler']['instanceObject']
+  }
+  instanceObject: {
+    __javaClass: 'net.rwhps.server.util.game.CommandHandler'
+    register(
       arg0: string,
-      arg1: AllJavaClasses['java.lang.Object']['instanceObject'][],
-    ): void
+      arg1: string,
+      arg2: AllJavaClasses['net.rwhps.server.util.game.CommandHandler$CommandRunner']['instanceObject'],
+    ): AllJavaClasses['net.rwhps.server.util.game.CommandHandler$Command']['instanceObject']
+    register(
+      arg0: string,
+      arg1: string,
+      arg2: string,
+      arg3: AllJavaClasses['net.rwhps.server.util.game.CommandHandler$CommandRunner']['instanceObject'],
+    ): AllJavaClasses['net.rwhps.server.util.game.CommandHandler$Command']['instanceObject']
+    register(
+      arg0: string,
+      arg1: string,
+      arg2: AllJavaClasses['net.rwhps.server.func.ConsSeq']['instanceObject'],
+    ): AllJavaClasses['net.rwhps.server.util.game.CommandHandler$Command']['instanceObject']
+    register(
+      arg0: string,
+      arg1: string,
+      arg2: string,
+      arg3: AllJavaClasses['net.rwhps.server.func.ConsSeq']['instanceObject'],
+    ): AllJavaClasses['net.rwhps.server.util.game.CommandHandler$Command']['instanceObject']
+    handleMessage(
+      arg0: string,
+    ): AllJavaClasses['net.rwhps.server.util.game.CommandHandler$CommandResponse']['instanceObject']
+    handleMessage(
+      arg0: string,
+      arg1: AllJavaClasses['java.lang.Object']['instanceObject'],
+    ): AllJavaClasses['net.rwhps.server.util.game.CommandHandler$CommandResponse']['instanceObject']
+    setPrefix(arg0: string): void
+    removeCommand(arg0: string): void
+    getCommandList(): AllJavaClasses['net.rwhps.server.struct.list.Seq']['instanceObject']
   } & Omit<AllJavaClasses['java.lang.Object']['instanceObject'], '__javaClass'>
+}
+type AllJavaClass_net_rwhps_server_util_game_CommandHandler$Command = {
+  staticObject: {
+    new (
+      arg0: string,
+      arg1: string,
+      arg2: string,
+      arg3: AllJavaClasses['net.rwhps.server.util.game.CommandHandler$CommandRunner']['instanceObject'],
+    ): AllJavaClasses['net.rwhps.server.util.game.CommandHandler$Command']['instanceObject']
+  }
+  instanceObject: {
+    __javaClass: 'net.rwhps.server.util.game.CommandHandler$Command'
+    text: string
+    paramText: string
+    description: string
+    params: AllJavaClasses['net.rwhps.server.util.game.CommandHandler$CommandParam']['instanceObject'][]
+  } & Omit<AllJavaClasses['java.lang.Object']['instanceObject'], '__javaClass'>
+}
+type AllJavaClass_net_rwhps_server_util_game_CommandHandler$CommandParam = {
+  staticObject: {
+    new (
+      arg0: string,
+      arg1: boolean,
+      arg2: boolean,
+    ): AllJavaClasses['net.rwhps.server.util.game.CommandHandler$CommandParam']['instanceObject']
+  }
+  instanceObject: {
+    __javaClass: 'net.rwhps.server.util.game.CommandHandler$CommandParam'
+    name: string
+    optional: boolean
+    variadic: boolean
+  } & Omit<AllJavaClasses['java.lang.Object']['instanceObject'], '__javaClass'>
+}
+type AllJavaClass_net_rwhps_server_util_game_CommandHandler$CommandRunner = {
+  staticObject: object
+  instanceObject: {
+    __javaClass: 'net.rwhps.server.util.game.CommandHandler$CommandRunner'
+    accept(
+      arg0: string[],
+      arg1: AllJavaClasses['java.lang.Object']['instanceObject'],
+    ): void
+  }
+}
+type AllJavaClass_net_rwhps_server_util_game_CommandHandler$CommandResponse = {
+  staticObject: {
+    new (
+      arg0: AllJavaClasses['net.rwhps.server.util.game.CommandHandler$ResponseType']['instanceObject'],
+      arg1: AllJavaClasses['net.rwhps.server.util.game.CommandHandler$Command']['instanceObject'],
+      arg2: string,
+    ): AllJavaClasses['net.rwhps.server.util.game.CommandHandler$CommandResponse']['instanceObject']
+  }
+  instanceObject: {
+    __javaClass: 'net.rwhps.server.util.game.CommandHandler$CommandResponse'
+    type: AllJavaClasses['net.rwhps.server.util.game.CommandHandler$ResponseType']['instanceObject']
+    command: AllJavaClasses['net.rwhps.server.util.game.CommandHandler$Command']['instanceObject']
+    runCommand: string
+  } & Omit<AllJavaClasses['java.lang.Object']['instanceObject'], '__javaClass'>
+}
+type AllJavaClass_net_rwhps_server_util_game_CommandHandler$ResponseType = {
+  staticObject: {
+    noCommand: AllJavaClasses['net.rwhps.server.util.game.CommandHandler$ResponseType']['instanceObject']
+    unknownCommand: AllJavaClasses['net.rwhps.server.util.game.CommandHandler$ResponseType']['instanceObject']
+    fewArguments: AllJavaClasses['net.rwhps.server.util.game.CommandHandler$ResponseType']['instanceObject']
+    manyArguments: AllJavaClasses['net.rwhps.server.util.game.CommandHandler$ResponseType']['instanceObject']
+    valid: AllJavaClasses['net.rwhps.server.util.game.CommandHandler$ResponseType']['instanceObject']
+    values(): AllJavaClasses['net.rwhps.server.util.game.CommandHandler$ResponseType']['instanceObject'][]
+    valueOf(
+      arg0: string,
+    ): AllJavaClasses['net.rwhps.server.util.game.CommandHandler$ResponseType']['instanceObject']
+  }
+  instanceObject: {
+    __javaClass: 'net.rwhps.server.util.game.CommandHandler$ResponseType'
+  } & Omit<AllJavaClasses['java.lang.Enum']['instanceObject'], '__javaClass'>
 }
 type AllJavaClass_net_rwhps_server_data_player_PlayerHessManage = {
   staticObject: {
@@ -18306,13 +18433,16 @@ type AllJavaClass_net_rwhps_server_data_player_PlayerHessManage = {
     __javaClass: 'net.rwhps.server.data.player.PlayerHessManage'
     playerGroup: AllJavaClasses['net.rwhps.server.struct.list.Seq']['instanceObject']
     playerAll: AllJavaClasses['net.rwhps.server.struct.list.Seq']['instanceObject']
+    cleanPlayerAllData(): void
     getPlayersNameOnTheSameTeam(
       arg0: number,
     ): AllJavaClasses['net.rwhps.server.struct.list.Seq']['instanceObject']
     runPlayerArrayDataRunnable(
       arg0: AllJavaClasses['kotlin.jvm.functions.Function1']['instanceObject'],
     ): void
-    cleanPlayerAllData(): void
+    getPlayerArray(
+      arg0: number,
+    ): AllJavaClasses['net.rwhps.server.data.player.PlayerHess']['instanceObject']
     addAbstractPlayer(
       arg0: AllJavaClasses['net.rwhps.server.net.core.server.AbstractNetConnectServer']['instanceObject'],
       arg1: AllJavaClasses['net.rwhps.server.game.simulation.core.AbstractLinkPlayerData']['instanceObject'],
@@ -18321,9 +18451,6 @@ type AllJavaClass_net_rwhps_server_data_player_PlayerHessManage = {
     findPlayer(
       arg0: AllJavaClasses['net.rwhps.server.func.StrCons']['instanceObject'],
       arg1: string,
-    ): AllJavaClasses['net.rwhps.server.data.player.PlayerHess']['instanceObject']
-    getPlayerArray(
-      arg0: number,
     ): AllJavaClasses['net.rwhps.server.data.player.PlayerHess']['instanceObject']
   } & Omit<AllJavaClasses['java.lang.Object']['instanceObject'], '__javaClass'>
 }
@@ -18362,77 +18489,6 @@ type AllJavaClass_net_rwhps_server_data_player_PlayerHess = {
     equals(arg0: AllJavaClasses['java.lang.Object']['instanceObject']): boolean
     hashCode(): number
     clear(): void
-    playerJumpsToAnotherServer(arg0: string, arg1: number): void
-    playerJumpsToAnotherServer(arg0: string): void
-    getExperimentalsKilled(): number
-    getExperimentalsLost(): number
-    setPlayerPrivateData(
-      arg0: AllJavaClasses['net.rwhps.server.game.simulation.core.AbstractLinkPlayerData']['instanceObject'],
-    ): void
-    getPlayerPrivateData(): AllJavaClasses['net.rwhps.server.game.simulation.core.AbstractLinkPlayerData']['instanceObject']
-    getCredits(): number
-    setCredits(arg0: number): void
-    updateDate(): void
-    getSuperAdmin(): boolean
-    getI18NBundle(): AllJavaClasses['net.rwhps.server.util.I18NBundle']['instanceObject']
-    setSuperAdmin(arg0: boolean): void
-    setAutoAdmin(arg0: boolean): void
-    isAdmin(): boolean
-    setAdmin(arg0: boolean): void
-    getConnectHexID(): string
-    setCon(
-      arg0: AllJavaClasses['net.rwhps.server.net.core.server.AbstractNetConnectServer']['instanceObject'],
-    ): void
-    getAutoAdmin(): boolean
-    getTeam(): number
-    getSite(): number
-    getinput(
-      arg0: string,
-      arg1: AllJavaClasses['java.lang.Object']['instanceObject'][],
-    ): string
-    sendSystemMessage(arg0: string): void
-    setSite(arg0: number): void
-    getCon(): AllJavaClasses['net.rwhps.server.net.core.server.AbstractNetConnectServer']['instanceObject']
-    getLastMoveTime(): number
-    setTeam(arg0: number): void
-    getStatusData(): AllJavaClasses['net.rwhps.server.struct.map.ObjectMap']['instanceObject']
-    setLastMoveTime(arg0: number): void
-    getSurvive(): boolean
-    getNoSay(): boolean
-    setMuteTime(arg0: number): void
-    getBuildingsKilled(): number
-    getLastSentMessage(): string
-    getLastMessageTime(): number
-    getBuildingsLost(): number
-    setLastMessageTime(arg0: number): void
-    getMuteTime(): number
-    setKickTime(arg0: number): void
-    setTimeTemp(arg0: number): void
-    setLastSentMessage(arg0: string): void
-    getTimeTemp(): number
-    getStartUnit(): number
-    setStartUnit(arg0: number): void
-    setNoSay(arg0: boolean): void
-    getUnitsKilled(): number
-    getKickTime(): number
-    getUnitsLost(): number
-    sendPopUps(
-      arg0: string,
-      arg1: AllJavaClasses['kotlin.jvm.functions.Function1']['instanceObject'],
-    ): void
-    getPlayerInfo(): string
-    removeData(arg0: string): void
-    sendMessage(
-      arg0: AllJavaClasses['net.rwhps.server.data.player.PlayerHess']['instanceObject'],
-      arg1: string,
-    ): void
-    kickPlayer(arg0: string): void
-    kickPlayer(arg0: string, arg1: number): void
-    addData(
-      arg0: string,
-      arg1: AllJavaClasses['java.lang.Object']['instanceObject'],
-    ): void
-    getData(arg0: string): AllJavaClasses['java.lang.Object']['instanceObject']
     getData(
       arg0: string,
       arg1: AllJavaClasses['java.lang.Object']['instanceObject'],
@@ -18441,55 +18497,126 @@ type AllJavaClass_net_rwhps_server_data_player_PlayerHess = {
       arg0: string,
       arg1: AllJavaClasses['net.rwhps.server.func.Prov']['instanceObject'],
     ): AllJavaClasses['java.lang.Object']['instanceObject']
+    getData(arg0: string): AllJavaClasses['java.lang.Object']['instanceObject']
+    getExperimentalsKilled(): number
+    getExperimentalsLost(): number
+    updateDate(): void
+    setCredits(arg0: number): void
+    getCredits(): number
+    getSurvive(): boolean
+    getUnitsKilled(): number
+    setTeam(arg0: number): void
+    getStartUnit(): number
+    getBuildingsLost(): number
+    setSite(arg0: number): void
+    getConnectHexID(): string
+    getSite(): number
+    setStartUnit(arg0: number): void
+    getBuildingsKilled(): number
+    getTeam(): number
+    getUnitsLost(): number
+    setPlayerPrivateData(
+      arg0: AllJavaClasses['net.rwhps.server.game.simulation.core.AbstractLinkPlayerData']['instanceObject'],
+    ): void
+    playerJumpsToAnotherServer(arg0: string, arg1: number): void
+    playerJumpsToAnotherServer(arg0: string): void
+    getPlayerPrivateData(): AllJavaClasses['net.rwhps.server.game.simulation.core.AbstractLinkPlayerData']['instanceObject']
+    getAutoAdmin(): boolean
+    setCon(
+      arg0: AllJavaClasses['net.rwhps.server.net.core.server.AbstractNetConnectServer']['instanceObject'],
+    ): void
+    sendSystemMessage(arg0: string): void
+    setSuperAdmin(arg0: boolean): void
+    setAutoAdmin(arg0: boolean): void
+    getSuperAdmin(): boolean
+    isAdmin(): boolean
+    setAdmin(arg0: boolean): void
+    getI18NBundle(): AllJavaClasses['net.rwhps.server.util.I18NBundle']['instanceObject']
+    getinput(
+      arg0: string,
+      arg1: AllJavaClasses['java.lang.Object']['instanceObject'][],
+    ): string
+    getCon(): AllJavaClasses['net.rwhps.server.net.core.server.AbstractNetConnectServer']['instanceObject']
+    setMuteTime(arg0: number): void
+    setKickTime(arg0: number): void
+    getLastMessageTime(): number
+    setLastMessageTime(arg0: number): void
+    getKickTime(): number
+    getMuteTime(): number
+    setNoSay(arg0: boolean): void
+    setLastMoveTime(arg0: number): void
+    setTimeTemp(arg0: number): void
+    getTimeTemp(): number
+    setLastSentMessage(arg0: string): void
+    getNoSay(): boolean
+    getLastMoveTime(): number
+    getLastSentMessage(): string
+    getStatusData(): AllJavaClasses['net.rwhps.server.struct.map.ObjectMap']['instanceObject']
+    sendPopUps(
+      arg0: string,
+      arg1: AllJavaClasses['kotlin.jvm.functions.Function1']['instanceObject'],
+    ): void
+    kickPlayer(arg0: string, arg1: number): void
+    kickPlayer(arg0: string): void
+    addData(
+      arg0: string,
+      arg1: AllJavaClasses['java.lang.Object']['instanceObject'],
+    ): void
+    removeData(arg0: string): void
+    getPlayerInfo(): string
+    sendMessage(
+      arg0: AllJavaClasses['net.rwhps.server.data.player.PlayerHess']['instanceObject'],
+      arg1: string,
+    ): void
   } & Omit<AllJavaClasses['java.lang.Object']['instanceObject'], '__javaClass'>
 }
 type AllJavaClass_net_rwhps_server_net_core_server_AbstractNetConnectServer = {
   staticObject: object
   instanceObject: {
     __javaClass: 'net.rwhps.server.net.core.server.AbstractNetConnectServer'
-    getSupportedversionGame(): string
+    getPermissionStatus(): AllJavaClasses['net.rwhps.server.net.core.DataPermissionStatus$ServerStatus']['instanceObject']
+    getSupportedversionBeta(): boolean
     sendRelayServerTypeReply(
       arg0: AllJavaClasses['net.rwhps.server.io.packet.Packet']['instanceObject'],
     ): void
-    getPermissionStatus(): AllJavaClasses['net.rwhps.server.net.core.DataPermissionStatus$ServerStatus']['instanceObject']
+    getSupportedVersionInt(): number
     sendRelayServerType(
       arg0: string,
       arg1: AllJavaClasses['kotlin.jvm.functions.Function1']['instanceObject'],
     ): void
-    getSupportedVersionInt(): number
-    getSupportedversionBeta(): boolean
+    getSupportedversionGame(): string
     sendSystemMessage(arg0: string): void
     sendKick(arg0: string): void
+    sendChatMessage(arg0: string, arg1: string, arg2: number): void
     getPlayerInfo(
       arg0: AllJavaClasses['net.rwhps.server.io.packet.Packet']['instanceObject'],
     ): boolean
-    sendChatMessage(arg0: string, arg1: string, arg2: number): void
     sendPing(): void
-    sendServerInfo(arg0: boolean): void
-    getPlayer(): AllJavaClasses['net.rwhps.server.data.player.PlayerHess']['instanceObject']
-    sendTeamData(
-      arg0: AllJavaClasses['net.rwhps.server.io.output.CompressOutputStream']['instanceObject'],
-    ): void
-    sendSurrender(): void
-    sendStartGame(): void
-    sendGameSave(
-      arg0: AllJavaClasses['net.rwhps.server.io.packet.Packet']['instanceObject'],
-    ): void
-    receiveCheckPacket(
-      arg0: AllJavaClasses['net.rwhps.server.io.packet.Packet']['instanceObject'],
-    ): void
-    getGameSaveData(
-      arg0: AllJavaClasses['net.rwhps.server.io.packet.Packet']['instanceObject'],
-    ): number[]
-    receiveChat(
-      arg0: AllJavaClasses['net.rwhps.server.io.packet.Packet']['instanceObject'],
-    ): void
-    gameSummon(arg0: string, arg1: number, arg2: number): void
-    sendErrorPasswd(): void
     registerConnection(
       arg0: AllJavaClasses['net.rwhps.server.io.packet.Packet']['instanceObject'],
     ): void
+    sendServerInfo(arg0: boolean): void
+    sendSurrender(): void
+    sendStartGame(): void
+    gameSummon(arg0: string, arg1: number, arg2: number): void
+    sendErrorPasswd(): void
+    sendTeamData(
+      arg0: AllJavaClasses['net.rwhps.server.io.output.CompressOutputStream']['instanceObject'],
+    ): void
+    receiveChat(
+      arg0: AllJavaClasses['net.rwhps.server.io.packet.Packet']['instanceObject'],
+    ): void
+    sendGameSave(
+      arg0: AllJavaClasses['net.rwhps.server.io.packet.Packet']['instanceObject'],
+    ): void
+    getPlayer(): AllJavaClasses['net.rwhps.server.data.player.PlayerHess']['instanceObject']
+    getGameSaveData(
+      arg0: AllJavaClasses['net.rwhps.server.io.packet.Packet']['instanceObject'],
+    ): number[]
     receiveCommand(
+      arg0: AllJavaClasses['net.rwhps.server.io.packet.Packet']['instanceObject'],
+    ): void
+    receiveCheckPacket(
       arg0: AllJavaClasses['net.rwhps.server.io.packet.Packet']['instanceObject'],
     ): void
   }
@@ -18532,22 +18659,22 @@ type AllJavaClass_net_rwhps_server_util_I18NBundle = {
   }
   instanceObject: {
     __javaClass: 'net.rwhps.server.util.I18NBundle'
-    addLang$Server_Core(
-      arg0: AllJavaClasses['net.rwhps.server.util.file.LoadIni']['instanceObject'],
-      arg1: boolean,
-    ): boolean
-    addLang$Server_Core(arg0: string, arg1: string, arg2: boolean): boolean
     getinput(
-      arg0: string,
-      arg1: AllJavaClasses['java.lang.Object']['instanceObject'][],
-    ): string
-    getinputt(
       arg0: string,
       arg1: AllJavaClasses['java.lang.Object']['instanceObject'][],
     ): string
     addLanguageData(
       arg0: AllJavaClasses['net.rwhps.server.util.file.FileUtils']['instanceObject'],
     ): void
+    getinputt(
+      arg0: string,
+      arg1: AllJavaClasses['java.lang.Object']['instanceObject'][],
+    ): string
+    addLang$Server_Core(arg0: string, arg1: string, arg2: boolean): boolean
+    addLang$Server_Core(
+      arg0: AllJavaClasses['net.rwhps.server.util.file.LoadIni']['instanceObject'],
+      arg1: boolean,
+    ): boolean
   } & Omit<AllJavaClasses['java.lang.Object']['instanceObject'], '__javaClass'>
 }
 type AllJavaClass_net_rwhps_server_util_file_FileUtils = {
@@ -18595,34 +18722,39 @@ type AllJavaClass_net_rwhps_server_util_file_FileUtils = {
       arg3: number,
       arg4: AllJavaClasses['java.lang.Object']['instanceObject'],
     ): void
-    getMyFilePath(): string
-    getTempFile(
-      arg0: string,
-    ): AllJavaClasses['net.rwhps.server.util.file.FileUtils']['instanceObject']
+    setFilePath(arg0: string): void
+    readFileListString(
+      arg0: AllJavaClasses['java.io.InputStream']['instanceObject'],
+    ): AllJavaClasses['net.rwhps.server.struct.list.Seq']['instanceObject']
     readFileString(
       arg0: AllJavaClasses['java.io.InputStream']['instanceObject'],
     ): string
-    getFolder(): AllJavaClasses['net.rwhps.server.util.file.FileUtils']['instanceObject']
+    getFolder(
+      arg0: string,
+    ): AllJavaClasses['net.rwhps.server.util.file.FileUtils']['instanceObject']
     getFolder(
       arg0: string,
       arg1: boolean,
     ): AllJavaClasses['net.rwhps.server.util.file.FileUtils']['instanceObject']
-    getFolder(
-      arg0: string,
-    ): AllJavaClasses['net.rwhps.server.util.file.FileUtils']['instanceObject']
-    splicePath(arg0: string, arg1: string): string
-    getMyCoreJarStream(): AllJavaClasses['java.io.InputStream']['instanceObject']
-    readFileListString(
-      arg0: AllJavaClasses['java.io.InputStream']['instanceObject'],
-    ): AllJavaClasses['net.rwhps.server.struct.list.Seq']['instanceObject']
+    getFolder(): AllJavaClasses['net.rwhps.server.util.file.FileUtils']['instanceObject']
+    getMyFilePath(): string
     getTempDirectory(
       arg0: string,
     ): AllJavaClasses['net.rwhps.server.util.file.FileUtils']['instanceObject']
-    setFilePath(arg0: string): void
+    splicePath(arg0: string, arg1: string): string
+    getTempFile(
+      arg0: string,
+    ): AllJavaClasses['net.rwhps.server.util.file.FileUtils']['instanceObject']
+    getMyCoreJarStream(): AllJavaClasses['java.io.InputStream']['instanceObject']
     getInternalFileStream(
       arg0: string,
     ): AllJavaClasses['java.io.InputStream']['instanceObject']
-    access$setDefaultFilePath$cp(arg0: string): void
+    writeByteOutputStream$default(
+      arg0: AllJavaClasses['net.rwhps.server.util.file.FileUtils']['instanceObject'],
+      arg1: boolean,
+      arg2: number,
+      arg3: AllJavaClasses['java.lang.Object']['instanceObject'],
+    ): AllJavaClasses['java.io.FileOutputStream']['instanceObject']
     writeFileByte$default(
       arg0: AllJavaClasses['net.rwhps.server.util.file.FileUtils']['instanceObject'],
       arg1: number[],
@@ -18631,12 +18763,7 @@ type AllJavaClass_net_rwhps_server_util_file_FileUtils = {
       arg4: AllJavaClasses['java.lang.Object']['instanceObject'],
     ): void
     access$getDefaultFilePath$cp(): string
-    writeByteOutputStream$default(
-      arg0: AllJavaClasses['net.rwhps.server.util.file.FileUtils']['instanceObject'],
-      arg1: boolean,
-      arg2: number,
-      arg3: AllJavaClasses['java.lang.Object']['instanceObject'],
-    ): AllJavaClasses['java.io.FileOutputStream']['instanceObject']
+    access$setDefaultFilePath$cp(arg0: string): void
   }
   instanceObject: {
     __javaClass: 'net.rwhps.server.util.file.FileUtils'
@@ -18660,26 +18787,26 @@ type AllJavaClass_net_rwhps_server_util_file_FileUtils = {
     ): void
     notExists(): boolean
     readInputsStream(): AllJavaClasses['java.io.InputStreamReader']['instanceObject']
+    getFilePollingList(): AllJavaClasses['net.rwhps.server.struct.map.OrderedMap']['instanceObject']
+    getZipDecoder(): AllJavaClasses['net.rwhps.server.util.compression.core.AbstractDecoder']['instanceObject']
     toFolder(
       arg0: string,
     ): AllJavaClasses['net.rwhps.server.util.file.FileUtils']['instanceObject']
-    getFilePollingList(): AllJavaClasses['net.rwhps.server.struct.map.OrderedMap']['instanceObject']
-    getFileList(): AllJavaClasses['net.rwhps.server.struct.list.Seq']['instanceObject']
-    getZipDecoder(): AllJavaClasses['net.rwhps.server.util.compression.core.AbstractDecoder']['instanceObject']
     writeFile(
       arg0: AllJavaClasses['java.lang.Object']['instanceObject'],
       arg1: boolean,
     ): void
-    getMd5(): string
-    writeFileByte(arg0: number[], arg1: boolean): void
     getInputsStream(): AllJavaClasses['java.io.FileInputStream']['instanceObject']
-    readFileStringData(): string
+    getFileList(): AllJavaClasses['net.rwhps.server.struct.list.Seq']['instanceObject']
+    getMd5(): string
     readFileByte(): number[]
-    readFileListStringData(): AllJavaClasses['net.rwhps.server.struct.list.Seq']['instanceObject']
+    writeFileByte(arg0: number[], arg1: boolean): void
+    readFileStringData(): string
+    getFileListNotNullSize(): AllJavaClasses['net.rwhps.server.struct.list.Seq']['instanceObject']
     writeByteOutputStream(
       arg0: boolean,
     ): AllJavaClasses['java.io.FileOutputStream']['instanceObject']
-    getFileListNotNullSize(): AllJavaClasses['net.rwhps.server.struct.list.Seq']['instanceObject']
+    readFileListStringData(): AllJavaClasses['net.rwhps.server.struct.list.Seq']['instanceObject']
     getFileListNotNullSizeSort(): AllJavaClasses['net.rwhps.server.struct.list.Seq']['instanceObject']
   } & Omit<AllJavaClasses['java.lang.Object']['instanceObject'], '__javaClass'>
 }
@@ -18688,11 +18815,6 @@ type AllJavaClass_net_rwhps_server_util_file_FileUtils$Companion = {
     new (
       arg0: AllJavaClasses['kotlin.jvm.internal.DefaultConstructorMarker']['instanceObject'],
     ): AllJavaClasses['net.rwhps.server.util.file.FileUtils$Companion']['instanceObject']
-    access$cehckFolderPath(
-      arg0: AllJavaClasses['net.rwhps.server.util.file.FileUtils$Companion']['instanceObject'],
-      arg1: string,
-      arg2: string,
-    ): string
     getFolder$default(
       arg0: AllJavaClasses['net.rwhps.server.util.file.FileUtils$Companion']['instanceObject'],
       arg1: string,
@@ -18706,6 +18828,11 @@ type AllJavaClass_net_rwhps_server_util_file_FileUtils$Companion = {
       arg2: number,
       arg3: AllJavaClasses['java.lang.Object']['instanceObject'],
     ): void
+    access$cehckFolderPath(
+      arg0: AllJavaClasses['net.rwhps.server.util.file.FileUtils$Companion']['instanceObject'],
+      arg1: string,
+      arg2: string,
+    ): string
   }
   instanceObject: {
     __javaClass: 'net.rwhps.server.util.file.FileUtils$Companion'
@@ -18713,13 +18840,14 @@ type AllJavaClass_net_rwhps_server_util_file_FileUtils$Companion = {
       arg0: string,
     ): AllJavaClasses['net.rwhps.server.util.file.FileUtils']['instanceObject']
     getPath(arg0: string): string
-    getMyFilePath(): string
-    getTempFile(
-      arg0: string,
-    ): AllJavaClasses['net.rwhps.server.util.file.FileUtils']['instanceObject']
+    setFilePath(arg0: string): void
+    readFileListString(
+      arg0: AllJavaClasses['java.io.InputStream']['instanceObject'],
+    ): AllJavaClasses['net.rwhps.server.struct.list.Seq']['instanceObject']
     readFileString(
       arg0: AllJavaClasses['java.io.InputStream']['instanceObject'],
     ): string
+    getFolder(): AllJavaClasses['net.rwhps.server.util.file.FileUtils']['instanceObject']
     getFolder(
       arg0: string,
     ): AllJavaClasses['net.rwhps.server.util.file.FileUtils']['instanceObject']
@@ -18727,16 +18855,15 @@ type AllJavaClass_net_rwhps_server_util_file_FileUtils$Companion = {
       arg0: string,
       arg1: boolean,
     ): AllJavaClasses['net.rwhps.server.util.file.FileUtils']['instanceObject']
-    getFolder(): AllJavaClasses['net.rwhps.server.util.file.FileUtils']['instanceObject']
-    splicePath(arg0: string, arg1: string): string
-    getMyCoreJarStream(): AllJavaClasses['java.io.InputStream']['instanceObject']
-    readFileListString(
-      arg0: AllJavaClasses['java.io.InputStream']['instanceObject'],
-    ): AllJavaClasses['net.rwhps.server.struct.list.Seq']['instanceObject']
+    getMyFilePath(): string
     getTempDirectory(
       arg0: string,
     ): AllJavaClasses['net.rwhps.server.util.file.FileUtils']['instanceObject']
-    setFilePath(arg0: string): void
+    splicePath(arg0: string, arg1: string): string
+    getTempFile(
+      arg0: string,
+    ): AllJavaClasses['net.rwhps.server.util.file.FileUtils']['instanceObject']
+    getMyCoreJarStream(): AllJavaClasses['java.io.InputStream']['instanceObject']
     getInternalFileStream(
       arg0: string,
     ): AllJavaClasses['java.io.InputStream']['instanceObject']
@@ -18794,63 +18921,31 @@ type AllJavaClass_java_io_InputStreamReader = {
     ready(): boolean
   } & Omit<AllJavaClasses['java.io.Reader']['instanceObject'], '__javaClass'>
 }
-type AllJavaClass_net_rwhps_server_struct_map_OrderedMap = {
-  staticObject: {
-    new (
-      arg0: number,
-    ): AllJavaClasses['net.rwhps.server.struct.map.OrderedMap']['instanceObject']
-    new (): AllJavaClasses['net.rwhps.server.struct.map.OrderedMap']['instanceObject']
-    new (
-      arg0: number,
-      arg1: boolean,
-      arg2: number,
-      arg3: AllJavaClasses['kotlin.jvm.internal.DefaultConstructorMarker']['instanceObject'],
-    ): AllJavaClasses['net.rwhps.server.struct.map.OrderedMap']['instanceObject']
-    new (
-      arg0: number,
-      arg1: boolean,
-    ): AllJavaClasses['net.rwhps.server.struct.map.OrderedMap']['instanceObject']
-    new (
-      arg0: boolean,
-      arg1: number,
-      arg2: AllJavaClasses['kotlin.jvm.internal.DefaultConstructorMarker']['instanceObject'],
-    ): AllJavaClasses['net.rwhps.server.struct.map.OrderedMap']['instanceObject']
-    new (
-      arg0: boolean,
-    ): AllJavaClasses['net.rwhps.server.struct.map.OrderedMap']['instanceObject']
-  }
-  instanceObject: {
-    __javaClass: 'net.rwhps.server.struct.map.OrderedMap'
-  } & Omit<
-    AllJavaClasses['net.rwhps.server.struct.map.BaseMap']['instanceObject'],
-    '__javaClass'
-  >
-}
 type AllJavaClass_net_rwhps_server_util_compression_core_AbstractDecoder = {
   staticObject: object
   instanceObject: {
     __javaClass: 'net.rwhps.server.util.compression.core.AbstractDecoder'
     close(): void
-    getSpecifiedSuffixInThePackageAllFileNameAndPath(
-      arg0: AllJavaClasses['net.rwhps.server.struct.list.Seq']['instanceObject'],
+    setPhysicalOrder(arg0: boolean): void
+    getZipAllBytes(
+      arg0: boolean,
     ): AllJavaClasses['net.rwhps.server.struct.map.OrderedMap']['instanceObject']
     getTheFileBytesOfTheSpecifiedSuffixInTheZip(
       arg0: AllJavaClasses['net.rwhps.server.game.GameMaps$MapData']['instanceObject'],
     ): number[]
+    getSpecifiedSuffixInThePackageAllFileNameAndPath(
+      arg0: AllJavaClasses['net.rwhps.server.struct.list.Seq']['instanceObject'],
+    ): AllJavaClasses['net.rwhps.server.struct.map.OrderedMap']['instanceObject']
     getTheFileNameOfTheSpecifiedSuffixInTheZip(
       arg0: string,
     ): AllJavaClasses['net.rwhps.server.struct.list.Seq']['instanceObject']
-    getZipAllBytes(
-      arg0: boolean,
-    ): AllJavaClasses['net.rwhps.server.struct.map.OrderedMap']['instanceObject']
-    setPhysicalOrder(arg0: boolean): void
+    getZipNameInputStream(
+      arg0: string,
+    ): AllJavaClasses['java.io.InputStream']['instanceObject']
     getSpecifiedSuffixInThePackage(
       arg0: string,
       arg1: boolean,
     ): AllJavaClasses['net.rwhps.server.struct.map.OrderedMap']['instanceObject']
-    getZipNameInputStream(
-      arg0: string,
-    ): AllJavaClasses['java.io.InputStream']['instanceObject']
   } & Omit<AllJavaClasses['java.io.Closeable']['instanceObject'], '__javaClass'>
 }
 type AllJavaClass_net_rwhps_server_game_GameMaps$MapData = {
@@ -18871,17 +18966,17 @@ type AllJavaClass_net_rwhps_server_game_GameMaps$MapData = {
     __javaClass: 'net.rwhps.server.game.GameMaps$MapData'
     clean(): void
     getType(): string
-    getMapType(): AllJavaClasses['net.rwhps.server.game.GameMaps$MapType']['instanceObject']
-    getMapSize(): number
-    getZipFileName(): string
-    setBytesMap(arg0: number[]): void
-    getMapFileType(): AllJavaClasses['net.rwhps.server.game.GameMaps$MapFileType']['instanceObject']
-    setMapClean(arg0: boolean): void
-    getMapFileName(): string
-    getMapClean(): boolean
-    getBytesMap(): number[]
     readMap(): AllJavaClasses['net.rwhps.server.util.file.FileUtils']['instanceObject']
     setMapSize(arg0: number): void
+    getZipFileName(): string
+    getMapType(): AllJavaClasses['net.rwhps.server.game.GameMaps$MapType']['instanceObject']
+    getMapFileType(): AllJavaClasses['net.rwhps.server.game.GameMaps$MapFileType']['instanceObject']
+    getMapSize(): number
+    getMapClean(): boolean
+    getMapFileName(): string
+    getBytesMap(): number[]
+    setBytesMap(arg0: number[]): void
+    setMapClean(arg0: boolean): void
   } & Omit<AllJavaClasses['java.lang.Object']['instanceObject'], '__javaClass'>
 }
 type AllJavaClass_net_rwhps_server_game_GameMaps$MapType = {
@@ -19013,40 +19108,13 @@ type AllJavaClass_net_rwhps_server_util_file_LoadIni = {
     readString(arg0: string, arg1: string): string
     readString(arg0: string): string
     readBoolean(arg0: string, arg1: boolean): boolean
-    getData$Server_Core(): AllJavaClasses['net.rwhps.server.struct.map.OrderedMap']['instanceObject']
     setObject(
       arg0: string,
       arg1: AllJavaClasses['java.lang.Object']['instanceObject'],
     ): void
+    getData$Server_Core(): AllJavaClasses['net.rwhps.server.struct.map.OrderedMap']['instanceObject']
   } & Omit<AllJavaClasses['java.lang.Object']['instanceObject'], '__javaClass'>
 }
-type AllJavaClass_net_rwhps_server_game_simulation_core_AbstractLinkPlayerData =
-  {
-    staticObject: object
-    instanceObject: {
-      __javaClass: 'net.rwhps.server.game.simulation.core.AbstractLinkPlayerData'
-      getName(): string
-      setColor(arg0: number): void
-      getExperimentalsKilled(): number
-      getExperimentalsLost(): number
-      getCredits(): number
-      setCredits(arg0: number): void
-      updateDate(): void
-      getConnectHexID(): string
-      getTeam(): number
-      getSite(): number
-      setSite(arg0: number): void
-      setTeam(arg0: number): void
-      getSurvive(): boolean
-      getBuildingsKilled(): number
-      getBuildingsLost(): number
-      getStartUnit(): number
-      setStartUnit(arg0: number): void
-      getUnitsKilled(): number
-      getUnitsLost(): number
-      getColor(): number
-    }
-  }
 type AllJavaClass_net_rwhps_server_func_StrCons = {
   staticObject: object
   instanceObject: {
@@ -19058,156 +19126,88 @@ type AllJavaClass_net_rwhps_server_func_StrCons = {
     ): void
   }
 }
-type AllJavaClass_net_rwhps_server_util_game_CommandHandler = {
+type AllJavaClass_net_rwhps_server_data_temp_ServerCacheFlag = {
   staticObject: {
-    new (
-      arg0: string,
-    ): AllJavaClasses['net.rwhps.server.util.game.CommandHandler']['instanceObject']
+    new (): AllJavaClasses['net.rwhps.server.data.temp.ServerCacheFlag']['instanceObject']
   }
   instanceObject: {
-    __javaClass: 'net.rwhps.server.util.game.CommandHandler'
-    register(
-      arg0: string,
-      arg1: string,
-      arg2: AllJavaClasses['net.rwhps.server.util.game.CommandHandler$CommandRunner']['instanceObject'],
-    ): AllJavaClasses['net.rwhps.server.util.game.CommandHandler$Command']['instanceObject']
-    register(
-      arg0: string,
-      arg1: string,
-      arg2: string,
-      arg3: AllJavaClasses['net.rwhps.server.util.game.CommandHandler$CommandRunner']['instanceObject'],
-    ): AllJavaClasses['net.rwhps.server.util.game.CommandHandler$Command']['instanceObject']
-    register(
-      arg0: string,
-      arg1: string,
-      arg2: AllJavaClasses['net.rwhps.server.func.ConsSeq']['instanceObject'],
-    ): AllJavaClasses['net.rwhps.server.util.game.CommandHandler$Command']['instanceObject']
-    register(
-      arg0: string,
-      arg1: string,
-      arg2: string,
-      arg3: AllJavaClasses['net.rwhps.server.func.ConsSeq']['instanceObject'],
-    ): AllJavaClasses['net.rwhps.server.util.game.CommandHandler$Command']['instanceObject']
-    handleMessage(
-      arg0: string,
-    ): AllJavaClasses['net.rwhps.server.util.game.CommandHandler$CommandResponse']['instanceObject']
-    handleMessage(
-      arg0: string,
-      arg1: AllJavaClasses['java.lang.Object']['instanceObject'],
-    ): AllJavaClasses['net.rwhps.server.util.game.CommandHandler$CommandResponse']['instanceObject']
-    removeCommand(arg0: string): void
-    getCommandList(): AllJavaClasses['net.rwhps.server.struct.list.Seq']['instanceObject']
-    setPrefix(arg0: string): void
+    __javaClass: 'net.rwhps.server.data.temp.ServerCacheFlag'
+    getForcedCloseSendMsg(): boolean
+    getSendGameStatusFlag(): boolean
+    setSendGameStatusFlag(arg0: boolean): void
+    setForcedCloseSendMsg(arg0: boolean): void
+    getAi(): boolean
+    getAiWarn(): boolean
+    setAiWarn(arg0: boolean): void
+    setOneSay(arg0: boolean): void
+    getOneSay(): boolean
+    setAi(arg0: boolean): void
   } & Omit<AllJavaClasses['java.lang.Object']['instanceObject'], '__javaClass'>
 }
-type AllJavaClass_net_rwhps_server_util_game_CommandHandler$Command = {
+type AllJavaClass_net_rwhps_server_core_CallHess = {
   staticObject: {
     new (
-      arg0: string,
+      arg0: AllJavaClasses['net.rwhps.server.game.simulation.core.AbstractGameModule']['instanceObject'],
+    ): AllJavaClasses['net.rwhps.server.core.CallHess']['instanceObject']
+    killAllPlayer$default(
+      arg0: AllJavaClasses['net.rwhps.server.core.CallHess']['instanceObject'],
       arg1: string,
-      arg2: string,
-      arg3: AllJavaClasses['net.rwhps.server.util.game.CommandHandler$CommandRunner']['instanceObject'],
-    ): AllJavaClasses['net.rwhps.server.util.game.CommandHandler$Command']['instanceObject']
+      arg2: number,
+      arg3: AllJavaClasses['java.lang.Object']['instanceObject'],
+    ): void
   }
   instanceObject: {
-    __javaClass: 'net.rwhps.server.util.game.CommandHandler$Command'
-    text: string
-    paramText: string
-    description: string
-    params: AllJavaClasses['net.rwhps.server.util.game.CommandHandler$CommandParam']['instanceObject'][]
-  } & Omit<AllJavaClasses['java.lang.Object']['instanceObject'], '__javaClass'>
-}
-type AllJavaClass_net_rwhps_server_util_game_CommandHandler$CommandParam = {
-  staticObject: {
-    new (
+    __javaClass: 'net.rwhps.server.core.CallHess'
+    startCheckThread(): void
+    sendSystemMessageLocal(
       arg0: string,
-      arg1: boolean,
-      arg2: boolean,
-    ): AllJavaClasses['net.rwhps.server.util.game.CommandHandler$CommandParam']['instanceObject']
-  }
-  instanceObject: {
-    __javaClass: 'net.rwhps.server.util.game.CommandHandler$CommandParam'
-    name: string
-    optional: boolean
-    variadic: boolean
+      arg1: AllJavaClasses['java.lang.Object']['instanceObject'][],
+    ): void
+    sendSystemTeamMessageLocal(
+      arg0: number,
+      arg1: string,
+      arg2: AllJavaClasses['java.lang.Object']['instanceObject'][],
+    ): void
+    sendSystemMessage(arg0: string): void
+    sendSystemMessage(
+      arg0: string,
+      arg1: AllJavaClasses['java.lang.Object']['instanceObject'][],
+    ): void
+    killAllPlayer(): void
+    killAllPlayer(arg0: string): void
+    syncAllPlayer(): void
   } & Omit<AllJavaClasses['java.lang.Object']['instanceObject'], '__javaClass'>
 }
-type AllJavaClass_net_rwhps_server_util_game_CommandHandler$CommandRunner = {
+type AllJavaClass_net_rwhps_server_game_simulation_core_AbstractGameFunction = {
   staticObject: object
   instanceObject: {
-    __javaClass: 'net.rwhps.server.util.game.CommandHandler$CommandRunner'
-    accept(
-      arg0: string[],
-      arg1: AllJavaClasses['java.lang.Object']['instanceObject'],
+    __javaClass: 'net.rwhps.server.game.simulation.core.AbstractGameFunction'
+    suspendMainThreadOperations(
+      arg0: AllJavaClasses['java.lang.Runnable']['instanceObject'],
     ): void
   }
 }
-type AllJavaClass_net_rwhps_server_util_game_CommandHandler$CommandResponse = {
-  staticObject: {
-    new (
-      arg0: AllJavaClasses['net.rwhps.server.util.game.CommandHandler$ResponseType']['instanceObject'],
-      arg1: AllJavaClasses['net.rwhps.server.util.game.CommandHandler$Command']['instanceObject'],
-      arg2: string,
-    ): AllJavaClasses['net.rwhps.server.util.game.CommandHandler$CommandResponse']['instanceObject']
-  }
-  instanceObject: {
-    __javaClass: 'net.rwhps.server.util.game.CommandHandler$CommandResponse'
-    type: AllJavaClasses['net.rwhps.server.util.game.CommandHandler$ResponseType']['instanceObject']
-    command: AllJavaClasses['net.rwhps.server.util.game.CommandHandler$Command']['instanceObject']
-    runCommand: string
-  } & Omit<AllJavaClasses['java.lang.Object']['instanceObject'], '__javaClass'>
-}
-type AllJavaClass_net_rwhps_server_util_game_CommandHandler$ResponseType = {
-  staticObject: {
-    noCommand: AllJavaClasses['net.rwhps.server.util.game.CommandHandler$ResponseType']['instanceObject']
-    unknownCommand: AllJavaClasses['net.rwhps.server.util.game.CommandHandler$ResponseType']['instanceObject']
-    fewArguments: AllJavaClasses['net.rwhps.server.util.game.CommandHandler$ResponseType']['instanceObject']
-    manyArguments: AllJavaClasses['net.rwhps.server.util.game.CommandHandler$ResponseType']['instanceObject']
-    valid: AllJavaClasses['net.rwhps.server.util.game.CommandHandler$ResponseType']['instanceObject']
-    values(): AllJavaClasses['net.rwhps.server.util.game.CommandHandler$ResponseType']['instanceObject'][]
-    valueOf(
-      arg0: string,
-    ): AllJavaClasses['net.rwhps.server.util.game.CommandHandler$ResponseType']['instanceObject']
-  }
-  instanceObject: {
-    __javaClass: 'net.rwhps.server.util.game.CommandHandler$ResponseType'
-  } & Omit<AllJavaClasses['java.lang.Enum']['instanceObject'], '__javaClass'>
-}
-type AllJavaClass_net_rwhps_server_game_simulation_core_AbstractGameHessData = {
+type AllJavaClass_net_rwhps_server_game_simulation_core_AbstractLinkGameData = {
   staticObject: object
   instanceObject: {
-    __javaClass: 'net.rwhps.server.game.simulation.core.AbstractGameHessData'
-    clean(): void
-    getPlayerBirthPointXY(): void
-    getPlayerData(
-      arg0: number,
-    ): AllJavaClasses['net.rwhps.server.game.simulation.core.AbstractLinkPlayerData']['instanceObject']
-    getGameOverData(): AllJavaClasses['net.rwhps.server.game.event.game.ServerGameOverEvent$GameOverData']['instanceObject']
-    getWin(arg0: number): boolean
-    getDefPlayerData(): AllJavaClasses['net.rwhps.server.game.simulation.core.AbstractLinkPlayerData']['instanceObject']
-    getTickNetHess(): number
-    getTickHess(): number
-  }
-}
-type AllJavaClass_net_rwhps_server_game_simulation_core_AbstractGameFast = {
-  staticObject: object
-  instanceObject: {
-    __javaClass: 'net.rwhps.server.game.simulation.core.AbstractGameFast'
-    filteredPacket(
-      arg0: AllJavaClasses['java.lang.Object']['instanceObject'],
-    ): boolean
-  }
-}
-type AllJavaClass_net_rwhps_server_game_simulation_core_AbstractGameUnitData = {
-  staticObject: object
-  instanceObject: {
-    __javaClass: 'net.rwhps.server.game.simulation.core.AbstractGameUnitData'
-    getUnitData(
-      arg0: string,
-    ): AllJavaClasses['net.rwhps.server.struct.map.OrderedMap']['instanceObject']
-    getUseMod(): boolean
-    reloadUnitData(): void
-    setUseMod(arg0: boolean): void
+    __javaClass: 'net.rwhps.server.game.simulation.core.AbstractLinkGameData'
+    getTeamOperationsSyncObject(): AllJavaClasses['java.lang.Object']['instanceObject']
+    setNukes(arg0: boolean): void
+    getFog(): number
+    setSharedcontrol(arg0: boolean): void
+    getSharedcontrol(): boolean
+    setFog(arg0: number): void
+    setStartingunits(arg0: number): void
+    setAiDifficuld(arg0: number): void
+    setCredits(arg0: number): void
+    getCredits(): number
+    getNukes(): boolean
+    getAiDifficuld(): number
+    setMaxUnit(arg0: number): void
+    getMaxUnit(): number
+    getIncome(): number
+    setIncome(arg0: number): void
+    getStartingunits(): number
   }
 }
 type AllJavaClass_net_rwhps_server_game_event_global_ServerLoadEvent = {
@@ -19284,63 +19284,63 @@ type AllJavaClass_net_rwhps_server_plugin_Plugin = {
     loadLang$default(
       arg0: AllJavaClasses['net.rwhps.server.plugin.Plugin']['instanceObject'],
       arg1: string,
-      arg2: AllJavaClasses['net.rwhps.server.util.file.LoadIni']['instanceObject'],
-      arg3: boolean,
-      arg4: number,
-      arg5: AllJavaClasses['java.lang.Object']['instanceObject'],
-    ): boolean
-    loadLang$default(
-      arg0: AllJavaClasses['net.rwhps.server.plugin.Plugin']['instanceObject'],
-      arg1: string,
       arg2: string,
       arg3: string,
       arg4: boolean,
       arg5: number,
       arg6: AllJavaClasses['java.lang.Object']['instanceObject'],
     ): boolean
+    loadLang$default(
+      arg0: AllJavaClasses['net.rwhps.server.plugin.Plugin']['instanceObject'],
+      arg1: string,
+      arg2: AllJavaClasses['net.rwhps.server.util.file.LoadIni']['instanceObject'],
+      arg3: boolean,
+      arg4: number,
+      arg5: AllJavaClasses['java.lang.Object']['instanceObject'],
+    ): boolean
   }
   instanceObject: {
     __javaClass: 'net.rwhps.server.plugin.Plugin'
     pluginDataFileUtils: AllJavaClasses['net.rwhps.server.util.file.FileUtils']['instanceObject']
     init(): void
+    registerGlobalEvents(
+      arg0: AllJavaClasses['net.rwhps.server.game.event.EventGlobalManage']['instanceObject'],
+    ): void
+    registerServerClientCommands(
+      arg0: AllJavaClasses['net.rwhps.server.util.game.CommandHandler']['instanceObject'],
+    ): void
+    registerRelayClientCommands(
+      arg0: AllJavaClasses['net.rwhps.server.util.game.CommandHandler']['instanceObject'],
+    ): void
+    registerServerCommands(
+      arg0: AllJavaClasses['net.rwhps.server.util.game.CommandHandler']['instanceObject'],
+    ): void
+    registerRelayCommands(
+      arg0: AllJavaClasses['net.rwhps.server.util.game.CommandHandler']['instanceObject'],
+    ): void
+    getPluginDataFileUtils(): AllJavaClasses['net.rwhps.server.util.file.FileUtils']['instanceObject']
+    setPluginDataFileUtils$Server_Core(
+      arg0: AllJavaClasses['net.rwhps.server.util.file.FileUtils']['instanceObject'],
+    ): void
+    registerCoreCommands(
+      arg0: AllJavaClasses['net.rwhps.server.util.game.CommandHandler']['instanceObject'],
+    ): void
+    onEnable(): void
+    registerEvents(
+      arg0: AllJavaClasses['net.rwhps.server.game.event.EventManage']['instanceObject'],
+    ): void
     loadLang(
       arg0: string,
       arg1: AllJavaClasses['net.rwhps.server.util.file.LoadIni']['instanceObject'],
     ): boolean
     loadLang(arg0: string, arg1: string, arg2: string): boolean
-    loadLang(arg0: string, arg1: string, arg2: string, arg3: boolean): boolean
     loadLang(
       arg0: string,
       arg1: AllJavaClasses['net.rwhps.server.util.file.LoadIni']['instanceObject'],
       arg2: boolean,
     ): boolean
-    onEnable(): void
-    registerEvents(
-      arg0: AllJavaClasses['net.rwhps.server.game.event.EventManage']['instanceObject'],
-    ): void
+    loadLang(arg0: string, arg1: string, arg2: string, arg3: boolean): boolean
     onDisable(): void
-    getPluginDataFileUtils(): AllJavaClasses['net.rwhps.server.util.file.FileUtils']['instanceObject']
-    registerRelayClientCommands(
-      arg0: AllJavaClasses['net.rwhps.server.util.game.CommandHandler']['instanceObject'],
-    ): void
-    registerCoreCommands(
-      arg0: AllJavaClasses['net.rwhps.server.util.game.CommandHandler']['instanceObject'],
-    ): void
-    registerGlobalEvents(
-      arg0: AllJavaClasses['net.rwhps.server.game.event.EventGlobalManage']['instanceObject'],
-    ): void
-    registerServerCommands(
-      arg0: AllJavaClasses['net.rwhps.server.util.game.CommandHandler']['instanceObject'],
-    ): void
-    registerServerClientCommands(
-      arg0: AllJavaClasses['net.rwhps.server.util.game.CommandHandler']['instanceObject'],
-    ): void
-    setPluginDataFileUtils$Server_Core(
-      arg0: AllJavaClasses['net.rwhps.server.util.file.FileUtils']['instanceObject'],
-    ): void
-    registerRelayCommands(
-      arg0: AllJavaClasses['net.rwhps.server.util.game.CommandHandler']['instanceObject'],
-    ): void
   } & Omit<AllJavaClasses['java.lang.Object']['instanceObject'], '__javaClass'>
 }
 type AllJavaClass_net_rwhps_server_game_event_EventGlobalManage = {
@@ -19349,13 +19349,13 @@ type AllJavaClass_net_rwhps_server_game_event_EventGlobalManage = {
   }
   instanceObject: {
     __javaClass: 'net.rwhps.server.game.event.EventGlobalManage'
-    fire(
-      arg0: AllJavaClasses['net.rwhps.server.game.event.core.AbstractGlobalEvent']['instanceObject'],
-    ): AllJavaClasses['net.rwhps.server.util.concurrent.fature.AbstractFuture']['instanceObject']
     registerListener(
       arg0: AllJavaClasses['java.lang.Class']['instanceObject'],
       arg1: AllJavaClasses['java.util.function.Consumer']['instanceObject'],
     ): void
+    fire(
+      arg0: AllJavaClasses['net.rwhps.server.game.event.core.AbstractGlobalEvent']['instanceObject'],
+    ): AllJavaClasses['net.rwhps.server.util.concurrent.fature.AbstractFuture']['instanceObject']
   } & Omit<
     AllJavaClasses['net.rwhps.server.game.event.AbstractEventManage']['instanceObject'],
     '__javaClass'
@@ -19492,10 +19492,10 @@ type AllJavaClass_net_rwhps_server_game_event_game_PlayerOperationUnitEvent = {
     resultStatus: boolean
     status(): AllJavaClasses['net.rwhps.server.func.Control$EventNext']['instanceObject']
     getPlayer(): AllJavaClasses['net.rwhps.server.data.player.PlayerHess']['instanceObject']
-    getX(): number
-    getY(): number
     getGameInternalUnits(): AllJavaClasses['net.rwhps.server.game.enums.GameInternalUnits']['instanceObject']
     getGameCommandActions(): AllJavaClasses['net.rwhps.server.game.enums.GameCommandActions']['instanceObject']
+    getX(): number
+    getY(): number
   } & Omit<
     AllJavaClasses['java.lang.Object']['instanceObject'],
     '__javaClass'
@@ -19717,9 +19717,9 @@ type AllJavaClass_net_rwhps_server_game_HessModuleManage = {
   instanceObject: {
     __javaClass: 'net.rwhps.server.game.HessModuleManage'
     getHps(): AllJavaClasses['net.rwhps.server.game.simulation.core.AbstractGameModule']['instanceObject']
-    getHpsLoader(): string
     getHessLoaderMap(): AllJavaClasses['net.rwhps.server.struct.map.ObjectMap']['instanceObject']
     setHpsLoader(arg0: string): void
+    getHpsLoader(): string
   } & Omit<AllJavaClasses['java.lang.Object']['instanceObject'], '__javaClass'>
 }
 interface AllJavaClasses {
@@ -20056,18 +20056,18 @@ interface AllJavaClasses {
   'io.netty.channel.RecvByteBufAllocator$Handle': AllJavaClass_io_netty_channel_RecvByteBufAllocator$Handle
   'io.netty.channel.ChannelConfig': AllJavaClass_io_netty_channel_ChannelConfig
   'io.netty.channel.WriteBufferWaterMark': AllJavaClass_io_netty_channel_WriteBufferWaterMark
-  'io.netty.channel.RecvByteBufAllocator': AllJavaClass_io_netty_channel_RecvByteBufAllocator
   'io.netty.channel.MessageSizeEstimator': AllJavaClass_io_netty_channel_MessageSizeEstimator
   'io.netty.channel.MessageSizeEstimator$Handle': AllJavaClass_io_netty_channel_MessageSizeEstimator$Handle
   'io.netty.channel.ChannelOption': AllJavaClass_io_netty_channel_ChannelOption
   'io.netty.buffer.ByteBufAllocator': AllJavaClass_io_netty_buffer_ByteBufAllocator
   'io.netty.buffer.ByteBuf': AllJavaClass_io_netty_buffer_ByteBuf
-  'io.netty.util.ByteProcessor': AllJavaClass_io_netty_util_ByteProcessor
   'io.netty.util.ReferenceCounted': AllJavaClass_io_netty_util_ReferenceCounted
+  'io.netty.util.ByteProcessor': AllJavaClass_io_netty_util_ByteProcessor
   'io.netty.buffer.ByteBufConvertible': AllJavaClass_io_netty_buffer_ByteBufConvertible
   'io.netty.buffer.CompositeByteBuf': AllJavaClass_io_netty_buffer_CompositeByteBuf
   'io.netty.buffer.AbstractReferenceCountedByteBuf': AllJavaClass_io_netty_buffer_AbstractReferenceCountedByteBuf
   'io.netty.buffer.AbstractByteBuf': AllJavaClass_io_netty_buffer_AbstractByteBuf
+  'io.netty.channel.RecvByteBufAllocator': AllJavaClass_io_netty_channel_RecvByteBufAllocator
   'io.netty.channel.ChannelOutboundBuffer': AllJavaClass_io_netty_channel_ChannelOutboundBuffer
   'io.netty.channel.ChannelOutboundBuffer$MessageProcessor': AllJavaClass_io_netty_channel_ChannelOutboundBuffer$MessageProcessor
   'io.netty.channel.ChannelPipeline': AllJavaClass_io_netty_channel_ChannelPipeline
@@ -20129,8 +20129,8 @@ interface AllJavaClasses {
   'net.rwhps.server.struct.list.Seq$Companion': AllJavaClass_net_rwhps_server_struct_list_Seq$Companion
   'net.rwhps.server.struct.list.BaseSeq': AllJavaClass_net_rwhps_server_struct_list_BaseSeq
   'net.rwhps.server.func.FindSeq': AllJavaClass_net_rwhps_server_func_FindSeq
-  'kotlin.Unit': AllJavaClass_kotlin_Unit
   'net.rwhps.server.func.ConsSeq': AllJavaClass_net_rwhps_server_func_ConsSeq
+  'kotlin.Unit': AllJavaClass_kotlin_Unit
   'kotlin.jvm.internal.markers.KMutableList': AllJavaClass_kotlin_jvm_internal_markers_KMutableList
   'kotlin.jvm.internal.markers.KMutableCollection': AllJavaClass_kotlin_jvm_internal_markers_KMutableCollection
   'kotlin.jvm.internal.markers.KMutableIterable': AllJavaClass_kotlin_jvm_internal_markers_KMutableIterable
@@ -20163,20 +20163,27 @@ interface AllJavaClasses {
   'net.rwhps.server.game.event.global.ServerHessLoadEvent': AllJavaClass_net_rwhps_server_game_event_global_ServerHessLoadEvent
   'net.rwhps.server.game.simulation.core.AbstractGameModule': AllJavaClass_net_rwhps_server_game_simulation_core_AbstractGameModule
   'net.rwhps.server.game.simulation.core.AbstractLinkGameFunction': AllJavaClass_net_rwhps_server_game_simulation_core_AbstractLinkGameFunction
-  'net.rwhps.server.game.simulation.core.AbstractLinkGameData': AllJavaClass_net_rwhps_server_game_simulation_core_AbstractLinkGameData
+  'net.rwhps.server.game.simulation.core.AbstractGameUnitData': AllJavaClass_net_rwhps_server_game_simulation_core_AbstractGameUnitData
+  'net.rwhps.server.struct.map.OrderedMap': AllJavaClass_net_rwhps_server_struct_map_OrderedMap
+  'net.rwhps.server.game.simulation.core.AbstractLinkGameNet': AllJavaClass_net_rwhps_server_game_simulation_core_AbstractLinkGameNet
+  'net.rwhps.server.game.simulation.core.AbstractGameHessData': AllJavaClass_net_rwhps_server_game_simulation_core_AbstractGameHessData
+  'net.rwhps.server.game.event.game.ServerGameOverEvent$GameOverData': AllJavaClass_net_rwhps_server_game_event_game_ServerGameOverEvent$GameOverData
+  'net.rwhps.server.struct.map.ObjectMap': AllJavaClass_net_rwhps_server_struct_map_ObjectMap
+  'net.rwhps.server.struct.map.ObjectMap$Companion': AllJavaClass_net_rwhps_server_struct_map_ObjectMap$Companion
+  'net.rwhps.server.game.simulation.core.AbstractLinkPlayerData': AllJavaClass_net_rwhps_server_game_simulation_core_AbstractLinkPlayerData
+  'net.rwhps.server.game.simulation.core.AbstractGameFast': AllJavaClass_net_rwhps_server_game_simulation_core_AbstractGameFast
   'net.rwhps.server.game.event.EventManage': AllJavaClass_net_rwhps_server_game_event_EventManage
   'net.rwhps.server.util.concurrent.fature.AbstractFuture': AllJavaClass_net_rwhps_server_util_concurrent_fature_AbstractFuture
   'net.rwhps.server.game.event.core.AbstractEvent': AllJavaClass_net_rwhps_server_game_event_core_AbstractEvent
   'net.rwhps.server.game.event.AbstractEventManage': AllJavaClass_net_rwhps_server_game_event_AbstractEventManage
   'net.rwhps.server.game.event.core.EventListenerHost': AllJavaClass_net_rwhps_server_game_event_core_EventListenerHost
-  'net.rwhps.server.game.simulation.core.AbstractLinkGameNet': AllJavaClass_net_rwhps_server_game_simulation_core_AbstractLinkGameNet
-  'net.rwhps.server.game.simulation.core.AbstractGameFunction': AllJavaClass_net_rwhps_server_game_simulation_core_AbstractGameFunction
   'net.rwhps.server.core.game.ServerRoom': AllJavaClass_net_rwhps_server_core_game_ServerRoom
-  'net.rwhps.server.game.event.game.ServerGameOverEvent$GameOverData': AllJavaClass_net_rwhps_server_game_event_game_ServerGameOverEvent$GameOverData
-  'net.rwhps.server.struct.map.ObjectMap': AllJavaClass_net_rwhps_server_struct_map_ObjectMap
-  'net.rwhps.server.struct.map.ObjectMap$Companion': AllJavaClass_net_rwhps_server_struct_map_ObjectMap$Companion
-  'net.rwhps.server.data.temp.ServerCacheFlag': AllJavaClass_net_rwhps_server_data_temp_ServerCacheFlag
-  'net.rwhps.server.core.CallHess': AllJavaClass_net_rwhps_server_core_CallHess
+  'net.rwhps.server.util.game.CommandHandler': AllJavaClass_net_rwhps_server_util_game_CommandHandler
+  'net.rwhps.server.util.game.CommandHandler$Command': AllJavaClass_net_rwhps_server_util_game_CommandHandler$Command
+  'net.rwhps.server.util.game.CommandHandler$CommandParam': AllJavaClass_net_rwhps_server_util_game_CommandHandler$CommandParam
+  'net.rwhps.server.util.game.CommandHandler$CommandRunner': AllJavaClass_net_rwhps_server_util_game_CommandHandler$CommandRunner
+  'net.rwhps.server.util.game.CommandHandler$CommandResponse': AllJavaClass_net_rwhps_server_util_game_CommandHandler$CommandResponse
+  'net.rwhps.server.util.game.CommandHandler$ResponseType': AllJavaClass_net_rwhps_server_util_game_CommandHandler$ResponseType
   'net.rwhps.server.data.player.PlayerHessManage': AllJavaClass_net_rwhps_server_data_player_PlayerHessManage
   'net.rwhps.server.data.player.PlayerHess': AllJavaClass_net_rwhps_server_data_player_PlayerHess
   'net.rwhps.server.net.core.server.AbstractNetConnectServer': AllJavaClass_net_rwhps_server_net_core_server_AbstractNetConnectServer
@@ -20187,7 +20194,6 @@ interface AllJavaClasses {
   'net.rwhps.server.util.file.FileUtils$Companion': AllJavaClass_net_rwhps_server_util_file_FileUtils$Companion
   'java.nio.file.attribute.PosixFilePermission': AllJavaClass_java_nio_file_attribute_PosixFilePermission
   'java.io.InputStreamReader': AllJavaClass_java_io_InputStreamReader
-  'net.rwhps.server.struct.map.OrderedMap': AllJavaClass_net_rwhps_server_struct_map_OrderedMap
   'net.rwhps.server.util.compression.core.AbstractDecoder': AllJavaClass_net_rwhps_server_util_compression_core_AbstractDecoder
   'net.rwhps.server.game.GameMaps$MapData': AllJavaClass_net_rwhps_server_game_GameMaps$MapData
   'net.rwhps.server.game.GameMaps$MapType': AllJavaClass_net_rwhps_server_game_GameMaps$MapType
@@ -20196,17 +20202,11 @@ interface AllJavaClasses {
   'java.io.FileDescriptor': AllJavaClass_java_io_FileDescriptor
   'java.io.FileOutputStream': AllJavaClass_java_io_FileOutputStream
   'net.rwhps.server.util.file.LoadIni': AllJavaClass_net_rwhps_server_util_file_LoadIni
-  'net.rwhps.server.game.simulation.core.AbstractLinkPlayerData': AllJavaClass_net_rwhps_server_game_simulation_core_AbstractLinkPlayerData
   'net.rwhps.server.func.StrCons': AllJavaClass_net_rwhps_server_func_StrCons
-  'net.rwhps.server.util.game.CommandHandler': AllJavaClass_net_rwhps_server_util_game_CommandHandler
-  'net.rwhps.server.util.game.CommandHandler$Command': AllJavaClass_net_rwhps_server_util_game_CommandHandler$Command
-  'net.rwhps.server.util.game.CommandHandler$CommandParam': AllJavaClass_net_rwhps_server_util_game_CommandHandler$CommandParam
-  'net.rwhps.server.util.game.CommandHandler$CommandRunner': AllJavaClass_net_rwhps_server_util_game_CommandHandler$CommandRunner
-  'net.rwhps.server.util.game.CommandHandler$CommandResponse': AllJavaClass_net_rwhps_server_util_game_CommandHandler$CommandResponse
-  'net.rwhps.server.util.game.CommandHandler$ResponseType': AllJavaClass_net_rwhps_server_util_game_CommandHandler$ResponseType
-  'net.rwhps.server.game.simulation.core.AbstractGameHessData': AllJavaClass_net_rwhps_server_game_simulation_core_AbstractGameHessData
-  'net.rwhps.server.game.simulation.core.AbstractGameFast': AllJavaClass_net_rwhps_server_game_simulation_core_AbstractGameFast
-  'net.rwhps.server.game.simulation.core.AbstractGameUnitData': AllJavaClass_net_rwhps_server_game_simulation_core_AbstractGameUnitData
+  'net.rwhps.server.data.temp.ServerCacheFlag': AllJavaClass_net_rwhps_server_data_temp_ServerCacheFlag
+  'net.rwhps.server.core.CallHess': AllJavaClass_net_rwhps_server_core_CallHess
+  'net.rwhps.server.game.simulation.core.AbstractGameFunction': AllJavaClass_net_rwhps_server_game_simulation_core_AbstractGameFunction
+  'net.rwhps.server.game.simulation.core.AbstractLinkGameData': AllJavaClass_net_rwhps_server_game_simulation_core_AbstractLinkGameData
   'net.rwhps.server.game.event.global.ServerLoadEvent': AllJavaClass_net_rwhps_server_game_event_global_ServerLoadEvent
   'net.rwhps.server.game.event.global.ServerStartTypeEvent': AllJavaClass_net_rwhps_server_game_event_global_ServerStartTypeEvent
   'net.rwhps.server.net.core.IRwHps$NetType': AllJavaClass_net_rwhps_server_net_core_IRwHps$NetType
