@@ -1,4 +1,4 @@
-import { GameCommandActions, GameInternalUnits, GameOverData } from './game'
+import { GameCommandActions, GameOverData } from './game'
 import { PlayerHess } from './hess'
 
 export interface PlayerBanEvent {
@@ -33,7 +33,6 @@ export interface PlayerUnBanEvent {
 export interface PlayerOperationUnitEvent {
   get player(): PlayerHess
   get gameCommandActions(): GameCommandActions
-  get gameInternalUnits(): GameInternalUnits
 }
 
 export interface ServerGameOverEvent {

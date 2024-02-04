@@ -22,7 +22,7 @@ import { AbstractNetConnectServer, ServerStatus } from './server'
 import { ObjectMap, Seq } from './struct'
 
 export function adaptPlayerHessManage(
-  obj: JavaInstanceTypeOf<'net.rwhps.server.data.player.PlayerHessManage'>,
+  obj: JavaInstanceTypeOf<'net.rwhps.server.game.manage.PlayerManage'>,
 ): PlayerHessManage {
   return {
     findPlayer(findIn) {
@@ -36,14 +36,14 @@ export function adaptPlayerHessManage(
     },
     forEachPlayerInGroup(callback) {
       for (const player of obj.playerGroup as unknown as Seq<
-        JavaInstanceTypeOf<'net.rwhps.server.data.player.PlayerHess'>
+        JavaInstanceTypeOf<'net.rwhps.server.game.player.PlayerHess'>
       >) {
         callback(adaptPlayerHess(player))
       }
     },
     forEachPlayerInAll(callback) {
       for (const player of obj.playerAll as unknown as Seq<
-        JavaInstanceTypeOf<'net.rwhps.server.data.player.PlayerHess'>
+        JavaInstanceTypeOf<'net.rwhps.server.game.player.PlayerHess'>
       >) {
         callback(adaptPlayerHess(player))
       }
@@ -52,7 +52,7 @@ export function adaptPlayerHessManage(
 }
 
 export function adaptServerRoom(
-  obj: JavaInstanceTypeOf<'net.rwhps.server.core.game.ServerRoom'>,
+  obj: JavaInstanceTypeOf<'net.rwhps.server.game.room.ServerRoom'>,
 ): ServerRoom {
   return {
     get roomID() {
@@ -74,10 +74,10 @@ export function adaptServerRoom(
       obj.setAfk(v)
     },
     get mapName() {
-      return obj.getMapName()
+      return obj.getMaps().getMapName()
     },
     set mapName(v) {
-      obj.setMapName(v)
+      obj.getMaps().setMapName(v)
     },
     get replayFileName() {
       return obj.getReplayFileName()
@@ -86,16 +86,20 @@ export function adaptServerRoom(
       obj.setReplayFileName(v)
     },
     get closeServer() {
-      return obj.getCloseServer() as unknown as () => void
+      throw new Error('Removed API: closeServer')
+      return () => {}
+      // return obj.getCloseServer() as unknown as () => void
     },
     get startServer() {
-      return obj.getStartServer() as unknown as () => void
+      throw new Error('Removed API: startServer')
+      return () => {}
+      // return obj.getStartServer() as unknown as () => void
     },
   }
 }
 
 export function adaptAbstractGameModule(
-  obj: JavaInstanceTypeOf<'net.rwhps.server.game.simulation.core.AbstractGameModule'>,
+  obj: JavaInstanceTypeOf<'net.rwhps.server.game.headless.core.AbstractGameModule'>,
 ): AbstractGameModule {
   obj
   return {
@@ -106,7 +110,7 @@ export function adaptAbstractGameModule(
 }
 
 export function adaptHessModuleManage(
-  obj: JavaStaticTypeOf<'net.rwhps.server.game.HessModuleManage'>,
+  obj: JavaStaticTypeOf<'net.rwhps.server.game.manage.HeadlessModuleManage'>,
 ): HessModuleManage {
   return {
     get hps() {
@@ -162,9 +166,6 @@ export function adaptPlayerOpeartionUnitEvent(
     },
     get gameCommandActions() {
       return adaptGameCommandActions(obj.getGameCommandActions())
-    },
-    get gameInternalUnits() {
-      return adaptGameInternalUnits(obj.getGameInternalUnits())
     },
   }
 }
@@ -352,7 +353,7 @@ export function adaptAbstractNetConnectServer(
 }
 
 export function adaptPlayerHess(
-  obj: JavaInstanceTypeOf<'net.rwhps.server.data.player.PlayerHess'>,
+  obj: JavaInstanceTypeOf<'net.rwhps.server.game.player.PlayerHess'>,
 ): PlayerHess {
   return {
     [javaObj]: obj,

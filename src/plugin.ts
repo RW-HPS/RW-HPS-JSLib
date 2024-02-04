@@ -92,9 +92,9 @@ export function createPlugin(options: CreatePluginOptions): unknown {
           const result = handler.register(
             text,
             description,
-            new (Java.extend<'net.rwhps.server.util.game.CommandHandler$CommandRunner'>(
+            new (Java.extend<'net.rwhps.server.util.game.command.CommandHandler$CommandRunner'>(
               Java.type(
-                'net.rwhps.server.util.game.CommandHandler$CommandRunner',
+                'net.rwhps.server.util.game.command.CommandHandler$CommandRunner',
               ),
             ))({
               accept(args, parameter) {
@@ -124,9 +124,9 @@ export function createPlugin(options: CreatePluginOptions): unknown {
             text,
             params,
             description,
-            new (Java.extend<'net.rwhps.server.util.game.CommandHandler$CommandRunner'>(
+            new (Java.extend<'net.rwhps.server.util.game.command.CommandHandler$CommandRunner'>(
               Java.type(
-                'net.rwhps.server.util.game.CommandHandler$CommandRunner',
+                'net.rwhps.server.util.game.command.CommandHandler$CommandRunner',
               ),
             ))({
               accept(args, parameter) {
@@ -165,9 +165,9 @@ export function createPlugin(options: CreatePluginOptions): unknown {
           const result = handler.register(
             text,
             description,
-            new (Java.extend<'net.rwhps.server.util.game.CommandHandler$CommandRunner'>(
+            new (Java.extend<'net.rwhps.server.util.game.command.CommandHandler$CommandRunner'>(
               Java.type(
-                'net.rwhps.server.util.game.CommandHandler$CommandRunner',
+                'net.rwhps.server.util.game.command.CommandHandler$CommandRunner',
               ),
             ))({
               accept(args, parameter) {
@@ -197,9 +197,9 @@ export function createPlugin(options: CreatePluginOptions): unknown {
             text,
             params,
             description,
-            new (Java.extend<'net.rwhps.server.util.game.CommandHandler$CommandRunner'>(
+            new (Java.extend<'net.rwhps.server.util.game.command.CommandHandler$CommandRunner'>(
               Java.type(
-                'net.rwhps.server.util.game.CommandHandler$CommandRunner',
+                'net.rwhps.server.util.game.command.CommandHandler$CommandRunner',
               ),
             ))({
               accept(args, parameter) {
@@ -238,9 +238,9 @@ export function createPlugin(options: CreatePluginOptions): unknown {
           const result = handler.register(
             text,
             description,
-            new (Java.extend<'net.rwhps.server.util.game.CommandHandler$CommandRunner'>(
+            new (Java.extend<'net.rwhps.server.util.game.command.CommandHandler$CommandRunner'>(
               Java.type(
-                'net.rwhps.server.util.game.CommandHandler$CommandRunner',
+                'net.rwhps.server.util.game.command.CommandHandler$CommandRunner',
               ),
             ))({
               accept(args, parameter) {
@@ -270,9 +270,9 @@ export function createPlugin(options: CreatePluginOptions): unknown {
             text,
             params,
             description,
-            new (Java.extend<'net.rwhps.server.util.game.CommandHandler$CommandRunner'>(
+            new (Java.extend<'net.rwhps.server.util.game.command.CommandHandler$CommandRunner'>(
               Java.type(
-                'net.rwhps.server.util.game.CommandHandler$CommandRunner',
+                'net.rwhps.server.util.game.command.CommandHandler$CommandRunner',
               ),
             ))({
               accept(args, parameter) {

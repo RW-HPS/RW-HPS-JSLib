@@ -45,5 +45,5 @@ export interface PlayerHessManage {
 }
 
 export const HessModuleManage = adaptHessModuleManage(
-  Java.type('net.rwhps.server.game.HessModuleManage'),
+  Java.type('net.rwhps.server.game.manage.HeadlessModuleManage'),
 )
