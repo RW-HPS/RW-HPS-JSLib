@@ -133,3 +133,4 @@ dist
 .vscode/*
 
 /types
+.history
