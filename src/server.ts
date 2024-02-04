@@ -1,4 +1,4 @@
-import { PlayerHess } from './hess'
+import { PlayerHess } from './hess/types'
 
 export type ServerStatus = 'InitialConnection' | 'CertifiedEnd'
 

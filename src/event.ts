@@ -1,5 +1,5 @@
 import { GameCommandActions, GameOverData } from './game'
-import { PlayerHess } from './hess'
+import { PlayerHess } from './hess/types'
 
 export interface PlayerBanEvent {
   get player(): PlayerHess

@@ -17,7 +17,7 @@ import {
   PlayerHessManage,
   ServerRoom,
   javaObj,
-} from './hess'
+} from './hess/types'
 import { AbstractNetConnectServer, ServerStatus } from './server'
 import { ObjectMap, Seq } from './struct'
 
