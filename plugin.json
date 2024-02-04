@@ -4,6 +4,6 @@
   "author": "zerodegress@RW-HPS",
   "main": "index.js",
   "description": "Simple JS library making plugining easier.",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "supportedVersions": ">= 3.0.0"
 }
