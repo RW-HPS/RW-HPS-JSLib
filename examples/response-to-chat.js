@@ -1,4 +1,4 @@
-import { createPlugin } from 'jslib'
+import { createPlugin } from 'rw-hps-jslib'
 
 export default createPlugin({
   registerEvents(eventManage) {

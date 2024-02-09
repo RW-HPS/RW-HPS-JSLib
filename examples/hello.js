@@ -1,4 +1,4 @@
-import { createPlugin, Log } from 'jslib'
+import { createPlugin, Log } from 'rw-hps-jslib'
 
 export default createPlugin({
   init() {

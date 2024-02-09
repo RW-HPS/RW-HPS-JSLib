@@ -9,7 +9,7 @@
       "ESNext"
     ],
     "paths": {
-      "jslib": [
+      "rw-hps-jslib": [
         "../src/index.ts"
       ]
     }
