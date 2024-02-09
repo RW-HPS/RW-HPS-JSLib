@@ -1,0 +1,9 @@
+.vscode
+/dist
+/examples
+/node_modules
+/scripts
+/src
+.editorconfig
+.prettierignore
+*.config.js
