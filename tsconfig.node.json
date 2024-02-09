@@ -1,20 +1,9 @@
 {
-  "ts-node": {
-    "transpileOnly": true,
-    "files": true,
-  },
-  "compilerOptions": {
-    "composite": true,
-    "skipLibCheck": true,
-    "module": "ESNext",
-    "moduleResolution": "bundler",
-    "allowSyntheticDefaultImports": true,
-  },
+  "extends": "./tsconfig.json",
   "include": [
-    "rollup.config.ts",
-    "jest.config.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ],
+    "scripts",
+    "rollup.config.js",
+    "prettier.config.js",
+    "eslint.config.js"
+  ]
 }

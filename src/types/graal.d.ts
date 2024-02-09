@@ -1,5 +1,5 @@
 interface AllJavaClasses {}
-const console: {
+declare const console: {
   log: (...objs: unknown[]) => void
   info: (...objs: unknown[]) => void
   debug: (...objs: unknown[]) => void
@@ -16,7 +16,7 @@ const console: {
   timeEnd: () => void
 }
 
-const Java: {
+declare const Java: {
   type: <ClassName extends keyof AllJavaClasses>(
     className: ClassName,
   ) => AllJavaClasses[ClassName]['staticObject']

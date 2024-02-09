@@ -17,18 +17,15 @@
       "@self": [
         "./src/index.ts"
       ]
-    }
+    },
+    "allowJs": true,
+    "noEmit": true
   },
   "include": [
-    "./src/**/*.ts",
-    "rollup.config.ts",
+    "src",
+    "examples",
   ],
   "exclude": [
     "node_modules"
-  ],
-  "references": [
-    {
-      "path": "tsconfig.node.json"
-    }
   ]
 }

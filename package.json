@@ -1,24 +1,31 @@
 {
   "name": "rw-hps-jslib",
-  "version": "2.3.0",
+  "version": "0.1.0",
   "description": "Simple JS library making plugining easier.",
   "type": "module",
-  "main": "./dist/index.js",
-  "types": "./types/src/index.d.ts",
+  "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
-    "build": "rollup -c rollup.config.ts --configPlugin typescript",
-    "build:types": "tsc --declaration --emitDeclarationOnly --declarationDir ./types",
-    "watch": "rollup  --config rollup.config.ts --configPlugin typescript --watch",
-    "watch:types": "tsc --declaration --emitDeclarationOnly --declarationDir ./types --watch"
+    "build": "tsc --project tsconfig.build.json & rollup --config rollup.config.js",
+    "lint": "eslint .",
+    "fmt": "prettier --write .",
+    "watch": "rollup --watch",
+    "package": "pnpm exec build & node ./scripts/package.js"
   },
   "keywords": [],
   "author": "zerodegress@RW-HPS",
   "license": "MIT",
   "devDependencies": {
+    "@eslint/eslintrc": "^3.0.0",
+    "@eslint/js": "^8.56.0",
     "@rollup/plugin-typescript": "^11.1.5",
+    "@types/eslint": "^8.56.2",
+    "@types/eslint__eslintrc": "^2.1.1",
+    "@types/eslint__js": "^8.42.3",
     "@types/node": "^20.8.10",
     "@typescript-eslint/eslint-plugin": "^6.10.0",
     "@typescript-eslint/parser": "^6.10.0",
+    "archiver": "^6.0.1",
     "eslint": "^8.53.0",
     "eslint-config-prettier": "^9.1.0",
     "prettier": "^3.0.3",
@@ -27,5 +34,9 @@
     "ts-node": "^10.9.2",
     "tslib": "^2.6.2",
     "typescript": "^5.2.2"
+  },
+  "packageManager": "pnpm@8.15.1",
+  "publishConfig": {
+    "directory": "lib"
   }
 }
